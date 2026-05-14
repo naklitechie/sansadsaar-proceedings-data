@@ -225,6 +225,191 @@ def build_unified_master(
     return unified
 
 
+# ── Person-level merge (cross-house, cross-term) ──────────────────────────
+
+
+_COMMA_FLIP_RE = re.compile(r"^([^,]+),\s*(.+)$")
+
+
+def _person_key(name: str) -> str:
+    """Normalize a name down to a comparison key.
+
+    Sansad surfaces the same MP under multiple formats — "Smt. Sonia Gandhi"
+    in LS, "Gandhi, Smt. Sonia" in RS. We flip "Last, First" to "First Last",
+    strip leading honorifics, and lowercase, so both produce "sonia gandhi".
+    """
+    if not name:
+        return ""
+    s = name.strip()
+    m = _COMMA_FLIP_RE.match(s)
+    if m:
+        s = f"{m.group(2)} {m.group(1)}"
+    s = LEADING_HONORIFIC_RE.sub("", s)
+    s = TRAILING_HONORIFIC_RE.sub("", s)
+    s = DEVANAGARI_LEADING_RE.sub("", s)
+    s = re.sub(r"[^a-zA-Z0-9\s]+", " ", s)
+    s = re.sub(r"\s+", " ", s).strip().lower()
+    return s
+
+
+def _normalize_dob(dob: str | None) -> str | None:
+    """Normalize DD/MM/YYYY or YYYY-MM-DD into a comparable string."""
+    if not dob:
+        return None
+    s = dob.strip()
+    if re.match(r"^\d{1,2}/\d{1,2}/\d{4}$", s):
+        d, mo, y = s.split("/")
+        return f"{y}-{int(mo):02d}-{int(d):02d}"
+    if re.match(r"^\d{4}-\d{1,2}-\d{1,2}$", s):
+        y, mo, d = s.split("-")
+        return f"{y}-{int(mo):02d}-{int(d):02d}"
+    return s
+
+
+def compute_person_aliases(unified: dict[int, dict]) -> dict[int, int]:
+    """Return {alias_mpsno: canonical_mpsno} for mpsnos representing the same person.
+
+    Merge strategy, in order:
+      1. Same person-key + same normalized DOB (both records have DOB).
+         High confidence — two records with identical name and DOB are
+         essentially never different people in this dataset.
+      2. Same person-key with DOB on at most one side (the other missing).
+         Reasonably confident — sansad's missing-DOB rate is ~33%; when one
+         side has it and the other doesn't, name match plus no contradiction
+         is good enough.
+      3. Same person-key but DOBs differ. Treated as different people
+         (real namesakes — e.g. "Ajit Singh" with different birth dates).
+
+    Canonical mpsno: lowest in the group. Stable across rebuilds.
+    """
+    # Group mpsnos by person-key
+    groups: dict[str, list[tuple[int, str | None]]] = defaultdict(list)
+    for code, info in unified.items():
+        sm = info.get("sansad") or {}
+        # Prefer first_name+last_name from master (already format-normalized);
+        # fall back to canonical name.
+        fn = (sm.get("first_name") or "").strip()
+        ln = (sm.get("last_name") or "").strip()
+        if fn and ln:
+            key = _person_key(f"{fn} {ln}")
+        else:
+            key = _person_key(info.get("canonical") or "")
+        if not key:
+            continue
+        groups[key].append((code, _normalize_dob(sm.get("dob"))))
+
+    aliases: dict[int, int] = {}
+    for key, members in groups.items():
+        if len(members) < 2:
+            continue
+        # Split by DOB compatibility — records with the same DOB cluster,
+        # records with NULL DOB attach to whichever cluster they're compatible
+        # with (i.e. the only one, if there's just one DOB-bearing cluster).
+        by_dob: dict[str, list[int]] = defaultdict(list)
+        no_dob: list[int] = []
+        for code, dob in members:
+            if dob:
+                by_dob[dob].append(code)
+            else:
+                no_dob.append(code)
+
+        if len(by_dob) >= 2:
+            # Multiple distinct DOBs — these are different people who share
+            # a name. Leave them separate. Attach no-dob records to nothing.
+            for codes in by_dob.values():
+                if len(codes) > 1:
+                    canonical = min(codes)
+                    for c in codes:
+                        if c != canonical:
+                            aliases[c] = canonical
+            continue
+
+        # Either one DOB cluster or none — collapse the whole group to one canonical.
+        all_codes = no_dob + [c for codes in by_dob.values() for c in codes]
+        canonical = min(all_codes)
+        for c in all_codes:
+            if c != canonical:
+                aliases[c] = canonical
+
+    return aliases
+
+
+def apply_person_aliases(
+    unified: dict[int, dict],
+    aliases: dict[int, int],
+    debate_variants: dict[int, Counter],
+) -> dict[int, dict]:
+    """Collapse alias mpsnos into their canonical entries.
+
+    Variants are unioned. Sansad metadata is picked from the most "useful"
+    member: prefer currently-sitting LS18 > currently-sitting RS > most recent
+    > anything. Speech-count is summed.
+    """
+    if not aliases:
+        return unified
+
+    # Build groups: canonical -> list of mpsnos (incl. canonical itself)
+    groups: dict[int, list[int]] = defaultdict(list)
+    for code in unified:
+        canonical = aliases.get(code, code)
+        groups[canonical].append(code)
+
+    def _sansad_rank(sm: dict | None) -> tuple:
+        # Lower is better.
+        if not sm:
+            return (9, 0, 0)
+        if sm.get("sitting") and sm.get("house") == "ls" and sm.get("loksabha") == CURRENT_LS:
+            return (0,)
+        if sm.get("sitting") and sm.get("house") == "rs":
+            return (1,)
+        if sm.get("sitting"):
+            return (2, -(sm.get("loksabha") or 0))
+        return (3, -(sm.get("loksabha") or 0))
+
+    merged: dict[int, dict] = {}
+    for canonical, members in groups.items():
+        if len(members) == 1:
+            merged[canonical] = unified[members[0]]
+            continue
+        # Choose the best sansad record for display (current sitting > recent)
+        best_code = min(members, key=lambda c: _sansad_rank((unified.get(c) or {}).get("sansad")))
+        best = unified[best_code]
+        variants: set[str] = set()
+        for c in members:
+            variants.update(unified[c]["variants"])
+        # Pick the friendliest display name: "Honorific First Last" reads better
+        # than the RS-API's "Last, Honorific First". Walk every member's sansad
+        # record and grab the first firstlast we find; fall back to whatever
+        # `best` had.
+        display = None
+        for c in members:
+            sm = (unified.get(c) or {}).get("sansad") or {}
+            fl = (sm.get("full_name_firstlast") or "").strip()
+            if fl:
+                display = fl
+                break
+        if not display:
+            display = best["canonical"]
+        merged[canonical] = {
+            "mpsno": canonical,
+            "canonical": display,
+            "normalized": normalize(display),
+            "variants": sorted(variants),
+            "speech_count_raw": sum(unified[c]["speech_count_raw"] for c in members),
+            "house": best["house"],
+            "sansad": best["sansad"],
+        }
+
+    # Fold alias debate_variants into the canonical's bucket so the resolver
+    # still picks up speech attributions from the alias's name variants.
+    for alias, canonical in aliases.items():
+        if alias in debate_variants:
+            debate_variants.setdefault(canonical, Counter()).update(debate_variants[alias])
+            debate_variants.pop(alias, None)
+
+    return merged
+
+
 def build_lookup(unified: dict[int, dict]) -> dict[str, list[int]]:
     lookup: dict[str, list[int]] = defaultdict(list)
     for code, info in unified.items():
@@ -541,8 +726,60 @@ def summarise_electoral(history: dict | None) -> dict | None:
     }
 
 
+def _merge_tcpd_history(canonical: int, alias_codes: list[int], house: str) -> dict | None:
+    """Combine TCPD electoral records across alias mpsnos.
+
+    A merged-person can have a TCPD record under the LS mpsno (with GE contests)
+    AND under the RS mpsno (with AE contests if state-assembly history was
+    linked there). We dedupe contest rows by `pid` so the same contest isn't
+    counted twice when both mpsnos got linked.
+    """
+    all_codes = [canonical] + alias_codes
+    merged_ge: list[dict] = []
+    merged_ae: list[dict] = []
+    seen_ge_pids: set[str] = set()
+    seen_ae_pids: set[str] = set()
+    ge_pid = None
+    ae_pid = None
+    for c in all_codes:
+        h = load_tcpd_history(c, house)
+        if not h:
+            # The opposite-house file may carry AE history for a cross-house
+            # member; try the other side too.
+            other = "rs" if house == "ls" else "ls"
+            h = load_tcpd_history(c, other)
+        if not h:
+            continue
+        if h.get("ge_pid") and not ge_pid:
+            ge_pid = h["ge_pid"]
+        if h.get("ae_pid") and not ae_pid:
+            ae_pid = h["ae_pid"]
+        for r in h.get("ge_history", []):
+            pid = r.get("pid") or f"_{c}_{r.get('Year')}_{r.get('Constituency_Name')}"
+            if pid in seen_ge_pids:
+                continue
+            seen_ge_pids.add(pid)
+            merged_ge.append(r)
+        for r in h.get("ae_history", []):
+            pid = r.get("pid") or f"_{c}_{r.get('Year')}_{r.get('Constituency_Name')}"
+            if pid in seen_ae_pids:
+                continue
+            seen_ae_pids.add(pid)
+            merged_ae.append(r)
+    if not merged_ge and not merged_ae:
+        return None
+    return {
+        "mpsno": canonical,
+        "ge_pid": ge_pid,
+        "ae_pid": ae_pid,
+        "ge_history": sorted(merged_ge, key=lambda r: r.get("Year") or 0),
+        "ae_history": sorted(merged_ae, key=lambda r: r.get("Year") or 0),
+    }
+
+
 def write_outputs(unified: dict[int, dict], pivots: dict, attrib: Attribution,
-                  terms_lookup: dict | None = None) -> dict:
+                  terms_lookup: dict | None = None,
+                  aliases: dict[int, int] | None = None) -> dict:
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     (OUT_DIR / "profile").mkdir(exist_ok=True)
     (OUT_DIR / "speeches").mkdir(exist_ok=True)
@@ -550,6 +787,12 @@ def write_outputs(unified: dict[int, dict], pivots: dict, attrib: Attribution,
     (OUT_DIR / "bills").mkdir(exist_ok=True)
     (OUT_DIR / "stats").mkdir(exist_ok=True)
     (OUT_DIR / "electoral").mkdir(exist_ok=True)
+
+    # Invert aliases -> {canonical: [alias_codes...]} for TCPD merging below.
+    aliases = aliases or {}
+    aliases_by_canonical: dict[int, list[int]] = defaultdict(list)
+    for alias, canonical in aliases.items():
+        aliases_by_canonical[canonical].append(alias)
 
     # Slugger lives here so both mps.json and the stats/* outputs use the same one.
     def slugify(s: str) -> str:
@@ -601,7 +844,7 @@ def write_outputs(unified: dict[int, dict], pivots: dict, attrib: Attribution,
     careers_pool: list[dict] = []
     for code, info in unified.items():
         sm = info["sansad"] or {}
-        tcpd = load_tcpd_history(code, info["house"])
+        tcpd = _merge_tcpd_history(code, aliases_by_canonical.get(code, []), info["house"])
         electoral_summary = summarise_electoral(tcpd)
         terms_history = (
             build_terms_history(terms_lookup, code, info["house"])
@@ -965,17 +1208,31 @@ def write_outputs(unified: dict[int, dict], pivots: dict, attrib: Attribution,
             "bills": sum(len(v) for v in pivots["bills_by_mp"].values()),
             "unmatched_strings": len(attrib.unmatched),
             "electoral_linked": electoral_linked,
+            "aliased_mpsnos": len(aliases),
         },
         "current_lok_sabha": CURRENT_LS,
     }
     (OUT_DIR / "index.json").write_text(json.dumps(index, ensure_ascii=False, indent=2))
 
+    # aliases.json — audit + future redirect source. Maps {alias_mpsno: canonical_mpsno}.
+    if aliases:
+        (OUT_DIR / "aliases.json").write_text(
+            json.dumps({str(k): v for k, v in sorted(aliases.items())}, ensure_ascii=False, indent=2)
+        )
+
     return index
 
 
 def build_terms_history(terms_lookup: dict, code: int, house: str) -> list[dict]:
-    """Slim, ordered list of LS terms an MP served. RS is currently single-entry."""
-    recs = terms_lookup.get((house, code), [])
+    """Slim, ordered list of every parliamentary term this MP has served — LS + RS.
+
+    After person-merge, a single canonical mpsno can have terms under both
+    (house, code) keys (e.g. Kharge: LS16 + RS-sitting). The `house` arg is
+    ignored when present in both — we always emit the union, sorted LS-by-
+    loksabha then RS at the end.
+    """
+    recs = list(terms_lookup.get(("ls", code), []))
+    recs.extend(terms_lookup.get(("rs", code), []))
     out = []
     for r in recs:
         ls = r.get("loksabha")
@@ -1010,7 +1267,22 @@ def main():
 
     print("Unifying master ...", flush=True)
     unified = build_unified_master(sansad, debate_variants)
-    print(f"  -> {len(unified)} unified mpsnos")
+    print(f"  -> {len(unified)} unified mpsnos (pre-person-merge)")
+
+    print("Merging same-person mpsnos ...", flush=True)
+    aliases = compute_person_aliases(unified)
+    unified = apply_person_aliases(unified, aliases, debate_variants)
+    print(f"  -> {len(aliases)} alias mpsnos merged, "
+          f"{len(unified)} canonical persons")
+
+    # Fold alias terms-history into the canonical entry so a single profile
+    # page can show every LS + RS term across both mpsnos.
+    for alias, canonical in aliases.items():
+        for h in ("ls", "rs"):
+            key = (h, alias)
+            if key in terms_lookup:
+                terms_lookup.setdefault((h, canonical), []).extend(terms_lookup[key])
+                del terms_lookup[key]
 
     print("Building lookup ...", flush=True)
     lookup = build_lookup(unified)
@@ -1021,8 +1293,18 @@ def main():
     print("Pivoting corpora ...", flush=True)
     pivots = pivot(unified, attrib)
 
+    # Fold alias-keyed pivot output into the canonical mpsno — happens when
+    # a free-text speaker string resolved to an alias mpsno before the merge
+    # was applied to the lookup. Belt-and-braces with the variants merge above.
+    for bucket in ("speeches_by_mp", "questions_by_mp", "bills_by_mp"):
+        bmap = pivots.get(bucket, {})
+        for alias, canonical in aliases.items():
+            if alias in bmap:
+                bmap.setdefault(canonical, []).extend(bmap[alias])
+                del bmap[alias]
+
     print("Writing outputs ...", flush=True)
-    index = write_outputs(unified, pivots, attrib, terms_lookup)
+    index = write_outputs(unified, pivots, attrib, terms_lookup, aliases=aliases)
 
     print("\n=== DONE ===")
     for k, v in index["totals"].items():
