@@ -731,16 +731,27 @@ def _merge_tcpd_history(canonical: int, alias_codes: list[int], house: str) -> d
 
     A merged-person can have a TCPD record under the LS mpsno (with GE contests)
     AND under the RS mpsno (with AE contests if state-assembly history was
-    linked there). We dedupe contest rows by `pid` so the same contest isn't
-    counted twice when both mpsnos got linked.
+    linked there). We dedupe by (year, constituency, position) so the same
+    contest isn't double-counted when both alias mpsnos got TCPD-linked.
+
+    NOTE: TCPD's `pid` is a PERSON identifier, not a contest one — every
+    contest the same MP fought shares the same pid. An earlier version of
+    this function deduped on pid and silently collapsed every MP's full
+    career to one row.
     """
     all_codes = [canonical] + alias_codes
     merged_ge: list[dict] = []
     merged_ae: list[dict] = []
-    seen_ge_pids: set[str] = set()
-    seen_ae_pids: set[str] = set()
+    seen_ge: set[tuple] = set()
+    seen_ae: set[tuple] = set()
     ge_pid = None
     ae_pid = None
+
+    def _contest_key(r: dict) -> tuple:
+        # (year, constituency, position) uniquely identifies a contest
+        # for a given person (only one of them wins position 1).
+        return (r.get("Year"), (r.get("Constituency_Name") or "").upper(), r.get("Position"))
+
     for c in all_codes:
         h = load_tcpd_history(c, house)
         if not h:
@@ -755,16 +766,16 @@ def _merge_tcpd_history(canonical: int, alias_codes: list[int], house: str) -> d
         if h.get("ae_pid") and not ae_pid:
             ae_pid = h["ae_pid"]
         for r in h.get("ge_history", []):
-            pid = r.get("pid") or f"_{c}_{r.get('Year')}_{r.get('Constituency_Name')}"
-            if pid in seen_ge_pids:
+            k = _contest_key(r)
+            if k in seen_ge:
                 continue
-            seen_ge_pids.add(pid)
+            seen_ge.add(k)
             merged_ge.append(r)
         for r in h.get("ae_history", []):
-            pid = r.get("pid") or f"_{c}_{r.get('Year')}_{r.get('Constituency_Name')}"
-            if pid in seen_ae_pids:
+            k = _contest_key(r)
+            if k in seen_ae:
                 continue
-            seen_ae_pids.add(pid)
+            seen_ae.add(k)
             merged_ae.append(r)
     if not merged_ge and not merged_ae:
         return None
