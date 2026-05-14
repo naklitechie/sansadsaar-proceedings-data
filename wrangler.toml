@@ -2,7 +2,7 @@
 # (debates + questions). Mirrors parliamentwatch-data's wrangler.toml
 # — no worker code, just `./docs/` served as static assets.
 
-name = "sansadsaar-proceedings"
+name = "sansadsaar-proceedings-data"
 compatibility_date = "2026-05-14"
 
 [assets]
