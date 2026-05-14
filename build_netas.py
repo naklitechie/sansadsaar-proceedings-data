@@ -896,32 +896,51 @@ def write_outputs(unified: dict[int, dict], pivots: dict, attrib: Attribution,
     mp_lookup = {m["mpsno"]: m for m in slim}
     ministries_index = []
     all_ministries = set(stats["by_ministry_questions"]) | set(stats["by_ministry_bills"])
+
+    # Group ministry name variants by slug. Upstream sansad.in surfaces the
+    # same ministry under different casings/whitespace ("Housing and Urban
+    # Affairs" from bills, "HOUSING AND URBAN AFFAIRS" from questions),
+    # which slugify-collapses to one URL. Without this merge, MiniSearch
+    # rejects the index with a duplicate-ID error and Astro's
+    # getStaticPaths emits two pages for the same path.
+    variants_by_slug: dict[str, list[str]] = defaultdict(list)
     for mn in all_ministries:
-        q_count = stats["by_ministry_questions"].get(mn, 0)
-        b_count = stats["by_ministry_bills"].get(mn, 0)
-        top_q = []
-        for code, n in ministry_q_askers[mn].most_common(20):
-            mp = mp_lookup.get(code)
-            if not mp:
-                continue
-            top_q.append({"mpsno": code, "name": mp["name"], "party": mp["party"],
-                          "state": mp["state"], "count": n})
-        top_b = []
-        for code, n in ministry_b_introducers[mn].most_common(20):
-            mp = mp_lookup.get(code)
-            if not mp:
-                continue
-            top_b.append({"mpsno": code, "name": mp["name"], "party": mp["party"],
-                          "state": mp["state"], "count": n})
+        variants_by_slug[slugify(mn)].append(mn)
+
+    for slug, variants in variants_by_slug.items():
+        # Canonical display name: prefer a mixed-case variant over an
+        # all-upper one ("Housing and Urban Affairs" reads better than
+        # "HOUSING AND URBAN AFFAIRS"); fall back to the first.
+        canonical = next((v for v in variants if v != v.upper()), variants[0])
+
+        q_count = sum(stats["by_ministry_questions"].get(v, 0) for v in variants)
+        b_count = sum(stats["by_ministry_bills"].get(v, 0) for v in variants)
+
+        merged_q: Counter = Counter()
+        merged_b: Counter = Counter()
+        for v in variants:
+            merged_q.update(ministry_q_askers[v])
+            merged_b.update(ministry_b_introducers[v])
+
+        def _top(counter: Counter) -> list[dict]:
+            out = []
+            for code, n in counter.most_common(20):
+                mp = mp_lookup.get(code)
+                if not mp:
+                    continue
+                out.append({"mpsno": code, "name": mp["name"], "party": mp["party"],
+                            "state": mp["state"], "count": n})
+            return out
+
         page = {
-            "ministry": mn,
-            "slug": slugify(mn),
+            "ministry": canonical,
+            "slug": slug,
             "totals": {"questions": q_count, "bills": b_count},
-            "top_questioners": top_q,
-            "top_introducers": top_b,
+            "top_questioners": _top(merged_q),
+            "top_introducers": _top(merged_b),
         }
-        (ministry_dir / f"{slugify(mn)}.json").write_text(json.dumps(page, ensure_ascii=False, indent=2))
-        ministries_index.append({"ministry": mn, "slug": slugify(mn), "totals": page["totals"]})
+        (ministry_dir / f"{slug}.json").write_text(json.dumps(page, ensure_ascii=False, indent=2))
+        ministries_index.append({"ministry": canonical, "slug": slug, "totals": page["totals"]})
     ministries_index.sort(key=lambda x: -(x["totals"]["questions"] + x["totals"]["bills"]))
     (OUT_DIR / "stats" / "ministries.json").write_text(json.dumps(ministries_index, ensure_ascii=False, indent=2))
 
