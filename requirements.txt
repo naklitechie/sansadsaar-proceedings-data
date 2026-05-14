@@ -6,3 +6,6 @@ pypdf>=4.0.0
 # Local dev needs `brew install tesseract poppler` on macOS.
 pytesseract>=0.3.10
 pdf2image>=1.17.0
+# build_netas.py uses RapidFuzz for the free-text member-name resolver
+# (matching debate/question speaker strings against the sansad.in roster).
+rapidfuzz>=3.0.0
