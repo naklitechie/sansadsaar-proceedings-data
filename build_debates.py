@@ -41,7 +41,9 @@ from typing import Optional
 ROOT = Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT))
 
-from parliamentwatch_text_shards import write_text_shards, consolidate_markers, load_markers  # noqa: E402
+from parliamentwatch_text_shards import (  # noqa: E402
+    write_text_shards, consolidate_markers, load_markers, write_json_idempotent,
+)
 
 from debates.common import RateLimited
 from debates.scrapers.loksabha import (
@@ -325,8 +327,8 @@ def _write_reports_meta(reports: dict[str, list[dict]],
         "totals": {h: len(reports.get(h, [])) for h in reports},
         "shards": shard_entries,
     }
-    with open(REPORTS_META_JSON, "w", encoding="utf-8") as f:
-        json.dump(meta, f, ensure_ascii=False, indent=2)
+    if not write_json_idempotent(REPORTS_META_JSON, meta):
+        print("  [skip] reports-meta.json unchanged (besides timestamp)")
 
 
 def _record_from_lsdebate(d: LSDebate) -> dict:
@@ -1017,8 +1019,8 @@ def write_meta(*, total_records: int, total_with_text: int,
         "search_bundle":   bundle_stats,
         "search_index":    index_stats,
     }
-    with open(META_JSON, "w", encoding="utf-8") as f:
-        json.dump(meta, f, indent=2)
+    if not write_json_idempotent(META_JSON, meta, ignore_keys=("generated_at", "elapsed_s")):
+        print("  [skip] meta.json unchanged (besides timestamp) — no commit churn")
     return meta
 
 
@@ -1211,8 +1213,8 @@ def phase_derive() -> None:
 
     print("\n[Derive 1/4] Building manifest.json...")
     manifest = build_manifest()
-    with open(MANIFEST_JSON, "w", encoding="utf-8") as f:
-        json.dump(manifest, f, ensure_ascii=False, indent=2)
+    if not write_json_idempotent(MANIFEST_JSON, manifest):
+        print("  [skip] manifest.json unchanged")
     n_with_text = sum(len(v) for v in manifest["texts"].values())
     print(f"  manifest: {n_with_text} records with extracted text")
 
@@ -1272,8 +1274,8 @@ def phase_derive() -> None:
     print(json.dumps(meta, indent=2))
 
     audit = compute_audit(reports)
-    with open(DOCS / "audit.json", "w", encoding="utf-8") as f:
-        json.dump(audit, f, indent=2)
+    if not write_json_idempotent(DOCS / "audit.json", audit):
+        print("  [skip] audit.json unchanged (besides timestamp)")
     t = audit["totals"]
     print(f"\n  audit (LS): with_text={t['ls_with_text']} "
           f"empty={t['ls_empty_upstream']} "

@@ -46,7 +46,9 @@ from typing import Optional
 ROOT = Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT))
 
-from parliamentwatch_text_shards import write_text_shards, consolidate_markers, load_markers  # noqa: E402
+from parliamentwatch_text_shards import (  # noqa: E402
+    write_text_shards, consolidate_markers, load_markers, write_json_idempotent,
+)
 
 from questions.common import RateLimited
 from questions.scrapers.loksabha import (
@@ -275,8 +277,8 @@ def _write_reports_meta(reports: dict[str, list[dict]],
         "totals": {h: len(reports.get(h, [])) for h in reports},
         "shards": shard_entries,
     }
-    with open(REPORTS_META_JSON, "w", encoding="utf-8") as f:
-        json.dump(meta, f, ensure_ascii=False, indent=2)
+    if not write_json_idempotent(REPORTS_META_JSON, meta):
+        print("  [skip] reports-meta.json unchanged (besides timestamp)")
 
 
 def save_reports(reports: dict[str, list[dict]]) -> None:
@@ -1271,8 +1273,8 @@ def phase_extract() -> int:
     }
     if rate_limited:
         meta["rate_limited_at"] = meta["generated_at"]
-    with open(META_JSON, "w", encoding="utf-8") as f:
-        json.dump(meta, f, ensure_ascii=False, indent=2)
+    if not write_json_idempotent(META_JSON, meta, ignore_keys=("generated_at", "elapsed_s")):
+        print("  [skip] extract meta.json unchanged (besides timestamp)")
 
     print(f"[phase_extract] done in {meta['elapsed_s']}s: "
           f"ls_new={ls_walk_stats.get('new', 0)}, ls_extracted={meta['ls_extracted']}, "
@@ -1292,12 +1294,12 @@ def phase_derive() -> int:
     print(f"  reports loaded: " + ", ".join(f"{h}={len(reports.get(h, []))}" for h in HOUSES))
 
     manifest = build_manifest()
-    with open(MANIFEST_JSON, "w", encoding="utf-8") as f:
-        json.dump(manifest, f, ensure_ascii=False, indent=2)
+    if not write_json_idempotent(MANIFEST_JSON, manifest):
+        print("  [skip] manifest.json unchanged")
 
     audit = compute_audit(reports)
-    with open(AUDIT_JSON, "w", encoding="utf-8") as f:
-        json.dump(audit, f, ensure_ascii=False, indent=2)
+    if not write_json_idempotent(AUDIT_JSON, audit):
+        print("  [skip] audit.json unchanged (besides timestamp)")
 
     # Bundle texts into texts-<NN>.json shards (the post-2026-05-14 model).
     # write_text_shards preserves existing shard contents (`668082f5`
@@ -1340,8 +1342,8 @@ def phase_derive() -> int:
         "audit":         audit["totals"],
         "text_shards":   text_meta["totals"],
     }
-    with open(META_JSON, "w", encoding="utf-8") as f:
-        json.dump(meta, f, ensure_ascii=False, indent=2)
+    if not write_json_idempotent(META_JSON, meta, ignore_keys=("generated_at", "elapsed_s")):
+        print("  [skip] derive meta.json unchanged (besides timestamp)")
 
     print(f"[phase_derive] done in {meta['elapsed_s']}s")
     return 0
