@@ -91,6 +91,17 @@ HONORIFIC_TOKENS = {"shri", "smt", "shrimati", "dr", "ms", "mr", "mrs",
                     "prof", "adv", "sh", "km", "kumari"}
 
 
+# State aliases: IV ↔ sansad name drift.
+STATE_ALIASES = {
+    "orissa":           "odisha",
+    "odisha":           "odisha",
+    "pondicherry":      "puducherry",
+    "puducherry":       "puducherry",
+    "nct of delhi":     "delhi",
+    "delhi":            "delhi",
+}
+
+
 def norm_state(s):
     if not s:
         return ""
@@ -99,7 +110,8 @@ def norm_state(s):
     s = s.replace("&", " and ")
     s = re.sub(r"\d+", " ", s)
     s = re.sub(r"[^a-z ]+", " ", s)
-    return re.sub(r"\s+", " ", s).strip()
+    s = re.sub(r"\s+", " ", s).strip()
+    return STATE_ALIASES.get(s, s)
 
 
 def state_display(s):
@@ -110,6 +122,39 @@ def state_display(s):
     return s.strip()
 
 
+# Constituency aliases — known spelling drift between TCPD's older forms,
+# IV's stored names, and sansad's current names. Extend as misses surface.
+CONS_ALIASES = {
+    "sarguja":          "surguja",
+    "surguja":          "surguja",
+    "purnea":           "purnia",
+    "purnia":           "purnia",
+    "allahabad":        "prayagraj",
+    "prayagraj":        "prayagraj",
+    "burdwan":          "bardhaman",
+    "bardhaman":        "bardhaman",
+    "burdwan durgapur": "bardhaman durgapur",
+    "burdwan purba":    "bardhaman purba",
+    "calcutta north":   "kolkata uttar",
+    "calcutta south":   "kolkata dakshin",
+    "malda":            "maldaha",
+    "maldah":           "maldaha",
+    "maldaha":          "maldaha",
+    "maldah dakshin":   "maldaha dakshin",
+    "maldah uttar":     "maldaha uttar",
+    "trivandrum":       "thiruvananthapuram",
+    "thiruvananthapuram": "thiruvananthapuram",
+    "mysore":           "mysuru",
+    "mysuru":           "mysuru",
+    "bombay north":     "mumbai north",
+    "bombay south":     "mumbai south",
+    "bombay north central": "mumbai north central",
+    "bombay south central": "mumbai south central",
+    "bombay north east":    "mumbai north east",
+    "bombay north west":    "mumbai north west",
+}
+
+
 def norm_cons(s):
     if not s:
         return ""
@@ -117,7 +162,25 @@ def norm_cons(s):
     s = re.sub(r"\(.*?\)", " ", s)
     s = s.replace("&", " and ")
     s = re.sub(r"[^a-z0-9 ]+", " ", s)
-    return re.sub(r"\s+", " ", s).strip()
+    s = re.sub(r"\s+", " ", s).strip()
+    return CONS_ALIASES.get(s, s)
+
+
+def cons_match(a_norm: str, b_norm: str) -> bool:
+    """True if two normalized cons names refer to the same constituency.
+
+    Tolerates IV's 2024 truncations — "Bangalore Cent" ↔ "Bangalore
+    Central" — by allowing a prefix match when both sides are ≥ 12
+    chars (avoids "delhi" matching "delhi north" by accident).
+    """
+    if not a_norm or not b_norm:
+        return False
+    if a_norm == b_norm:
+        return True
+    if len(a_norm) >= 12 and len(b_norm) >= 12:
+        if a_norm.startswith(b_norm) or b_norm.startswith(a_norm):
+            return True
+    return False
 
 
 def norm_party(s):
@@ -174,6 +237,24 @@ def name_score(a_tokens: frozenset, b_tokens: frozenset) -> float:
             for i in range(len(ta) - NAME_SUBSTRING_MIN + 1):
                 if ta[i:i + NAME_SUBSTRING_MIN] in tb:
                     return 0.6
+    # Token-split drift: one side has a single token that equals the
+    # concatenation of two of the other side's tokens, in either order.
+    # Handles "Rajnath" ↔ "Raj Nath", "Chandolia" ↔ "Chandoli ya", etc.
+    def _concat_pairs_equal(single: str, multi: frozenset) -> bool:
+        if len(single) < NAME_SUBSTRING_MIN or len(multi) < 2:
+            return False
+        toks = list(multi)
+        for i in range(len(toks)):
+            for j in range(len(toks)):
+                if i != j and toks[i] + toks[j] == single:
+                    return True
+        return False
+    for ta in a_rare:
+        if _concat_pairs_equal(ta, b_rare):
+            return 0.6
+    for tb in b_rare:
+        if _concat_pairs_equal(tb, a_rare):
+            return 0.6
     return 0.0
 
 
@@ -295,8 +376,12 @@ def attribute_iv_primary(
         {"tcpd_pid": ..., "canonical_name": ..., "gender": ...}
     """
 
-    # Index sansad tenures by (year, state_norm, cons_norm).
+    # Index sansad tenures by (year, state_norm, cons_norm). Also a
+    # (year, state_norm) → set of cons_norms for prefix-tolerant fallback
+    # when exact cons match fails (handles IV's 2024 truncations like
+    # "Bangalore Cent" ↔ "Bangalore Central").
     tenure_idx: dict[tuple[int, str, str], list[dict]] = defaultdict(list)
+    tenure_cons_by_ys: dict[tuple[int, str], set[str]] = defaultdict(set)
     for pid, ts in tenures_by_pid.items():
         for t in ts:
             if t["office_type"] != "ls":
@@ -305,7 +390,9 @@ def attribute_iv_primary(
             if ls is None or ls not in LS_TERM_TO_YEAR:
                 continue
             year = LS_TERM_TO_YEAR[ls]
-            key = (year, norm_state(t["state"]), norm_cons(t["constituency"]))
+            state_n = norm_state(t["state"])
+            cons_n = norm_cons(t["constituency"])
+            key = (year, state_n, cons_n)
             person = persons_by_pid[pid]
             tenure_idx[key].append({
                 "pid": pid,
@@ -314,6 +401,7 @@ def attribute_iv_primary(
                 "external_id": t.get("external_id"),
                 "office_type": t["office_type"],
             })
+            tenure_cons_by_ys[(year, state_n)].add(cons_n)
 
     # Precompute TCPD history (state, cons) tuples per person for Method
     # D's 2024-extension lookup. Party is NOT in the key — switchers like
@@ -321,6 +409,7 @@ def attribute_iv_primary(
     # Name compat is the discriminator instead.
     history_by_tcpd = _tcpd_history_by_pid(tcpd_tuple_to_pid)
     extension_2024_index: dict[tuple[str, str], list[str]] = defaultdict(list)
+    ext_cons_by_state: dict[str, set[str]] = defaultdict(set)
     for tcpd_pid, hist in history_by_tcpd.items():
         person_pid = persons_by_tcpd.get(tcpd_pid)
         if person_pid is None:
@@ -331,6 +420,7 @@ def attribute_iv_primary(
                 continue
             seen.add((state_n, cons_n))
             extension_2024_index[(state_n, cons_n)].append(person_pid)
+            ext_cons_by_state[state_n].add(cons_n)
 
     # Working state
     contests: list[tuple] = []
@@ -351,7 +441,17 @@ def attribute_iv_primary(
 
         # ── Method A: sansad tenure match ──
         key = (row["year"], row["state_norm"], row["cons_norm"])
-        cands = tenure_idx.get(key, [])
+        cands = list(tenure_idx.get(key, []))
+        # Prefix-tolerant fallback: scan tenures in same (year, state)
+        # for cons_match hits (catches IV's 2024 cons truncations).
+        if not cands:
+            for tenure_cons in tenure_cons_by_ys.get(
+                (row["year"], row["state_norm"]), ()
+            ):
+                if tenure_cons != row["cons_norm"] and cons_match(tenure_cons, row["cons_norm"]):
+                    cands.extend(tenure_idx.get(
+                        (row["year"], row["state_norm"], tenure_cons), []
+                    ))
         if cands:
             scored = []
             for c in cands:
@@ -395,9 +495,16 @@ def attribute_iv_primary(
         # for 2024 Purnia). Match by (state, cons) + strong name compat;
         # party is not a gate.
         if owner_pid is None and row["year"] == CURRENT_LS_YEAR:
-            cands = extension_2024_index.get(
+            cands = list(extension_2024_index.get(
                 (row["state_norm"], row["cons_norm"]), []
-            )
+            ))
+            # Prefix-tolerant fallback within the same state.
+            if not cands:
+                for ext_cons in ext_cons_by_state.get(row["state_norm"], ()):
+                    if ext_cons != row["cons_norm"] and cons_match(ext_cons, row["cons_norm"]):
+                        cands.extend(extension_2024_index.get(
+                            (row["state_norm"], ext_cons), []
+                        ))
             for cand_pid in cands:
                 person = persons_by_pid.get(cand_pid)
                 if not person:
