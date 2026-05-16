@@ -66,26 +66,123 @@ LS_TERM_TO_YEAR = {
 # Verification fixtures — known person → expected contest tuple set.
 # Each tuple is (year, normalized cons, party_abbr, won_bool). State is
 # implied. Build fails if a fixture mismatches.
+#
+# These cover two scenarios:
+#   1. Famous simultaneous-runners that the pipeline must KEEP merged
+#      correctly (Modi 2014, Mulayam 2014, Sonia 1999, Vajpayee 1996,
+#      Akhilesh 2009, etc.).
+#   2. Cases where the pipeline must NOT over-merge two different people
+#      (Manoj Kumar at Sasaram, Rahul Gandhi vs the IND "S/o Valsamma"
+#      ringer at Wayanad 2019).
 CONTEST_FIXTURES: dict[tuple[str, int], dict] = {
     ("ls", 4074): {  # Rahul Gandhi
         "expected_contests": {
             (2004, "amethi", "INC", True),
             (2009, "amethi", "INC", True),
             (2014, "amethi", "INC", True),
-            (2019, "amethi", "INC", False),    # LOST 2019 Amethi
-            (2019, "wayanad", "INC", True),    # WON 2019 Wayanad (same election)
+            (2019, "amethi", "INC", False),
+            (2019, "wayanad", "INC", True),
             (2024, "wayanad", "INC", True),
             (2024, "rae bareli", "INC", True),
         },
-        "must_exclude_iv_ids": {89702},        # "Rahul Gandhi K E S/o Valsamma" IND ringer
+        "must_exclude_iv_ids": {89702},        # IND "S/o Valsamma" ringer
     },
-    ("ls", 5578): {  # Manoj Kumar — must NOT pick up other "Manoj Kumar"s
+    ("ls", 5578): {  # Manoj Kumar — Sasaram only
         "expected_contests": {
-            (2019, "sasaram", "BSP", False),   # 2019 BSP candidate (lost)
-            (2024, "sasaram", "INC", True),    # 2024 INC win
+            (2019, "sasaram", "BSP", False),
+            (2024, "sasaram", "INC", True),
         },
-        "max_distinct_cons": 1,                # only Sasaram
+        "max_distinct_cons": 1,
     },
+    # Mulayam 2014: Mainpuri + Azamgarh, won both. (mpsno 530)
+    ("ls", 530): {
+        "expected_contains": {
+            (2014, "mainpuri", "SP", True),
+            (2014, "azamgarh", "SP", True),
+            (1999, "kannauj", "SP", True),
+            (1999, "sambhal", "SP", True),
+        },
+    },
+    # Lalu Prasad: cross-house movers + multi-cons. (ls-2439 + rs-1879)
+    ("ls", 2439): {
+        "expected_contains": {
+            (2004, "chapra", "RJD", True),
+            (2004, "madhepura", "RJD", True),
+            (2009, "saran", "RJD", True),
+            (2009, "pataliputra", "RJD", False),
+        },
+    },
+    # Vajpayee 1996: Gandhinagar + Lucknow, won both. (ls-499)
+    ("ls", 499): {
+        "expected_contains": {
+            (1996, "gandhinagar", "BJP", True),
+            (1996, "lucknow", "BJP", True),
+            (1991, "vidisha", "BJP", True),
+            (1991, "lucknow", "BJP", True),
+        },
+    },
+    # Akhilesh 2009: Firozabad + Kannauj, won both. (ls-564)
+    ("ls", 564): {
+        "expected_contains": {
+            (2009, "firozabad", "SP", True),
+            (2009, "kannauj", "SP", True),
+        },
+    },
+    # Sonia Gandhi 1999: Bellary + Amethi, won both. (ls-130)
+    ("ls", 130): {
+        "expected_contains": {
+            (1999, "bellary", "INC", True),
+            (1999, "amethi", "INC", True),
+        },
+    },
+    # Modi 2014: Vadodara + Varanasi, won both. (ls-4589)
+    ("ls", 4589): {
+        "expected_contains": {
+            (2014, "vadodara", "BJP", True),
+            (2014, "varanasi", "BJP", True),
+        },
+    },
+    # Devegowda 2004: Kanakapura + Hassan, lost+won. (ls-3960)
+    ("ls", 3960): {
+        "expected_contains": {
+            (2004, "kanakapura", "JD(S)", False),
+            (2004, "hassan", "JD(S)", True),
+        },
+    },
+    # Nitish Kumar 2004: Barh + Nalanda. (ls-277)
+    ("ls", 277): {
+        "expected_contains": {
+            (2004, "barh", "JD(U)", False),
+            (2004, "nalanda", "JD(U)", True),
+        },
+    },
+    # Sharad Yadav 1991: Madhepura + Budaun, won + lost. (ls-532)
+    ("ls", 532): {
+        "expected_contains": {
+            (1991, "madhepura", "JD", True),
+            (1991, "budaun", "JD", False),
+        },
+    },
+    # Upendra Kushwaha 2019: Ujiarpur + Karakat, both lost. (ls-4645)
+    ("ls", 4645): {
+        "expected_contains": {
+            (2019, "ujiarpur", "BLSP", False),
+            (2019, "karakat", "BLSP", False),
+        },
+    },
+}
+
+
+# TCPD pids known to be upstream merge bugs — they wrongly group two or
+# more distinct people. Document here so the verification gate can flag
+# them rather than misleadingly passing.
+KNOWN_BAD_TCPD_PIDS = {
+    # Two different "Chacko"s at Idukki 1998 (INC win + IND loser).
+    "GEKL5627",
+    # "Pradeep Kumar Singh" — Bihar Araria BJP + UP Amethi BJP 2009.
+    "GEBR73703",
+    # "Surendra Prasad Yadav" — Jahanabad + Jhanjharpur RJD 1998/1999.
+    "GEBR65681",
 }
 
 
@@ -314,33 +411,50 @@ def attribute_path_2024_extension(
     iv: dict,
     claimed: set[int],
 ) -> list[tuple]:
-    """Path 3: for TCPD-anchored persons, scan IV 2024 rows in their known
-    (state, party) and attach via normalized-name match.
+    """Path 3: for TCPD-anchored persons, extend their historical
+    (state, cons) tuples forward to 2024, using ONLY the most-recent
+    TCPD party. Strict match on (year, state, cons, party) so the
+    constraint surface is the same as Path 2.
 
-    Catches cases where the person contested a new constituency in 2024
-    that's outside both TCPD (2021 cutoff) and sansad current-term (e.g.
-    Rahul Gandhi → Wayanad 2024 — Kerala+INC matches his TCPD history but
-    he later resigned, so sansad LS18 won't list it).
+    Why both filters matter:
+      - Restricting to historical (state, cons) blocks a different
+        same-name person showing up in a constituency this person
+        never contested (Prasun Banerjee → Maldaha Uttar AITC 2024).
+      - Restricting to the MOST RECENT TCPD party blocks attaching
+        an unrelated 2024 IND candidate to a party-switcher who once
+        ran as IND decades ago (Arvind Kumar Sharma → Rohtak IND
+        2024 ringer).
+
+    Catches the legitimate cases:
+      - Rahul Gandhi: TCPD pid includes 2019 Wayanad INC; most-recent
+        party is INC; extension yields 2024 Wayanad INC (the GE win
+        he later resigned).
     """
     contests = []
     for pid, name, tcpd_pid in persons_with_tcpd:
         if not tcpd_pid:
             continue
-        states = {t["state_norm"] for t in tcpd_history.get(tcpd_pid, [])}
-        parties = {t["party"] for t in tcpd_history.get(tcpd_pid, [])}
+        history = tcpd_history.get(tcpd_pid, [])
+        if not history:
+            continue
+        recent_party = sorted(history, key=lambda h: -h["year"])[0]["party"]
         name_n = norm_name(name)
         if not name_n:
             continue
-        for state in states:
-            for party in parties:
-                key = (2024, state, party)
-                for row in iv["by_yspn"].get(key, []):
-                    if row["candidate_id"] in claimed:
-                        continue
-                    if row["name_norm"] != name_n:
-                        continue
-                    claimed.add(row["candidate_id"])
-                    contests.append((pid, row, tcpd_pid, "path:2024-ext"))
+        seen_keys: set = set()
+        for tup in history:
+            key = (2024, tup["state_norm"], tup["cons_norm"], recent_party)
+            if key in seen_keys:
+                continue
+            seen_keys.add(key)
+            for row in iv["by_ystkp"].get(key, []):
+                if row["candidate_id"] in claimed:
+                    continue
+                if not _name_compatible(name_n, row["name_norm"]):
+                    continue
+                claimed.add(row["candidate_id"])
+                contests.append((pid, row, tcpd_pid, "path:2024-ext"))
+                break
     return contests
 
 
@@ -355,9 +469,33 @@ def parse_ls_number(term_label):
 
 
 def write_contests(conn: sqlite3.Connection, attributions: list[tuple]):
-    """Each attribution: (pid, iv_row_dict, tcpd_pid_or_none, path_label)."""
+    """Each attribution: (pid, iv_row_dict, tcpd_pid_or_none, path_label).
+
+    Dedupes by (pid, year, state_norm, cons_norm) before writing — a person
+    cannot meaningfully contest the same constituency twice in one election.
+    When TCPD's upstream pid merge produced two attributions for the same
+    (year, cons) (e.g. P.C. Chacko 1998 Idukki INC pos 1 + IND pos 6, two
+    different people that TCPD grouped wrongly), keep the lower-position
+    (better-finishing) row. The discarded row may be a different person
+    whose contest we cannot currently attribute correctly.
+    """
+    by_key: dict[tuple, tuple] = {}
+    for pid, row, tcpd_pid, path in attributions:
+        key = (pid, row["year"], row["state_norm"], row["cons_norm"])
+        existing = by_key.get(key)
+        if existing is None:
+            by_key[key] = (pid, row, tcpd_pid, path)
+            continue
+        # Prefer lower (better) position. Treat None position as worst.
+        exist_pos = existing[1]["position"]
+        new_pos = row["position"]
+        exist_rank = exist_pos if exist_pos is not None else 10**9
+        new_rank = new_pos if new_pos is not None else 10**9
+        if new_rank < exist_rank:
+            by_key[key] = (pid, row, tcpd_pid, path)
+
     rows = []
-    for pid, row, tcpd_pid, _path in attributions:
+    for pid, row, tcpd_pid, _path in by_key.values():
         rows.append((
             pid, "ls", row["year"],
             row["state"], row["cons"], row["party_abbr"],
@@ -402,6 +540,14 @@ def verify_contests(conn: sqlite3.Connection) -> list[str]:
                     f"FIXTURE {house}-{mpsno} ({pid}): "
                     f"missing={sorted(missing)} extra={sorted(extra)}"
                 )
+        expected_subset = fixture.get("expected_contains")
+        if expected_subset:
+            missing = expected_subset - actual
+            if missing:
+                errors.append(
+                    f"FIXTURE {house}-{mpsno} ({pid}): expected to contain "
+                    f"{sorted(missing)} but they're missing"
+                )
         # Must-exclude IV candidate_ids (e.g., the Rahul Gandhi IND ringer).
         must_exclude = fixture.get("must_exclude_iv_ids", set())
         actual_iv_ids = {c[4] for c in contests}
@@ -432,7 +578,42 @@ def verify_contests(conn: sqlite3.Connection) -> list[str]:
     for cid, n in dups:
         errors.append(f"DUPLICATE: IV candidate_id {cid} attributed to {n} pids")
 
+    # Global: no (pid, year, state, cons) should appear twice — write_contests
+    # dedupes, this re-checks the rule held.
+    dup_cons = conn.execute("""
+        SELECT pid, year, state, constituency, COUNT(*) AS n
+        FROM contests
+        GROUP BY pid, year, state, constituency
+        HAVING n > 1
+    """).fetchall()
+    for pid, year, state, cons, n in dup_cons:
+        errors.append(
+            f"SAME-CONS-TWICE: pid={pid} {year} {state}/{cons} appears {n} times"
+        )
+
     return errors
+
+
+def report_known_bad_tcpd(conn: sqlite3.Connection) -> list[str]:
+    """Informational report (not failure). Persons attributed via a TCPD pid
+    that's a known upstream merge bug. Print only — fixing requires
+    splitting the upstream pid which we can't do here."""
+    notes = []
+    for tcpd_pid in KNOWN_BAD_TCPD_PIDS:
+        rows = conn.execute(
+            "SELECT pid, canonical_name FROM persons WHERE tcpd_pid = ?",
+            (tcpd_pid,),
+        ).fetchall()
+        for pid, name in rows:
+            n_contests = conn.execute(
+                "SELECT COUNT(*) FROM contests WHERE pid = ?", (pid,)
+            ).fetchone()[0]
+            notes.append(
+                f"KNOWN UPSTREAM BUG: pid={pid} ({name}) anchored to {tcpd_pid} "
+                f"— has {n_contests} contests; some likely belong to a different "
+                f"person merged by TCPD. Manual split needed."
+            )
+    return notes
 
 
 # ── Main ─────────────────────────────────────────────────────────────────
@@ -520,6 +701,12 @@ def main():
     rows = netas.execute("SELECT COUNT(*), SUM(won) FROM contests").fetchone()
     print(f"\nDone. contests in DB: {rows[0]} ({rows[1]} wins)")
     print("verification: OK")
+
+    bad_notes = report_known_bad_tcpd(netas)
+    if bad_notes:
+        print(f"\nKnown upstream TCPD merge bugs ({len(bad_notes)} persons):")
+        for n in bad_notes:
+            print(f"  ⚠ {n}")
     netas.close()
     return 0
 
