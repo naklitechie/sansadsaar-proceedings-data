@@ -50,6 +50,10 @@ TCPD_HISTORY = REPO / "tcpd" / "derived" / "history"
 PID_ASSIGNMENTS = REPO / "person_pid_assignments.json"
 DEFAULT_DB = REPO / "docs" / "netas" / "netas.sqlite"
 
+# The currently-active Lok Sabha number. Only tenures with this loksabha
+# can have sitting=1 in the LS office_type. Bump when LS19 begins.
+CURRENT_LS = 18
+
 
 # ── Normalisation ────────────────────────────────────────────────────────
 
@@ -97,10 +101,18 @@ def norm_dob(dob: str | None) -> str | None:
 
 
 def slug_of(name: str) -> str:
-    """URL-safe slug of a canonical name. Strips honorifics, lowercases,
-    keeps alphanumeric + hyphens."""
-    n = norm_name(name)
-    n = re.sub(r"[^a-z0-9]+", "-", n).strip("-")
+    """URL-safe slug, preserving canonical display order.
+
+    Distinct from norm_name (which sorts tokens for matching) — slugs are
+    user-visible and must read naturally. Example: "Prof. S P Singh Baghel"
+    → "s-p-singh-baghel" (not "baghel-p-s-singh").
+    """
+    if not name:
+        return "anon"
+    s = re.sub(r"[.,;:()\[\]'\"]", " ", name.lower())
+    tokens = [t for t in s.split() if t and t not in HONORIFIC_TOKENS]
+    n = "-".join(tokens)
+    n = re.sub(r"[^a-z0-9-]+", "-", n).strip("-")
     return n or "anon"
 
 
@@ -242,10 +254,16 @@ def resolve_persons(
     # frequently maps different sansad MPs to the same pid (verified
     # collisions: GEUP48277 = Karan Bhushan Singh + Brijbhushan Sharan
     # Singh; GEBR2137 = two unrelated "Veena Devi"s with different DOBs).
-    # Gate the merge on name+DOB compatibility:
-    #   - if both have DOB and DOBs differ → REFUSE
-    #   - if both have norm_name and norm_names differ → REFUSE
-    # When in doubt, don't merge — false merges are worse than missed ones.
+    # Decision logic for two mpsnos sharing a TCPD pid:
+    #   - DOBs both present:
+    #       same DOB → MERGE (decisive — names may vary as aliases, e.g.
+    #         "Shri Sushil Kumar Shinde" vs "Shinde, Shri Sushilkumar")
+    #       conflicting DOB → REFUSE (different people)
+    #   - At least one DOB missing:
+    #       falls back to name comparison; refuse only if both names are
+    #       present and differ.
+    # DOB-match decisiveness is what catches the LS↔RS aliases that the
+    # codex review flagged (Shinde, Katoch, Sakshi Ji Maharaj).
     by_tcpd: dict[str, list[tuple[str, int]]] = defaultdict(list)
     for key, pid in tcpd.items():
         if key in terms:
@@ -258,16 +276,21 @@ def resolve_persons(
             an, ad = name_dob[a]
             for b in group[i + 1:]:
                 bn, bd = name_dob[b]
-                if an and bn and an != bn:
-                    refused += 1
-                    continue
-                if ad and bd and ad != bd:
-                    refused += 1
-                    continue
-                uf.union(a, b)
+                if ad and bd:
+                    # DOB on both sides — DOB is the decisive signal.
+                    if ad == bd:
+                        uf.union(a, b)
+                    else:
+                        refused += 1
+                else:
+                    # At least one DOB missing — fall back to name compat.
+                    if an and bn and an != bn:
+                        refused += 1
+                    else:
+                        uf.union(a, b)
     if refused:
         print(f"  TCPD-pid merge refused for {refused} pair(s) "
-              f"with conflicting name/DOB (probable upstream linker fuzz)")
+              f"with conflicting DOB or names (probable upstream linker fuzz)")
 
     # Group by representative.
     groups: dict[tuple[str, int], list[tuple[str, int]]] = defaultdict(list)
@@ -447,9 +470,39 @@ def write_persons(conn: sqlite3.Connection, persons: list[dict]) -> None:
 
 
 def write_tenures(conn: sqlite3.Connection, persons: list[dict]) -> None:
+    """Write tenures with per-person derivation of `sitting` and `status`.
+
+    Sansad's source rows carry the *person's* current standing on *every*
+    historical row (Rahul Gandhi's LS14 record says sitting=True because
+    he is currently sitting in LS18). Trusting the row directly would
+    mark all 5 of his LS terms as sitting, breaking the roster filter.
+
+    Per-person logic:
+      LS: only the highest-loksabha tenure for this person can be sitting;
+          earlier LS tenures get sitting=0 and status='Former'.
+      RS: each mpsno is its own term; we trust the source's per-mpsno
+          status, except we mark at most one RS tenure as sitting per
+          person (the highest external_id, as a proxy for "most recent",
+          since RS terms lack reliable date fields in sansad_terms).
+    """
     rows = []
     for p in persons:
-        seen_keys = set()
+        # Pass 1: find latest LS loksabha + latest RS external_id for this person.
+        latest_ls_loksabha: int | None = None
+        latest_rs_mpsno: int | None = None
+        for tr in p["tenure_records"]:
+            rec = tr["record"]
+            if tr["house"] == "ls":
+                ls = rec.get("loksabha")
+                if ls is not None:
+                    if latest_ls_loksabha is None or ls > latest_ls_loksabha:
+                        latest_ls_loksabha = ls
+            elif tr["house"] == "rs":
+                m = tr["mpsno"]
+                if latest_rs_mpsno is None or m > latest_rs_mpsno:
+                    latest_rs_mpsno = m
+
+        seen_keys: set[tuple] = set()
         for tr in p["tenure_records"]:
             rec = tr["record"]
             office_type = tr["house"]
@@ -461,8 +514,6 @@ def write_tenures(conn: sqlite3.Connection, persons: list[dict]) -> None:
                 else None
             )
             external_id = str(tr["mpsno"])
-            # Dedupe within a person — sansad sometimes lists same
-            # (house, mpsno, loksabha) twice in the source.
             dedup_k = (office_type, external_id, term_label)
             if dedup_k in seen_keys:
                 continue
@@ -471,12 +522,34 @@ def write_tenures(conn: sqlite3.Connection, persons: list[dict]) -> None:
             state = rec.get("state")
             constituency = rec.get("constituency")
             party_short = rec.get("party_short")
-            sitting_int = 1 if (
-                rec.get("sitting") is True or
-                (rec.get("status") or "").lower() == "sitting"
-            ) else 0
-            status = rec.get("status")
-            row_hash_input = f"{office_type}|{jurisdiction}|{external_id}|{term_label}|{p['pid']}"
+
+            # Derived sitting + status.
+            raw_sitting = (
+                rec.get("sitting") is True
+                or (rec.get("status") or "").lower() == "sitting"
+            )
+            if office_type == "ls":
+                # LS sitting is only true for the *currently active* Lok Sabha.
+                # A person whose latest LS was LS17 is no longer sitting just
+                # because their LS17 row inherits the source's current status.
+                is_current_ls = (loksabha == CURRENT_LS)
+                sitting_int = 1 if (is_current_ls and raw_sitting) else 0
+                status = rec.get("status") if is_current_ls else "Former"
+            elif office_type == "rs":
+                # RS has rolling membership; trust the source per-mpsno but
+                # only at most one tenure per person (the highest mpsno as
+                # a proxy for "most recent" since RS term dates are absent).
+                is_latest = (tr["mpsno"] == latest_rs_mpsno)
+                sitting_int = 1 if (is_latest and raw_sitting) else 0
+                status = rec.get("status") if is_latest else "Former"
+            else:
+                sitting_int = 0
+                status = rec.get("status")
+
+            # source_row_hash must be source-canonical only — independent
+            # of the resolved pid, so a future pid change does not bypass
+            # the dedup constraint.
+            row_hash_input = f"{office_type}|{jurisdiction}|{external_id}|{term_label}"
             source_row_hash = sha256_short(row_hash_input)
 
             rows.append(
@@ -513,34 +586,143 @@ def write_build_meta(conn: sqlite3.Connection, info: dict[str, str]) -> None:
     )
 
 
-# ── Verification gate (per plan 003) ─────────────────────────────────────
+# ── Verification gate (per plan 003 + codex review) ──────────────────────
 
 
-def verify_sanity(db_path: Path, persons: list[dict]) -> list[str]:
-    """Return a list of warnings about persons that fail sanity checks.
+# Known fixtures: persons we expect to be merged into exactly this set of
+# (house, mpsno) members. The build *fails* if any fixture mismatches.
+# Add to this set whenever a manual investigation confirms a merge.
+FIXTURE_EXPECTED_MEMBERS: dict[str, set[tuple[str, int]]] = {
+    "Rahul Gandhi":                  {("ls", 4074)},
+    "Lalu Prasad":                   {("ls", 2439), ("rs", 1879)},
+    "Pranab Mukherjee":              {("ls", 4195), ("rs", 185)},
+    "Sushma Swaraj":                 {("ls", 3812), ("rs", 94)},
+    "Murli Manohar Joshi":           {("ls", 172), ("rs", 325)},
+    "Sushil Kumar Shinde":           {("ls", 423), ("rs", 1621)},
+    "Chandresh Kumari Katoch":       {("ls", 2994), ("rs", 149)},
+    "Amit Shah":                     {("ls", 5021)},
+    "Mulayam Singh Yadav":           {("ls", 530)},
+}
 
-    Spec from plan 003 verification gate:
-      - >2 distinct parties AND >5 distinct constituencies AND >20 contests
-      - contests spanning >50 years
-    Phase 1 only has tenures (no contests yet), so just check tenure-level
-    pathologies for now: a person with >10 tenures, or >5 distinct
-    parties, etc.
+
+# Known TCPD-pid fuzzy-match collisions that must stay separate.
+# Each tuple is (sansad key A, sansad key B, shared bogus TCPD pid).
+FIXTURE_TCPD_COLLISIONS: list[tuple[tuple[str, int], tuple[str, int], str]] = [
+    (("ls", 5581), ("ls", 438),  "GEUP48277"),    # Karan B. vs Brijbhushan S. Singh
+    (("ls", 5223), ("ls", 4684), "GEBR2137"),     # two Veena Devis, different DOBs
+    (("ls", 531),  ("ls", 4101), "GEUP100180"),   # Ramakant vs Umakant Yadav
+]
+
+
+def verify_sanity(persons: list[dict]) -> list[str]:
+    """Return a list of *errors* (build should fail if non-empty).
+
+    Catches the bug classes already seen:
+      - more than one sitting LS tenure per person
+      - same TCPD pid + same DOB across different pids
+      - fixture mismatches (named persons must merge to exactly the
+        expected member set)
+      - known fuzzy-match collisions that must stay split
+      - extreme tenure counts (defence-in-depth)
     """
-    warnings: list[str] = []
+    errors: list[str] = []
+    by_pid = {p["pid"]: p for p in persons}
+    by_member: dict[tuple[str, int], dict] = {}
+    for p in persons:
+        for m in p["members"]:
+            by_member[m] = p
+
+    # 1. Sitting LS uniqueness — must be at most one LS sitting tenure per
+    # person (the latest-loksabha one). The write step now derives this,
+    # but the *invariant* is on the source data through the writer.
+    # (Tenure rows haven't been written yet at this point; check via the
+    # derived flag we emit at write time. Done after DB write — see
+    # verify_db_invariants below.)
+
+    # 2. Fixture: known persons must merge to expected member sets.
+    # Look up via mpsno membership (canonical_name is just an error label).
+    for fixture_name, expected in FIXTURE_EXPECTED_MEMBERS.items():
+        owning_pids = {by_member[m]["pid"] for m in expected if m in by_member}
+        if not owning_pids:
+            errors.append(
+                f"FIXTURE MISS: '{fixture_name}' — no mpsno from "
+                f"{sorted(expected)} is present in resolved persons"
+            )
+            continue
+        if len(owning_pids) != 1:
+            mapping = {m: by_member[m]["pid"] for m in expected if m in by_member}
+            errors.append(
+                f"FIXTURE SPLIT: '{fixture_name}' — expected members "
+                f"{sorted(expected)} to share one pid, got {mapping}"
+            )
+            continue
+        p = by_pid[next(iter(owning_pids))]
+        actual = set(p["members"]) & expected
+        if actual != expected:
+            missing = expected - actual
+            errors.append(
+                f"FIXTURE INCOMPLETE: '{fixture_name}' on pid={p['pid']} "
+                f"is missing {sorted(missing)} from expected {sorted(expected)}"
+            )
+
+    # 3. Fuzzy-collision split must hold: known bad pairs stay distinct.
+    for a, b, bad_pid in FIXTURE_TCPD_COLLISIONS:
+        pa = by_member.get(a)
+        pb = by_member.get(b)
+        if pa is None or pb is None:
+            continue
+        if pa["pid"] == pb["pid"]:
+            errors.append(
+                f"FUZZY-COLLISION FALSE MERGE: {a} and {b} both → "
+                f"pid={pa['pid']} (TCPD pid {bad_pid} is a known fuzzy "
+                f"collision; they must stay separate)"
+            )
+
+    # 4. Same TCPD pid + same DOB across distinct pids → suspicious split.
+    by_tcpd_dob: dict[tuple[str, str], list[str]] = defaultdict(list)
+    for p in persons:
+        if p["tcpd_pid"] and p["dob"]:
+            by_tcpd_dob[(p["tcpd_pid"], p["dob"])].append(p["pid"])
+    for (pid_tcpd, dob), pids in by_tcpd_dob.items():
+        if len(set(pids)) > 1:
+            errors.append(
+                f"SPLIT SAME-TCPD-SAME-DOB: TCPD pid {pid_tcpd} dob {dob} "
+                f"appears across pids {sorted(set(pids))}"
+            )
+
+    # 5. Tenure count outliers (defence-in-depth).
     for p in persons:
         recs = p["tenure_records"]
         if len(recs) > 12:
-            warnings.append(
-                f"pid={p['pid']} ({p['canonical_name']}) has {len(recs)} tenure rows "
-                f"— suspicious, please review"
+            errors.append(
+                f"OUTLIER: pid={p['pid']} ({p['canonical_name']}) has "
+                f"{len(recs)} tenure rows — please review manually"
             )
         parties = {r["record"].get("party_short") for r in recs if r["record"].get("party_short")}
         if len(parties) > 5:
-            warnings.append(
-                f"pid={p['pid']} ({p['canonical_name']}) has {len(parties)} distinct "
-                f"parties across tenures — suspicious"
+            errors.append(
+                f"OUTLIER: pid={p['pid']} ({p['canonical_name']}) has "
+                f"{len(parties)} distinct parties across tenures"
             )
-    return warnings
+
+    return errors
+
+
+def verify_db_invariants(db_path: Path) -> list[str]:
+    """Checks against the *populated* DB. Run after write."""
+    errors: list[str] = []
+    with sqlite3.connect(db_path) as conn:
+        # Sitting LS uniqueness: at most one LS tenure per person can be sitting.
+        bad = conn.execute(
+            """SELECT pid, COUNT(*) AS n
+               FROM tenures
+               WHERE office_type = 'ls' AND sitting = 1
+               GROUP BY pid
+               HAVING n > 1"""
+        ).fetchall()
+        for pid, n in bad:
+            errors.append(f"SITTING DUP: pid={pid} has {n} sitting LS tenures")
+    return errors
 
 
 # ── Main ─────────────────────────────────────────────────────────────────
@@ -589,17 +771,21 @@ def main() -> int:
     print(f"  {len(assignments['by_pid'])} total pids in assignment file "
           f"(next: n-{assignments['next_id']})")
 
-    warnings = verify_sanity(args.db, persons)
-    if warnings:
-        print(f"\nVERIFICATION GATE — {len(warnings)} warning(s):")
-        for w in warnings[:20]:
-            print(f"  ⚠ {w}")
-        if len(warnings) > 20:
-            print(f"  … and {len(warnings)-20} more")
+    print("Running pre-write verification gate …")
+    pre_errors = verify_sanity(persons)
+    if pre_errors:
+        print(f"\nVERIFICATION GATE FAILED — {len(pre_errors)} pre-write error(s):")
+        for e in pre_errors[:30]:
+            print(f"  ✗ {e}")
+        if len(pre_errors) > 30:
+            print(f"  … and {len(pre_errors)-30} more")
+        if not args.dry_run:
+            print("\nRefusing to write DB. Fix the errors and re-run.")
+            return 1
 
     if args.dry_run:
         print("\n[dry-run] no DB write")
-        return 0
+        return 0 if not pre_errors else 1
 
     print(f"Writing {args.db} …")
     init_db(args.db)
@@ -618,10 +804,17 @@ def main() -> int:
             },
         )
 
+    post_errors = verify_db_invariants(args.db)
+    if post_errors:
+        print(f"\nPOST-WRITE INVARIANT FAILURE — {len(post_errors)} error(s):")
+        for e in post_errors[:30]:
+            print(f"  ✗ {e}")
+        return 1
+
     print("\nDone.")
     print(f"  persons:  {len(persons)}")
     print(f"  tenures:  {sum(len(p['tenure_records']) for p in persons)}")
-    print(f"  warnings: {len(warnings)}")
+    print(f"  verification: OK")
     return 0
 
 
