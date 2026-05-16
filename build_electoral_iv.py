@@ -184,7 +184,9 @@ def cons_match(a_norm: str, b_norm: str) -> bool:
 
 
 def norm_party(s):
-    return (s or "").strip().upper()
+    """Uppercase + strip trailing period ("Ind." → "IND")."""
+    s = (s or "").strip().upper()
+    return s.rstrip(".")
 
 
 def name_tokens(s):
@@ -316,6 +318,7 @@ def load_tcpd_ge_tuple_index() -> tuple[dict, dict]:
     src = csv_files[-1]
     tuple_to_pid: dict = {}
     pid_to_info: dict = {}
+    split_count = 0
     with gzip.open(src, "rt") as f:
         for row in csv.DictReader(f):
             pid = row.get("pid") or ""
@@ -326,8 +329,13 @@ def load_tcpd_ge_tuple_index() -> tuple[dict, dict]:
             cons_n = norm_cons(row.get("Constituency_Name") or "")
             party = norm_party(row.get("Party") or "")
             tup = (year, state_n, cons_n, party)
-            tuple_to_pid.setdefault(tup, pid)
-            info = pid_to_info.setdefault(pid, {
+            # Apply upstream-merge-bug splits: if pid is in TCPD_PID_SPLITS,
+            # the tuple may map to a child pid (e.g., GEKL5627#alt-idukki-ind).
+            effective_pid = _apply_tcpd_pid_split(tup, pid)
+            if effective_pid != pid:
+                split_count += 1
+            tuple_to_pid.setdefault(tup, effective_pid)
+            info = pid_to_info.setdefault(effective_pid, {
                 "canonical_name": row.get("Candidate") or "",
                 "gender": row.get("Sex") or None,
                 "first_year": year, "last_year": year,
@@ -337,6 +345,9 @@ def load_tcpd_ge_tuple_index() -> tuple[dict, dict]:
             info["first_year"] = min(info["first_year"], year)
             if state_n:
                 info["states"].add(state_n)
+    if split_count:
+        print(f"  applied {split_count} TCPD merge-bug split overrides "
+              f"({len(TCPD_PID_SPLITS)} known bad pids)")
     return tuple_to_pid, pid_to_info
 
 
@@ -509,8 +520,26 @@ def attribute_iv_primary(
                 person = persons_by_pid.get(cand_pid)
                 if not person:
                     continue
-                ns = name_score(name_tokens(person["canonical_name"]), row["name_tokens"])
-                if ns >= 0.8:
+                # Method D extends a TCPD-anchored person to a new
+                # constituency in 2024. The signal must be strong, since
+                # a casual single-token name match ("chacko") would
+                # wrongly attribute unrelated 2024 candidates (e.g.
+                # "ROSILIN CHACKO" 2024 Chalakudy BSP ≠ P.C. Chacko).
+                #
+                # Allow attribution iff:
+                #   1. Rare-token bags are exactly equal, OR
+                #   2. One side's bag is a subset of the other AND both
+                #      sides have ≥ 2 rare tokens (so single-token
+                #      surname-only matches are rejected).
+                p_rare = frozenset(t for t in name_tokens(person["canonical_name"])
+                                   if t not in COMMON_NAME_TOKENS)
+                r_rare = frozenset(t for t in row["name_tokens"]
+                                   if t not in COMMON_NAME_TOKENS)
+                strong = (p_rare and p_rare == r_rare) or (
+                    len(p_rare) >= 2 and len(r_rare) >= 2 and
+                    (p_rare <= r_rare or r_rare <= p_rare)
+                )
+                if strong:
                     owner_pid = cand_pid
                     method = "D:2024-ext"
                     method_d_count += 1
@@ -773,6 +802,61 @@ CONTEST_FIXTURES: dict[tuple[str, int], dict] = {
 }
 
 
+# Split fixtures — verify the TCPD upstream merge bugs are cleanly
+# resolved. After splitting, the sansad-anchored person should NOT carry
+# any contest from the "alt" clusters.
+SPLIT_FIXTURES: list[dict] = [
+    {
+        "tcpd_pid": "GEKL5627",
+        "expected_main_contests": {
+            (1991, "trichur",       "INC", True),
+            (1996, "mukundapuram",  "INC", True),
+            (1998, "idukki",        "INC", True),
+            (1999, "kottayam",      "INC", False),
+            (2009, "thrissur",      "INC", True),
+            (2014, "chalakudy",     "INC", False),
+        },
+        "must_exclude_tuples": {
+            (1998, "idukki", "IND"),
+        },
+    },
+    {
+        "tcpd_pid": "GEBR73703",
+        # 2018 Araria by-election is in TCPD but not in IV's main candidate
+        # table, so it doesn't appear in our contests output. 2024 Araria
+        # is real — Pradeep won re-election from his current LS18 sansad
+        # tenure.
+        "expected_main_contests": {
+            (2009, "araria", "BJP", True),
+            (2014, "araria", "BJP", False),
+            (2019, "araria", "BJP", True),
+            (2024, "araria", "BJP", True),
+        },
+        "must_exclude_tuples": {
+            (2009, "amethi",     "BJP"),
+            (1999, "chatra",     "IND"),
+            (2004, "pratapgarh", "IND"),
+        },
+    },
+    {
+        "tcpd_pid": "GEBR65681",
+        # 2024 Jahanabad is real — Surendra won re-election.
+        "expected_main_contests": {
+            (1998, "jahanabad", "RJD", True),
+            (1999, "jahanabad", "RJD", False),
+            (2009, "jahanabad", "RJD", False),
+            (2014, "jahanabad", "RJD", False),
+            (2019, "jahanabad", "RJD", False),
+            (2024, "jahanabad", "RJD", True),
+        },
+        "must_exclude_tuples": {
+            (1998, "jhanjharpur", "RJD"),
+            (1999, "jhanjharpur", "RJD"),
+        },
+    },
+]
+
+
 # Historical fixtures — must be present after Method C mints them.
 HISTORICAL_FIXTURES: list[dict] = [
     # Indira Gandhi 1980: Rae Bareli + Medak, won both.
@@ -787,11 +871,119 @@ HISTORICAL_FIXTURES: list[dict] = [
 ]
 
 
-KNOWN_BAD_TCPD_PIDS = {
-    "GEKL5627",    # two Chackos at Idukki 1998
-    "GEBR73703",   # two Pradeep Kumar Singhs (Bihar Araria + UP Amethi 2009)
-    "GEBR65681",   # two Surendra Prasad Yadavs (Jhanjharpur + Jahanabad)
+# TCPD upstream merge fixes — hand-curated splits of pids that wrongly
+# group multiple distinct people.
+#
+# Format: tcpd_pid → [{label, name_hint, tuples}, ...]
+#   - The first split (label="main") keeps the original tcpd_pid and
+#     anchors any sansad-linked person on its tuples.
+#   - Subsequent splits get a synthesized child pid (e.g. "GEKL5627#alt"),
+#     and any winning contest among them is minted as a separate historical
+#     person via Method C.
+#   - tuples format: (year, state_norm, cons_norm, party_abbr) — must
+#     match the normalisations the rest of this module uses.
+TCPD_PID_SPLITS: dict[str, list[dict]] = {
+    # P.C. Chacko: the INC politician (sansad-anchored) + a different
+    # "P.C. Chacko" who lost as IND at Idukki 1998.
+    "GEKL5627": [
+        {
+            "label": "main",
+            "name_hint": "P.C. Chacko (INC, MP)",
+            "tuples": [
+                (1991, "kerala", "trichur",       "INC"),
+                (1996, "kerala", "mukundapuram",  "INC"),
+                (1998, "kerala", "idukki",        "INC"),
+                (1999, "kerala", "kottayam",      "INC"),
+                (2009, "kerala", "thrissur",      "INC"),
+                (2014, "kerala", "chalakudy",     "INC"),
+            ],
+        },
+        {
+            "label": "alt-idukki-ind",
+            "name_hint": "P.C. Chacko (1998 IND Idukki — different person)",
+            "tuples": [
+                (1998, "kerala", "idukki",        "IND"),
+            ],
+        },
+    ],
+
+    # Pradeep Kumar Singh: the Bihar Araria BJP politician (sansad-anchored)
+    # + a different Pradeep Kumar Singh who lost UP Amethi 2009 as BJP.
+    # 1999 Chatra IND and 2004 Pratapgarh IND are ambiguous low-position
+    # losers; we drop them from both clusters (split into "alt-misc").
+    "GEBR73703": [
+        {
+            "label": "main",
+            "name_hint": "Pradeep Kumar Singh (Bihar Araria BJP)",
+            "tuples": [
+                (2009, "bihar", "araria", "BJP"),
+                (2014, "bihar", "araria", "BJP"),
+                (2018, "bihar", "araria", "BJP"),
+                (2019, "bihar", "araria", "BJP"),
+            ],
+        },
+        {
+            "label": "alt-amethi",
+            "name_hint": "Pradeep Kumar Singh (2009 UP Amethi BJP — different person)",
+            "tuples": [
+                (2009, "uttar pradesh", "amethi", "BJP"),
+            ],
+        },
+        {
+            "label": "alt-misc",
+            "name_hint": "Pradeep Kumar Singh (1999/2004 IND fillers — unattributable)",
+            "tuples": [
+                (1999, "bihar",         "chatra",     "IND"),
+                (2004, "uttar pradesh", "pratapgarh", "IND"),
+            ],
+        },
+    ],
+
+    # Surendra Prasad Yadav: the Jahanabad continuous-contestant
+    # (sansad-anchored) + a different Jhanjharpur RJD politician.
+    "GEBR65681": [
+        {
+            "label": "main",
+            "name_hint": "Surendra Prasad Yadav (Jahanabad RJD)",
+            "tuples": [
+                (1998, "bihar", "jahanabad", "RJD"),
+                (1999, "bihar", "jahanabad", "RJD"),
+                (2009, "bihar", "jahanabad", "RJD"),
+                (2014, "bihar", "jahanabad", "RJD"),
+                (2019, "bihar", "jahanabad", "RJD"),
+            ],
+        },
+        {
+            "label": "alt-jhanjharpur",
+            "name_hint": "Surendra P. Yadav (Jhanjharpur RJD — different person)",
+            "tuples": [
+                (1998, "bihar", "jhanjharpur", "RJD"),
+                (1999, "bihar", "jhanjharpur", "RJD"),
+            ],
+        },
+    ],
 }
+
+
+def _apply_tcpd_pid_split(tup, original_pid):
+    """If the tuple belongs to a non-main split, return the split pid.
+    Otherwise return the original pid unchanged."""
+    splits = TCPD_PID_SPLITS.get(original_pid)
+    if not splits:
+        return original_pid
+    for split in splits:
+        if tup in split["tuples"]:
+            if split["label"] == "main":
+                return original_pid
+            return f"{original_pid}#{split['label']}"
+    # Tuple not explicitly covered by any split — leave on original pid as
+    # a conservative default. (Should not happen for our 3 curated pids.)
+    return original_pid
+
+
+# Set of original pids that have a split — used by reporting to flag
+# "this pid was split; the original now only carries the main cluster".
+KNOWN_BAD_TCPD_PIDS = frozenset(TCPD_PID_SPLITS.keys())
 
 
 def verify_contests(conn: sqlite3.Connection) -> list[str]:
@@ -845,6 +1037,40 @@ def verify_contests(conn: sqlite3.Connection) -> list[str]:
                     f"constituencies, expected ≤ {max_cons}"
                 )
 
+    # Split fixtures: the sansad-anchored "main" cluster's pid must
+    # have exactly the expected contests and NONE of the must_exclude
+    # tuples (those belong to a different person via the split).
+    for fixture in SPLIT_FIXTURES:
+        tcpd_pid = fixture["tcpd_pid"]
+        anchor = conn.execute(
+            "SELECT pid FROM persons WHERE tcpd_pid = ?", (tcpd_pid,)
+        ).fetchone()
+        if not anchor:
+            errors.append(f"SPLIT FIXTURE: no anchor person for {tcpd_pid}")
+            continue
+        pid = anchor[0]
+        contests = conn.execute(
+            "SELECT year, constituency, party_short, won FROM contests WHERE pid = ?",
+            (pid,),
+        ).fetchall()
+        actual = {(y, norm_cons(c), p, bool(w)) for y, c, p, w in contests}
+        expected = fixture["expected_main_contests"]
+        missing = expected - actual
+        extra = actual - expected
+        if missing or extra:
+            errors.append(
+                f"SPLIT FIXTURE {tcpd_pid} ({pid}): "
+                f"missing={sorted(missing)} extra={sorted(extra)}"
+            )
+        must_exclude = fixture["must_exclude_tuples"]
+        for ex in must_exclude:
+            for a in actual:
+                if (a[0], a[1], a[2]) == ex:
+                    errors.append(
+                        f"SPLIT FIXTURE {tcpd_pid} ({pid}): wrongly includes "
+                        f"{ex} (belongs to a separate person via the split)"
+                    )
+
     # Historical fixtures: find via name.
     for fixture in HISTORICAL_FIXTURES:
         name = fixture["name_contains"]
@@ -894,16 +1120,29 @@ def verify_contests(conn: sqlite3.Connection) -> list[str]:
     return errors
 
 
-def report_known_bad_tcpd(conn: sqlite3.Connection) -> list[str]:
+def report_tcpd_splits(conn: sqlite3.Connection) -> list[str]:
+    """Report on the curated TCPD merge-bug splits. Informational —
+    shows that the upstream-buggy pids have been cleanly partitioned."""
     notes = []
-    for tcpd_pid in KNOWN_BAD_TCPD_PIDS:
-        rows = conn.execute(
-            "SELECT pid, canonical_name FROM persons WHERE tcpd_pid = ?",
-            (tcpd_pid,),
-        ).fetchall()
-        for pid, name in rows:
-            n = conn.execute("SELECT COUNT(*) FROM contests WHERE pid = ?", (pid,)).fetchone()[0]
-            notes.append(f"pid={pid} ({name}) anchored to {tcpd_pid} — has {n} contests; manual split needed.")
+    for tcpd_pid, splits in TCPD_PID_SPLITS.items():
+        notes.append(f"split {tcpd_pid} → {len(splits)} cluster(s):")
+        for s in splits:
+            label = s["label"]
+            effective = tcpd_pid if label == "main" else f"{tcpd_pid}#{label}"
+            # Find the person (if any) anchored on this split pid.
+            anchor = conn.execute(
+                "SELECT pid, canonical_name FROM persons WHERE tcpd_pid = ?",
+                (effective,),
+            ).fetchone()
+            anchor_str = f"{anchor[0]} ({anchor[1]})" if anchor else "unattributed"
+            n = conn.execute(
+                """SELECT COUNT(*) FROM contests
+                   WHERE tcpd_pid = ? OR (
+                     pid IN (SELECT pid FROM persons WHERE tcpd_pid = ?)
+                   )""",
+                (effective, effective),
+            ).fetchone()[0]
+            notes.append(f"  [{label}] {s['name_hint']}: {anchor_str}, {n} contests")
     return notes
 
 
@@ -998,11 +1237,11 @@ def main():
     print(f"  persons:  {n_persons} ({n_historical} historical, tcpd-only)")
     print("verification: OK")
 
-    bad = report_known_bad_tcpd(netas)
-    if bad:
-        print(f"\nKnown upstream TCPD merge bugs ({len(bad)} persons):")
-        for n in bad:
-            print(f"  ⚠ {n}")
+    splits = report_tcpd_splits(netas)
+    if splits:
+        print(f"\nTCPD upstream merge-bug splits applied:")
+        for n in splits:
+            print(f"  {n}")
     netas.close()
     return 0
 
