@@ -5,9 +5,14 @@ Index data for the **debates** and **questions** corpora on [SansadSaar](https:/
 - **Debates** — Lok Sabha speech-level records (~57K target) + Rajya Sabha daily-proceedings PDFs.
 - **Questions** — Lok Sabha per-question records (~280K target) + Rajya Sabha per-sitting-day bundle PDFs.
 
-## Why a separate repo?
+Served at `sansadsaar-proceedings.naklitechie.com`. Person-centric by nature (records belong to MPs more than to documents) — also the natural future input for a per-MP analytic app.
 
-These two corpora are high-volume and person-centric (they belong to MPs more than to documents). Splitting them off keeps the document-centric [parliamentwatch-data](https://github.com/NakliTechie/parliamentwatch-data) comfortably under Cloudflare Pages's per-project file count cap as backfill fills out. They're also the natural future input for a per-MP analytic app.
+## Family
+
+- [SansadSaar](https://github.com/NakliTechie/SansadSaar) — the app
+- [parliamentwatch-data](https://github.com/NakliTechie/parliamentwatch-data) — DRSC, CAG, Bills, LC, FC
+- [sansadsaar-gazettes](https://github.com/NakliTechie/sansadsaar-gazettes) — Central Gazette
+- [sansadsaar-lc](https://github.com/NakliTechie/sansadsaar-lc) — Law Commission PDF archive
 
 ## Credits
 
