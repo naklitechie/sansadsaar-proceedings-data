@@ -190,13 +190,33 @@ KNOWN_BAD_TCPD_PIDS = {
 
 
 def norm_state(s):
-    """Lowercase, strip trailing digits (IV has 'Uttar Pradesh1' for post-2000
-    UP and 'Uttar Pradesh' for the pre-2000 entity)."""
+    """Aggressive canonicalisation. IV stores state names in several flavours
+    that all mean the same place:
+      "Uttar Pradesh"            sansad / IV pre-2000
+      "Uttar Pradesh1"           IV post-2000 (state_id 60)
+      "Andhra Pradesh [2014 Onwards]"
+      "Andaman & Nicobar Islands" vs "Andaman and Nicobar Islands"
+    Strip ALL digits (state names don't legitimately contain digits) and
+    expand & to "and" before token-stripping.
+    """
     if not s:
         return ""
-    s = re.sub(r"\d+$", "", s.strip().lower())
-    s = re.sub(r"[^a-z0-9 ]+", " ", s)
+    s = s.lower()
+    s = re.sub(r"\[.*?\]", " ", s)               # drop "[2014 Onwards]" etc.
+    s = s.replace("&", " and ")                   # & → and
+    s = re.sub(r"\d+", " ", s)                    # strip all digits
+    s = re.sub(r"[^a-z ]+", " ", s)
     return re.sub(r"\s+", " ", s).strip()
+
+
+def state_display(s):
+    """User-facing state string. Strips IV's disambiguation suffixes but
+    preserves casing."""
+    if not s:
+        return ""
+    s = re.sub(r"\[.*?\]", "", s)
+    s = re.sub(r"\d+$", "", s)
+    return s.strip()
 
 
 def norm_cons(s):
@@ -204,6 +224,7 @@ def norm_cons(s):
         return ""
     s = s.strip().lower()
     s = re.sub(r"\(.*?\)", " ", s)            # drop "(SC)" / "(ST)" suffixes
+    s = s.replace("&", " and ")                # match "Andaman & Nicobar" ↔ "Andaman and Nicobar"
     s = re.sub(r"[^a-z0-9 ]+", " ", s)
     return re.sub(r"\s+", " ", s).strip()
 
@@ -247,16 +268,12 @@ def load_iv_rows(iv: sqlite3.Connection) -> list[dict]:
     out = []
     for row in cur.fetchall():
         cid, name, year, state, cons, party, pos, votes, share_pct = row
-        # IV disambiguates post-2000 state boundaries with a trailing
-        # digit ("Uttar Pradesh1", "Bihar1"). That's an internal artefact;
-        # users want the clean display name.
-        state_display = re.sub(r"\d+$", "", state).strip() if state else ""
         out.append({
             "candidate_id": cid,
             "candidate_name": name or "",
             "name_norm": norm_name(name),
             "year": year,
-            "state": state_display,
+            "state": state_display(state),
             "state_norm": norm_state(state),
             "cons": cons or "",
             "cons_norm": norm_cons(cons),
@@ -316,11 +333,13 @@ def load_tcpd_contest_tuples() -> dict[str, list[dict]]:
 def build_iv_indexes(iv_rows: list[dict]) -> dict:
     """Several look-up indexes over IV rows."""
     by_ystkp = defaultdict(list)   # (year, state_norm, cons_norm, party_abbr) → rows
-    by_yspn  = defaultdict(list)   # (year, state_norm, party_abbr) → rows  (for name-match path)
+    by_ystk  = defaultdict(list)   # (year, state_norm, cons_norm) → rows  (party-soft)
+    by_yspn  = defaultdict(list)   # (year, state_norm, party_abbr) → rows
     for r in iv_rows:
         by_ystkp[(r["year"], r["state_norm"], r["cons_norm"], r["party_abbr"])].append(r)
+        by_ystk[(r["year"], r["state_norm"], r["cons_norm"])].append(r)
         by_yspn[(r["year"], r["state_norm"], r["party_abbr"])].append(r)
-    return {"by_ystkp": dict(by_ystkp), "by_yspn": dict(by_yspn)}
+    return {"by_ystkp": dict(by_ystkp), "by_ystk": dict(by_ystk), "by_yspn": dict(by_yspn)}
 
 
 def _name_compatible(person_name_norm: str, iv_name_norm: str) -> bool:
@@ -372,19 +391,26 @@ def attribute_path_sansad(
     iv: dict,
     claimed: set[int],
 ) -> list[tuple]:
-    """Path 2: for each LS tenure with a known year + state + cons + party,
-    match an IV row whose candidate_name is compatible with the person.
+    """Path 2: for each LS tenure (year, state, cons), find an IV row whose
+    candidate_name is compatible with the person.
 
-    Covers (a) non-TCPD-linked persons; (b) LS18 (2024) contests of
-    TCPD-anchored persons that TCPD GE doesn't have. Name check blocks
-    the by-election trap: Priyanka's LS18 Wayanad tenure could match
-    Rahul's 2024 Wayanad GE row by (year/state/cons/party), but names
-    disagree so we don't claim. Priyanka's actual contest lives in the
-    pc_bye_election_* tables — separate ingestion path, deferred.
+    Party is a TIE-BREAKER, not a gatekeeper. Sansad's `party_short` is
+    inconsistent — sometimes the abbr ("BJP"), sometimes the long form
+    ("YSR Congress Party") — and would block 30%+ of LS18 sitting MPs
+    if required to match. Instead: lookup by (year, state, cons), then
+    pick the best name match; on a tie prefer the row whose party_abbr
+    matches sansad's party_short.
+
+    Name compat blocks the by-election trap: Priyanka's LS18 Wayanad
+    tenure → Rahul's 2024 Wayanad GE row matches by (year, state, cons)
+    but names disagree → no claim. Priyanka's actual contest lives in
+    pc_bye_election_* (separate ingestion path, deferred).
     """
     contests = []
     for pid, name, tcpd_pid in persons:
         person_name_norm = norm_name(name)
+        if not person_name_norm:
+            continue
         for t in tenures_by_pid.get(pid, []):
             if t["office_type"] != "ls":
                 continue
@@ -392,16 +418,22 @@ def attribute_path_sansad(
             if ls_num is None or ls_num not in LS_TERM_TO_YEAR:
                 continue
             year = LS_TERM_TO_YEAR[ls_num]
-            key = (year, norm_state(t["state"]), norm_cons(t["constituency"]),
-                   norm_party(t["party_short"]))
-            for row in iv["by_ystkp"].get(key, []):
-                if row["candidate_id"] in claimed:
-                    continue
-                if not _name_compatible(person_name_norm, row["name_norm"]):
-                    continue
-                claimed.add(row["candidate_id"])
-                contests.append((pid, row, tcpd_pid, "path:sansad"))
-                break
+            sansad_party_abbr = norm_party(t["party_short"])
+            key = (year, norm_state(t["state"]), norm_cons(t["constituency"]))
+            candidates = [r for r in iv["by_ystk"].get(key, [])
+                          if r["candidate_id"] not in claimed
+                          and _name_compatible(person_name_norm, r["name_norm"])]
+            if not candidates:
+                continue
+            # Prefer the row whose party_abbr matches sansad's party_short
+            # (handles "BJP" → "BJP"). Otherwise pick the first.
+            candidates.sort(
+                key=lambda r: (0 if r["party_abbr"] == sansad_party_abbr else 1,
+                               r["position"] if r["position"] is not None else 10**9),
+            )
+            row = candidates[0]
+            claimed.add(row["candidate_id"])
+            contests.append((pid, row, tcpd_pid, "path:sansad"))
     return contests
 
 
