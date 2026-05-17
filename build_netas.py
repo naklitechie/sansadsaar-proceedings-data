@@ -115,6 +115,26 @@ def _shared_tokens(a: str, b: str) -> int:
     return len(ta & tb)
 
 
+def derive_sitting(sm: dict | None) -> bool:
+    """Compute the `sitting` flag from a sansad master record.
+
+    Sansad's raw `sitting` boolean is unreliable for ex-LS MPs (e.g. Advani's
+    LS16 record carries sitting=True even though status="Former" and his
+    last term ended in 2019). The authoritative signal is `status`:
+      - LS:  status == "Sitting" AND loksabha == CURRENT_LS
+      - RS:  status == "Sitting"
+    Everything else is not currently sitting.
+    """
+    if not sm:
+        return False
+    status = (sm.get("status") or "").strip()
+    if sm.get("house") == "ls":
+        return status == "Sitting" and sm.get("loksabha") == CURRENT_LS
+    if sm.get("house") == "rs":
+        return status == "Sitting"
+    return False
+
+
 # ── Master + lookup construction ──────────────────────────────────────────
 
 
@@ -613,7 +633,7 @@ def pivot(unified: dict[int, dict], attrib: Attribution) -> dict:
     # State / party rollups for sitting LS18 MPs
     for code, info in unified.items():
         sm = info["sansad"]
-        if not sm or sm.get("house") != "ls" or not sm.get("sitting"):
+        if not sm or sm.get("house") != "ls" or not derive_sitting(sm):
             continue
         if sm.get("loksabha") != CURRENT_LS:
             continue
@@ -823,7 +843,7 @@ def write_outputs(unified: dict[int, dict], pivots: dict, attrib: Attribution,
             "name": info["canonical"],
             "house": info["house"],
             "loksabha": sm.get("loksabha"),
-            "sitting": sm.get("sitting", False),
+            "sitting": derive_sitting(sm),
             "state": state,
             "state_slug": slugify(state) if state else None,
             "party": sm.get("party_short") or sm.get("party_full"),
@@ -867,7 +887,7 @@ def write_outputs(unified: dict[int, dict], pivots: dict, attrib: Attribution,
             "variants": info["variants"],
             "house": info["house"],
             "loksabha": sm.get("loksabha"),
-            "sitting": sm.get("sitting", False),
+            "sitting": derive_sitting(sm),
             "status": sm.get("status"),
             "state": sm.get("state"),
             "party_full": sm.get("party_full"),
@@ -922,7 +942,7 @@ def write_outputs(unified: dict[int, dict], pivots: dict, attrib: Attribution,
                 "name": info["canonical"],
                 "house": info["house"],
                 "loksabha": sm.get("loksabha"),
-                "sitting": bool(sm.get("sitting")),
+                "sitting": derive_sitting(sm),
                 "state": state_str,
                 "state_slug": slugify(state_str) if state_str else None,
                 "party": party_str,
@@ -1282,18 +1302,47 @@ def main():
 
     print("Merging same-person mpsnos ...", flush=True)
     aliases = compute_person_aliases(unified)
+
+    # Capture which (house, raw_mpsno) belongs to which canonical BEFORE
+    # apply_person_aliases collapses unified. This is the disambiguator for
+    # cross-house mpsno collisions (sansad's mpsno isn't globally unique —
+    # e.g., (rs, 9) is an INC Haryana retiree, NOT Advani who is (ls, 9)).
+    #
+    # The map only contains (house, raw_mpsno) keys for MPs that exist in the
+    # current unified master. Any term record keyed by a (house, mpsno) NOT
+    # in this map belongs to a collision-loser — a person whose sansad master
+    # record was overwritten by load_sansad_master's prefer-LS rule. Without
+    # this filter, that lost person's RS terms would leak into whoever DID
+    # win the canonical mpsno's bucket.
+    canonical_for_raw_key: dict[tuple[str, int], int] = {}
+    for code, info in unified.items():
+        sm = (info or {}).get("sansad") or {}
+        h = sm.get("house")
+        if h is None:
+            continue
+        canonical_for_raw_key[(h, code)] = aliases.get(code, code)
+
     unified = apply_person_aliases(unified, aliases, debate_variants)
     print(f"  -> {len(aliases)} alias mpsnos merged, "
           f"{len(unified)} canonical persons")
 
-    # Fold alias terms-history into the canonical entry so a single profile
-    # page can show every LS + RS term across both mpsnos.
-    for alias, canonical in aliases.items():
-        for h in ("ls", "rs"):
-            key = (h, alias)
-            if key in terms_lookup:
-                terms_lookup.setdefault((h, canonical), []).extend(terms_lookup[key])
-                del terms_lookup[key]
+    # Rebuild terms_lookup keyed by canonical mpsno, dropping records whose
+    # (house, raw_mpsno) doesn't appear in canonical_for_raw_key. Replaces the
+    # earlier alias-fold loop which used setdefault().extend() — that bug
+    # mixed collision-loser records (e.g., RS-130 CPI(M) West Bengal MP) into
+    # the canonical's bucket (Sonia Gandhi at canonical 130), producing ghost
+    # rows in terms_history.
+    new_terms_lookup: dict[tuple, list[dict]] = defaultdict(list)
+    dropped_term_rows = 0
+    for (h, raw_mpsno), recs in terms_lookup.items():
+        canon = canonical_for_raw_key.get((h, raw_mpsno))
+        if canon is None:
+            dropped_term_rows += len(recs)
+            continue
+        new_terms_lookup[(h, canon)].extend(recs)
+    terms_lookup = dict(new_terms_lookup)
+    print(f"  -> terms_lookup: {len(terms_lookup)} (house, canonical) groups, "
+          f"{dropped_term_rows} collision-loser term rows dropped")
 
     print("Building lookup ...", flush=True)
     lookup = build_lookup(unified)
