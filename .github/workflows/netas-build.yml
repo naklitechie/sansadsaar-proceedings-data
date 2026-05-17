@@ -61,6 +61,15 @@ jobs:
           NETAS_BILLS_DIR: /tmp/netas-bills
         run: python build_netas.py
 
+      - name: Flatten electoral + rebuild careers (TCPD-first shape)
+        # build_netas.py writes electoral/<mpsno>.json as the raw
+        # TCPD-nested object {ge_pid, ae_pid, ge_history, ae_history}
+        # and careers.json with legacy ge_* fields. The netas Astro app
+        # expects the flat IV shape {contests, summary} + ls_*/ae_*
+        # career fields. This transformation pass converts both. Runs
+        # after build_netas.py and before tarballing.
+        run: python build_electoral_flat.py
+
       - name: Package as tarball
         run: |
           # Tarball contents extract into data/netas/<file> on the consumer
