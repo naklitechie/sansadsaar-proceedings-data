@@ -86,7 +86,11 @@ jobs:
           # to clear the RS-194..268 backlog (~2,576 bundles). Revert to '' for
           # steady-state (recent-2 only) once audit.json reports rs_records≈2700.
           RS_SESSIONS:                ${{ inputs.rs_sessions        || 'all' }}
-          MAX_EXTRACTIONS_PER_RUN:    ${{ inputs.max_extractions    || '50' }}
+          # TEMP backfill mode: cap raised 50→500 to clear the LS bodies
+          # backlog (~243K). ~50 MB/burst, ~4 min wall time, still well
+          # under the 900s budget. Revert to '50' once ls_with_text in
+          # docs/questions/audit.json approaches ls_records.
+          MAX_EXTRACTIONS_PER_RUN:    ${{ inputs.max_extractions    || '500' }}
           MAX_RS_EXTRACTIONS_PER_RUN: ${{ inputs.max_rs_extractions || '25' }}
           MAX_RUN_SECONDS:            ${{ inputs.max_run_seconds    || '900' }}
           EXTRACT_WORKERS:            '4'
