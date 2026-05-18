@@ -427,17 +427,33 @@ def walk_ls_and_merge(existing: dict[str, list[dict]]) -> tuple[dict[str, list[d
 
     Newest-first ordering within each LS via the API's default sort
     (desc by dbSlno, which monotonically tracks date).
+
+    Early-stop: the API returns records newest-first by db_slno, so
+    once a full page yields zero new keys (all already in existing),
+    the rest of that LS is necessarily already-known. We break out
+    of the page loop. Saves ~30+ minutes/run in steady state when
+    no new records have been published upstream — leaving the
+    MAX_RUN_SECONDS budget free for the extract phase. Updates to
+    records on pages 2+ are NOT detected by the truncated walk;
+    set WALK_NO_EARLY_STOP=1 to disable early-stop and force a full
+    re-walk (intended as an occasional manual sweep).
     """
     print(f"[Walk] LS terms {LOK_SABHAS} (newest-first within each)...")
     t0 = time.time()
+    no_early_stop = os.environ.get("WALK_NO_EARLY_STOP", "").strip() not in ("", "0", "false", "False")
+    known_keys: set[tuple[int, int, int]] = {
+        _ls_key_tuple(r) for r in existing.get("ls", [])
+    }
     fresh_ls: dict[tuple[int, int, int], dict] = {}
     seen_terms: set[int] = set()
+    pages_skipped_total = 0
     page_size = 200
     for ls in sorted(LOK_SABHAS, reverse=True):
         seen_terms.add(ls)
         page = 1
         total_pages = 1
         per_term = 0
+        per_term_new = 0
         while page <= total_pages:
             try:
                 records, meta = ls_fetch_page(ls, page=page, size=page_size)
@@ -447,18 +463,30 @@ def walk_ls_and_merge(existing: dict[str, list[dict]]) -> tuple[dict[str, list[d
                 print(f"  ERR LS{ls} page {page}: {e} — aborting this LS")
                 break
             total_pages = meta.get("totalPages") or 1
+            page_new = 0
             for rec in records:
                 key = (rec.lok_sabha, rec.session, rec.db_slno)
                 if key in fresh_ls:
                     continue
                 fresh_ls[key] = _record_from_lsdebate(rec)
+                if key not in known_keys:
+                    page_new += 1
             per_term += len(records)
+            per_term_new += page_new
             if page == 1 or page % 10 == 0 or page == total_pages:
                 print(f"  LS{ls} page {page}/{total_pages}: {len(records)} records "
-                      f"(running={per_term})")
+                      f"(running={per_term}, new={page_new})")
+            if not no_early_stop and records and page_new == 0 and per_term_new == 0 and page < total_pages:
+                pages_skipped = total_pages - page
+                pages_skipped_total += pages_skipped
+                print(f"  LS{ls} early-stop after page {page}/{total_pages} "
+                      f"({pages_skipped} pages skipped — all-known)")
+                break
             page += 1
-        print(f"  LS{ls} done: {per_term} records")
-    print(f"  walked all in {time.time()-t0:.1f}s — {len(fresh_ls)} records across walked terms")
+        print(f"  LS{ls} done: {per_term} records ({per_term_new} new)")
+    walk_secs = time.time() - t0
+    es_note = f" (early-stop skipped {pages_skipped_total} pages)" if pages_skipped_total else ""
+    print(f"  walked all in {walk_secs:.1f}s — {len(fresh_ls)} records across walked terms{es_note}")
 
     # Merge: fresh-LS overrides; existing LS entries in NON-walked
     # terms are preserved; existing LS entries in walked terms that
