@@ -1273,8 +1273,11 @@ def phase_extract() -> int:
     }
     if rate_limited:
         meta["rate_limited_at"] = meta["generated_at"]
-    if not write_json_idempotent(META_JSON, meta, ignore_keys=("generated_at", "elapsed_s")):
-        print("  [skip] extract meta.json unchanged (besides timestamp)")
+    # Non-idempotent on purpose: always bump generated_at so the app's
+    # staleness indicator reflects "last successful run" rather than
+    # "last data change" — see write_meta() docstring in build_debates.py
+    # for the full rationale.
+    write_json_idempotent(META_JSON, meta, ignore_keys=())
 
     print(f"[phase_extract] done in {meta['elapsed_s']}s: "
           f"ls_new={ls_walk_stats.get('new', 0)}, ls_extracted={meta['ls_extracted']}, "
@@ -1342,8 +1345,8 @@ def phase_derive() -> int:
         "audit":         audit["totals"],
         "text_shards":   text_meta["totals"],
     }
-    if not write_json_idempotent(META_JSON, meta, ignore_keys=("generated_at", "elapsed_s")):
-        print("  [skip] derive meta.json unchanged (besides timestamp)")
+    # Non-idempotent on purpose — see extract-phase comment above.
+    write_json_idempotent(META_JSON, meta, ignore_keys=())
 
     print(f"[phase_derive] done in {meta['elapsed_s']}s")
     return 0
