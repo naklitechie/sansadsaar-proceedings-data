@@ -351,11 +351,27 @@ def walk_ls_and_merge(existing: dict[str, list[dict]]
 
     Order: newest LS first (LS-18 → LS-15), descending session within
     each LS, both types per session.
+
+    Early-stop (per bucket): the listing API returns records in a
+    stable order within each (LS, session, type) bucket. Once a full
+    page yields zero new keys (all already in existing), the rest of
+    that bucket is necessarily already-known. Skip it. Saves ~40+
+    minutes/run in steady state — leaving the MAX_RUN_SECONDS budget
+    free for the extract phase. Updates to records on pages 2+ are
+    NOT detected by the truncated walk; set WALK_NO_EARLY_STOP=1 to
+    disable early-stop and force a full re-walk (occasional manual
+    sweep).
     """
     print(f"[Walk] LS terms {LOK_SABHAS} sessions {SESSION_RANGE} types {QTYPES}...")
     t0 = time.time()
+    no_early_stop = os.environ.get("WALK_NO_EARLY_STOP", "").strip() not in ("", "0", "false", "False")
+    known_keys: set[tuple[int, int, str, int]] = {
+        _ls_key_tuple(r) for r in existing.get("ls", [])
+    }
     fresh_ls: dict[tuple[int, int, str, int], dict] = {}
     walked_buckets: set[tuple[int, int, str]] = set()
+    buckets_early_stopped = 0
+    pages_skipped_total = 0
     page_size = int(os.environ.get("QUESTIONS_LS_PAGE_SIZE", "500"))
     for ls in sorted(LOK_SABHAS, reverse=True):
         for ses in sorted(SESSION_RANGE, reverse=True):
@@ -376,10 +392,22 @@ def walk_ls_and_merge(existing: dict[str, list[dict]]
                     print(f"  LS{ls} S{ses} {qtype}: 1 page, {len(page1_recs)}/{total} records")
                 else:
                     print(f"  LS{ls} S{ses} {qtype}: total={total}, pages={total_pages}")
-                # Record page 1 then continue from page 2
+                # Record page 1 — track whether any keys were new vs already-known.
+                page1_new = 0
                 for rec in page1_recs:
                     key = (rec.lok_sabha, rec.session, rec.question_type, rec.question_no)
                     fresh_ls[key] = _record_from_lsquestion(rec)
+                    if key not in known_keys:
+                        page1_new += 1
+                # Early-stop: if page 1 had zero new keys, the rest of this
+                # bucket is already-known (records come in stable order).
+                if (not no_early_stop) and page1_recs and page1_new == 0 and total_pages > 1:
+                    pages_skipped = total_pages - 1
+                    pages_skipped_total += pages_skipped
+                    buckets_early_stopped += 1
+                    print(f"    early-stop after page 1/{total_pages} "
+                          f"({pages_skipped} pages skipped — all-known)")
+                    continue
                 for page in range(2, total_pages + 1):
                     try:
                         recs, _ = ls_fetch_page(ls, ses, qtype, page=page, size=page_size)
@@ -388,13 +416,26 @@ def walk_ls_and_merge(existing: dict[str, list[dict]]
                     except Exception as e:
                         print(f"    ERR page {page}: {e} — stopping this bucket")
                         break
+                    page_new = 0
                     for rec in recs:
                         key = (rec.lok_sabha, rec.session, rec.question_type, rec.question_no)
                         fresh_ls[key] = _record_from_lsquestion(rec)
+                        if key not in known_keys:
+                            page_new += 1
                     if page % 5 == 0 or page == total_pages:
-                        print(f"    page {page}/{total_pages}")
-    print(f"  walked in {time.time()-t0:.1f}s — {len(fresh_ls)} records across "
-          f"{len(walked_buckets)} (ls, session, type) buckets")
+                        print(f"    page {page}/{total_pages} (new={page_new})")
+                    if (not no_early_stop) and recs and page_new == 0 and page < total_pages:
+                        pages_skipped = total_pages - page
+                        pages_skipped_total += pages_skipped
+                        buckets_early_stopped += 1
+                        print(f"    early-stop after page {page}/{total_pages} "
+                              f"({pages_skipped} pages skipped — all-known)")
+                        break
+    walk_secs = time.time() - t0
+    es_note = (f" (early-stop on {buckets_early_stopped} buckets, "
+               f"skipped {pages_skipped_total} pages)") if pages_skipped_total else ""
+    print(f"  walked in {walk_secs:.1f}s — {len(fresh_ls)} records across "
+          f"{len(walked_buckets)} (ls, session, type) buckets{es_note}")
 
     # Merge: fresh-LS overrides; existing LS entries in NON-walked buckets
     # are preserved; existing LS entries in walked buckets that aren't in
