@@ -1236,17 +1236,17 @@ def build_search_index(reports: dict[str, list[dict]],
 # ── Phase orchestration ───────────────────────────────────────────────────
 
 
-def phase_extract() -> int:
-    """Walk + merge + extract. Writes primary files (reports shards +
-    text/ls/<fid>.txt + markers) and a thin meta.json with run stats.
+def phase_walk() -> int:
+    """Walk + merge. Writes primary report shards. No body extraction.
+
+    Split off from phase_extract so a slower-cadence walk workflow can
+    discover new records without consuming the hourly extract budget.
     """
     t_start = time.monotonic()
-    deadline = t_start + MAX_RUN_SECONDS
 
-    print(f"[phase_extract] run start: ls={LOK_SABHAS}, "
+    print(f"[phase_walk] run start: ls={LOK_SABHAS}, "
           f"sessions={list(SESSION_RANGE)}, types={QTYPES}, "
-          f"rs_mode={_RS_MODE}, "
-          f"budget=LS:{MAX_EXTRACTIONS_PER_RUN}+RS:{MAX_RS_EXTRACTIONS_PER_RUN}/{MAX_RUN_SECONDS}s")
+          f"rs_mode={_RS_MODE}")
 
     existing = load_existing_reports()
     print(f"  existing: " + ", ".join(f"{h}={len(existing.get(h, []))}" for h in HOUSES))
@@ -1256,14 +1256,12 @@ def phase_extract() -> int:
     rs_walk_stats: dict = {}
     merged = existing
 
-    # LS walk
     try:
         merged, ls_walk_stats = walk_ls_and_merge(merged)
     except RateLimited as rl:
         print(f"  [RATE-LIMITED during LS walk] {rl}")
         rate_limited = True
 
-    # RS walk (if not already rate-limited)
     if not rate_limited:
         try:
             merged, rs_walk_stats, _walked_rs = walk_rs_and_merge(merged)
@@ -1273,18 +1271,52 @@ def phase_extract() -> int:
 
     save_reports(merged)
 
-    # LS extract
+    meta = {
+        "phase":         "walk",
+        "generated_at":  datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "elapsed_s":     round(time.monotonic() - t_start, 1),
+        "ls_walk_stats": ls_walk_stats,
+        "rs_walk_stats": rs_walk_stats,
+        "rate_limited":  rate_limited,
+    }
+    if rate_limited:
+        meta["rate_limited_at"] = meta["generated_at"]
+    write_json_idempotent(META_JSON, meta, ignore_keys=())
+
+    print(f"[phase_walk] done in {meta['elapsed_s']}s: "
+          f"ls_new={ls_walk_stats.get('new', 0)}, "
+          f"rs_new={rs_walk_stats.get('new', 0)}, "
+          f"rate_limited={rate_limited}")
+    return 0 if not rate_limited else 1
+
+
+def phase_extract() -> int:
+    """Extract missing bodies from records already in the report shards.
+
+    Does NOT walk — walks are owned by phase_walk(). Run in the same job
+    as phase_derive() so the transient text/ files (gitignored) can be
+    bundled into committed text shards before the runner is destroyed.
+    """
+    t_start = time.monotonic()
+    deadline = t_start + MAX_RUN_SECONDS
+
+    print(f"[phase_extract] run start: "
+          f"budget=LS:{MAX_EXTRACTIONS_PER_RUN}+RS:{MAX_RS_EXTRACTIONS_PER_RUN}/{MAX_RUN_SECONDS}s")
+
+    merged = load_existing_reports()
+    print(f"  existing: " + ", ".join(f"{h}={len(merged.get(h, []))}" for h in HOUSES))
+
+    rate_limited = False
+
     ls_extract: dict = {"extracted": [], "failed": [], "rate_limited": False,
                         "budget_hit": False, "candidates_total": 0}
-    if not rate_limited:
-        try:
-            ls_extract = extract_missing_bodies(merged, deadline=deadline)
-            rate_limited = ls_extract.get("rate_limited", False)
-        except RateLimited as rl:
-            print(f"  [RATE-LIMITED during LS extract] {rl}")
-            rate_limited = True
+    try:
+        ls_extract = extract_missing_bodies(merged, deadline=deadline)
+        rate_limited = ls_extract.get("rate_limited", False)
+    except RateLimited as rl:
+        print(f"  [RATE-LIMITED during LS extract] {rl}")
+        rate_limited = True
 
-    # RS extract — uses whatever budget remains.
     rs_extract: dict = {"extracted": [], "failed": [], "rate_limited": False,
                         "budget_hit": False, "candidates_total": 0}
     if not rate_limited:
@@ -1299,8 +1331,6 @@ def phase_extract() -> int:
         "phase":         "extract",
         "generated_at":  datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "elapsed_s":     round(time.monotonic() - t_start, 1),
-        "ls_walk_stats": ls_walk_stats,
-        "rs_walk_stats": rs_walk_stats,
         "ls_extracted":  len(ls_extract.get("extracted", [])),
         "ls_failed":     len(ls_extract.get("failed", [])),
         "ls_candidates": ls_extract.get("candidates_total", 0),
@@ -1321,8 +1351,8 @@ def phase_extract() -> int:
     write_json_idempotent(META_JSON, meta, ignore_keys=())
 
     print(f"[phase_extract] done in {meta['elapsed_s']}s: "
-          f"ls_new={ls_walk_stats.get('new', 0)}, ls_extracted={meta['ls_extracted']}, "
-          f"rs_new={rs_walk_stats.get('new', 0)}, rs_extracted={meta['rs_extracted']}, "
+          f"ls_extracted={meta['ls_extracted']}, "
+          f"rs_extracted={meta['rs_extracted']}, "
           f"rate_limited={rate_limited}")
     return 0 if not rate_limited else 1
 
@@ -1395,18 +1425,27 @@ def phase_derive() -> int:
 
 def main() -> int:
     phase = os.environ.get("BUILD_PHASE", "extract").strip().lower()
-    if phase == "extract":
+    if phase == "walk":
+        return phase_walk()
+    elif phase == "extract":
         return phase_extract()
     elif phase == "derive":
         return phase_derive()
     elif phase == "all":
+        # all = walk → extract → derive. Used for one-off manual triggers.
+        # The cron-driven path runs walk in a separate workflow (every 6h)
+        # and extract+derive together in the hourly workflow.
+        rc = phase_walk()
+        if rc != 0:
+            print(f"  [main] walk failed (rc={rc}); skipping extract + derive")
+            return rc
         rc = phase_extract()
         if rc != 0:
             print(f"  [main] extract failed (rc={rc}); skipping derive")
             return rc
         return phase_derive()
     else:
-        print(f"unknown BUILD_PHASE={phase!r} (extract|derive|all)")
+        print(f"unknown BUILD_PHASE={phase!r} (walk|extract|derive|all)")
         return 2
 
 

@@ -1,14 +1,15 @@
 name: Debates derive (manifest + bundle + index + meta)
 
-# Single-owner regeneration of debates' derived files. Triggered by
-# any successful debates.yml primary write, plus a 30-min cron
-# backstop, plus manual workflow_dispatch. Same pattern as cag-derive
-# / lc-derive / fc-derive — see CONV.md "Split-phase scraping pattern".
+# Backstop derive for debates. The primary derive path now runs in the
+# SAME job as extract (debates.yml) so the transient text/ files
+# (gitignored) can be bundled before the runner is destroyed. This
+# workflow runs after the walk workflow (which only changes record shards)
+# and as a 30-min cron backstop in case the in-job derive step fails.
 
 on:
   workflow_run:
     workflows:
-      - "Debates scrape and publish"
+      - "Debates walk and publish"
     types: [completed]
   schedule:
     - cron: '*/30 * * * *'

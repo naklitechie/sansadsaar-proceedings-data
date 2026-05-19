@@ -1,14 +1,15 @@
 name: Questions derive (manifest + bundle + index + meta)
 
-# Single-owner regeneration of questions' derived files. Triggered by
-# any successful questions.yml primary write, plus a 30-min cron
-# backstop, plus manual workflow_dispatch. Same pattern as debates-derive
-# / cag-derive / lc-derive — see CONV.md "Split-phase scraping pattern".
+# Backstop derive for questions. The primary derive path now runs in the
+# SAME job as extract (questions.yml) so the transient text/ files
+# (gitignored) can be bundled before the runner is destroyed. This
+# workflow runs after the walk workflow (which only changes record shards)
+# and as a 30-min cron backstop in case the in-job derive step fails.
 
 on:
   workflow_run:
     workflows:
-      - "Questions scrape and publish"
+      - "Questions walk and publish"
     types: [completed]
   schedule:
     - cron: '*/30 * * * *'

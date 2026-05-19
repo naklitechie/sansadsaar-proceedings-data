@@ -1206,16 +1206,44 @@ def extract_missing_rs_pdfs(reports: dict[str, list[dict]], *, deadline: float) 
             "candidates_total": len(candidates)}
 
 
-def phase_extract() -> None:
-    overall_deadline = time.monotonic() + MAX_RUN_SECONDS
+def phase_walk() -> None:
+    """Walk LS + RS and persist report shards. No body extraction.
+
+    Split off from phase_extract so a slower-cadence walk workflow can
+    discover new records without consuming the hourly extract budget.
+    """
     existing = load_existing_reports()
     print(f"  existing on disk: {sum(len(existing.get(h, [])) for h in HOUSES)} records")
 
-    print(f"\n[Extract 1/4] Walking LS {LOK_SABHAS}...")
-    merged, ls_walk_stats = walk_ls_and_merge(existing)
+    print(f"\n[Walk 1/2] Walking LS {LOK_SABHAS}...")
+    try:
+        merged, ls_walk_stats = walk_ls_and_merge(existing)
+    except RateLimited as rl:
+        print(f"  [RATE-LIMITED during LS walk] {rl}")
+        return
     save_reports(merged)
 
-    print(f"\n[Extract 2/4] Fetching LS debate-details bodies (priority: newest LS, highest dbSlno)...")
+    print(f"\n[Walk 2/2] Walking RS sessions...")
+    try:
+        merged, rs_walk_stats, _ = walk_rs_and_merge(merged)
+    except RateLimited as rl:
+        print(f"  [RATE-LIMITED during RS walk] {rl}")
+        return
+    save_reports(merged)
+
+
+def phase_extract() -> None:
+    """Extract missing bodies from records already in the report shards.
+
+    Does NOT walk — walks are owned by phase_walk(). Run in the same job
+    as phase_derive() so the transient text/ files (gitignored) can be
+    bundled into committed text shards before the runner is destroyed.
+    """
+    overall_deadline = time.monotonic() + MAX_RUN_SECONDS
+    merged = load_existing_reports()
+    print(f"  existing on disk: {sum(len(merged.get(h, [])) for h in HOUSES)} records")
+
+    print(f"\n[Extract 1/2] Fetching LS debate-details bodies (priority: newest LS, highest dbSlno)...")
     ls_stats = extract_missing_bodies(merged, deadline=overall_deadline)
     print(f"  LS: extracted={len(ls_stats['extracted'])} "
           f"failed={len(ls_stats['failed'])} "
@@ -1227,11 +1255,7 @@ def phase_extract() -> None:
         print("  [RS skipped because LS rate-limited]")
         return
 
-    print(f"\n[Extract 3/4] Walking RS sessions...")
-    merged, rs_walk_stats, _ = walk_rs_and_merge(merged)
-    save_reports(merged)
-
-    print(f"\n[Extract 4/4] Downloading + extracting RS PDFs (priority: newest session, newest date, Floor first)...")
+    print(f"\n[Extract 2/2] Downloading + extracting RS PDFs (priority: newest session, newest date, Floor first)...")
     rs_stats = extract_missing_rs_pdfs(merged, deadline=overall_deadline)
     print(f"  RS: extracted={len(rs_stats['extracted'])} "
           f"failed={len(rs_stats['failed'])} "
@@ -1323,10 +1347,15 @@ def phase_derive() -> None:
 
 
 def main():
-    """Dispatch to extract / derive / both based on BUILD_PHASE."""
+    """Dispatch to walk / extract / derive / all based on BUILD_PHASE.
+
+    `all` = walk + extract + derive (used for one-off manual triggers).
+    The cron-driven path runs walk in a separate workflow (every 6h)
+    and extract+derive together in the hourly workflow.
+    """
     phase = os.environ.get("BUILD_PHASE", "all").lower()
-    if phase not in ("extract", "derive", "all"):
-        print(f"BUILD_PHASE={phase!r} not in extract|derive|all — aborting.", file=sys.stderr)
+    if phase not in ("walk", "extract", "derive", "all"):
+        print(f"BUILD_PHASE={phase!r} not in walk|extract|derive|all — aborting.", file=sys.stderr)
         sys.exit(2)
 
     print("=== ParliamentWatch Debates (LS phase A) static builder ===")
@@ -1337,6 +1366,8 @@ def main():
     print(f"MAX_RUN_SECONDS         : {MAX_RUN_SECONDS}")
     print(f"EXTRACT_WORKERS         : {EXTRACT_WORKERS}")
 
+    if phase in ("walk", "all"):
+        phase_walk()
     if phase in ("extract", "all"):
         phase_extract()
     if phase in ("derive", "all"):
