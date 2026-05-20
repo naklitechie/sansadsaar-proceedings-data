@@ -1,35 +1,67 @@
 {
   "phase": "derive",
-  "generated_at": "2026-05-20T18:23:18Z",
-  "elapsed_s": 13.6,
+  "generated_at": "2026-05-20T19:15:18Z",
+  "elapsed_s": 31.3,
   "totals": {
     "ls": 243275,
     "rs": 2771
   },
-  "search_bundle": null,
-  "search_index": null,
+  "search_bundle": {
+    "shard_count": 3,
+    "shards": [
+      "search-bundle-00.json",
+      "search-bundle-01.json",
+      "search-bundle-02.json"
+    ],
+    "shard_sizes": {
+      "search-bundle-00.json": 10334080,
+      "search-bundle-01.json": 10315440,
+      "search-bundle-02.json": 3388902
+    },
+    "total": 5703,
+    "truncated": 2543,
+    "head_chars": 5000,
+    "size_bytes": 24038422,
+    "max_shard_bytes": 10334080
+  },
+  "search_index": {
+    "shard_count": 3,
+    "shards": [
+      "search-index-00.json",
+      "search-index-01.json",
+      "search-index-02.json"
+    ],
+    "shard_sizes": {
+      "search-index-00.json": 5327432,
+      "search-index-01.json": 5045328,
+      "search-index-02.json": 3261554
+    },
+    "total": 5703,
+    "size_bytes": 13634314,
+    "max_shard_bytes": 5327432
+  },
   "audit": {
     "ls_records": 243275,
-    "ls_with_text": 4940,
-    "ls_pypdf_empty_awaiting_ocr": 63,
+    "ls_with_text": 5426,
+    "ls_pypdf_empty_awaiting_ocr": 77,
     "ls_pypdf_error_retryable": 0,
     "ls_ocr_failed_permanent": 0,
-    "ls_never_attempted": 238272,
+    "ls_never_attempted": 237772,
     "rs_records": 2771,
-    "rs_with_text": 252,
+    "rs_with_text": 277,
     "rs_pypdf_empty_awaiting_ocr": 0,
     "rs_pypdf_error_retryable": 0,
     "rs_ocr_failed_permanent": 0,
-    "rs_never_attempted": 2519
+    "rs_never_attempted": 2494
   },
   "text_shards": {
-    "records_with_text": 5192,
-    "shards": 11,
+    "records_with_text": 5703,
+    "shards": 12,
     "r2_fallback": 0,
-    "total_text_bytes": 0,
+    "total_text_bytes": 4054649,
     "missing_files": 0,
     "skipped_oversize_no_r2": 0,
     "from_existing_shards": 5192,
-    "txt_files_removed": 0
+    "txt_files_removed": 511
   }
 }
