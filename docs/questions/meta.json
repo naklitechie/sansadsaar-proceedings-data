@@ -1,16 +1,71 @@
 {
-  "phase": "walk",
-  "generated_at": "2026-05-21T16:05:59Z",
-  "elapsed_s": 767.2,
-  "ls_walk_stats": {
-    "new": 0,
-    "updated": 0,
-    "kept_legacy": 24861
+  "phase": "derive",
+  "generated_at": "2026-05-21T17:27:50Z",
+  "elapsed_s": 33.2,
+  "totals": {
+    "ls": 243275,
+    "rs": 2771
   },
-  "rs_walk_stats": {
-    "new": 0,
-    "updated": 0,
-    "kept_legacy": 0
+  "search_bundle": {
+    "shard_count": 4,
+    "shards": [
+      "search-bundle-00.json",
+      "search-bundle-01.json",
+      "search-bundle-02.json",
+      "search-bundle-03.json"
+    ],
+    "shard_sizes": {
+      "search-bundle-00.json": 10478271,
+      "search-bundle-01.json": 10099024,
+      "search-bundle-02.json": 10253330,
+      "search-bundle-03.json": 8380085
+    },
+    "total": 9341,
+    "truncated": 4092,
+    "head_chars": 5000,
+    "size_bytes": 39210710,
+    "max_shard_bytes": 10478271
   },
-  "rate_limited": false
+  "search_index": {
+    "shard_count": 4,
+    "shards": [
+      "search-index-00.json",
+      "search-index-01.json",
+      "search-index-02.json",
+      "search-index-03.json"
+    ],
+    "shard_sizes": {
+      "search-index-00.json": 5354848,
+      "search-index-01.json": 5157150,
+      "search-index-02.json": 5045127,
+      "search-index-03.json": 7008757
+    },
+    "total": 9341,
+    "size_bytes": 22565882,
+    "max_shard_bytes": 7008757
+  },
+  "audit": {
+    "ls_records": 243275,
+    "ls_with_text": 8889,
+    "ls_pypdf_empty_awaiting_ocr": 114,
+    "ls_pypdf_error_retryable": 0,
+    "ls_ocr_failed_permanent": 0,
+    "ls_never_attempted": 234272,
+    "rs_records": 2771,
+    "rs_with_text": 452,
+    "rs_pypdf_empty_awaiting_ocr": 0,
+    "rs_pypdf_error_retryable": 0,
+    "rs_ocr_failed_permanent": 0,
+    "rs_never_attempted": 2319
+  },
+  "text_shards": {
+    "records_with_text": 9341,
+    "shards": 19,
+    "r2_fallback": 0,
+    "total_text_bytes": 4152375,
+    "missing_files": 0,
+    "skipped_oversize_no_r2": 0,
+    "from_existing_shards": 8818,
+    "txt_files_removed": 523
+  }
 }
