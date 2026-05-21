@@ -1,49 +1,13 @@
 {
   "phase": "derive",
-  "generated_at": "2026-05-21T06:01:12Z",
-  "elapsed_s": 24.9,
+  "generated_at": "2026-05-21T07:02:14Z",
+  "elapsed_s": 13.8,
   "totals": {
     "ls": 243275,
     "rs": 2771
   },
-  "search_bundle": {
-    "shard_count": 4,
-    "shards": [
-      "search-bundle-00.json",
-      "search-bundle-01.json",
-      "search-bundle-02.json",
-      "search-bundle-03.json"
-    ],
-    "shard_sizes": {
-      "search-bundle-00.json": 10533453,
-      "search-bundle-01.json": 10167513,
-      "search-bundle-02.json": 10408617,
-      "search-bundle-03.json": 1696661
-    },
-    "total": 7787,
-    "truncated": 3439,
-    "head_chars": 5000,
-    "size_bytes": 32806244,
-    "max_shard_bytes": 10533453
-  },
-  "search_index": {
-    "shard_count": 4,
-    "shards": [
-      "search-index-00.json",
-      "search-index-01.json",
-      "search-index-02.json",
-      "search-index-03.json"
-    ],
-    "shard_sizes": {
-      "search-index-00.json": 5460084,
-      "search-index-01.json": 5109161,
-      "search-index-02.json": 5770141,
-      "search-index-03.json": 2378602
-    },
-    "total": 7787,
-    "size_bytes": 18717988,
-    "max_shard_bytes": 5770141
-  },
+  "search_bundle": null,
+  "search_index": null,
   "audit": {
     "ls_records": 243275,
     "ls_with_text": 7410,
@@ -62,10 +26,10 @@
     "records_with_text": 7787,
     "shards": 16,
     "r2_fallback": 0,
-    "total_text_bytes": 4731023,
+    "total_text_bytes": 0,
     "missing_files": 0,
     "skipped_oversize_no_r2": 0,
-    "from_existing_shards": 7266,
-    "txt_files_removed": 521
+    "from_existing_shards": 7787,
+    "txt_files_removed": 0
   }
 }
