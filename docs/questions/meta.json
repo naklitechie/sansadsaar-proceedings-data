@@ -1,71 +1,16 @@
 {
-  "phase": "derive",
-  "generated_at": "2026-05-21T19:36:15Z",
-  "elapsed_s": 26.5,
-  "totals": {
-    "ls": 243275,
-    "rs": 2771
+  "phase": "walk",
+  "generated_at": "2026-05-21T20:26:17Z",
+  "elapsed_s": 793.7,
+  "ls_walk_stats": {
+    "new": 0,
+    "updated": 0,
+    "kept_legacy": 24861
   },
-  "search_bundle": {
-    "shard_count": 4,
-    "shards": [
-      "search-bundle-00.json",
-      "search-bundle-01.json",
-      "search-bundle-02.json",
-      "search-bundle-03.json"
-    ],
-    "shard_sizes": {
-      "search-bundle-00.json": 10165148,
-      "search-bundle-01.json": 10387326,
-      "search-bundle-02.json": 10211610,
-      "search-bundle-03.json": 10596833
-    },
-    "total": 9865,
-    "truncated": 4305,
-    "head_chars": 5000,
-    "size_bytes": 41360917,
-    "max_shard_bytes": 10596833
+  "rs_walk_stats": {
+    "new": 0,
+    "updated": 0,
+    "kept_legacy": 0
   },
-  "search_index": {
-    "shard_count": 4,
-    "shards": [
-      "search-index-00.json",
-      "search-index-01.json",
-      "search-index-02.json",
-      "search-index-03.json"
-    ],
-    "shard_sizes": {
-      "search-index-00.json": 5046131,
-      "search-index-01.json": 5251226,
-      "search-index-02.json": 5154928,
-      "search-index-03.json": 8237908
-    },
-    "total": 9865,
-    "size_bytes": 23690193,
-    "max_shard_bytes": 8237908
-  },
-  "audit": {
-    "ls_records": 243275,
-    "ls_with_text": 9388,
-    "ls_pypdf_empty_awaiting_ocr": 115,
-    "ls_pypdf_error_retryable": 0,
-    "ls_ocr_failed_permanent": 0,
-    "ls_never_attempted": 233772,
-    "rs_records": 2771,
-    "rs_with_text": 477,
-    "rs_pypdf_empty_awaiting_ocr": 0,
-    "rs_pypdf_error_retryable": 0,
-    "rs_ocr_failed_permanent": 0,
-    "rs_never_attempted": 2294
-  },
-  "text_shards": {
-    "records_with_text": 9865,
-    "shards": 20,
-    "r2_fallback": 0,
-    "total_text_bytes": 4236974,
-    "missing_files": 0,
-    "skipped_oversize_no_r2": 0,
-    "from_existing_shards": 9341,
-    "txt_files_removed": 524
-  }
+  "rate_limited": false
 }
