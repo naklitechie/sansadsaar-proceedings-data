@@ -1,11 +1,11 @@
 {
-  "audited_at": "2026-05-20T17:42:55Z",
+  "audited_at": "2026-05-21T05:04:30Z",
   "totals": {
     "ls_records": 56914,
-    "ls_with_text": 1663,
+    "ls_with_text": 1863,
     "ls_empty_upstream": 0,
     "ls_error_retryable": 0,
-    "ls_never_attempted": 55251,
+    "ls_never_attempted": 55051,
     "rs_sitting_days": 325,
     "rs_version_units": 454,
     "rs_with_text": 0,
