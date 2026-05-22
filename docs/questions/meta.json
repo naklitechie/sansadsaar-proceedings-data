@@ -1,16 +1,75 @@
 {
-  "phase": "walk",
-  "generated_at": "2026-05-22T10:06:21Z",
-  "elapsed_s": 877.2,
-  "ls_walk_stats": {
-    "new": 0,
-    "updated": 0,
-    "kept_legacy": 24861
+  "phase": "derive",
+  "generated_at": "2026-05-22T13:22:34Z",
+  "elapsed_s": 29.9,
+  "totals": {
+    "ls": 243275,
+    "rs": 2771
   },
-  "rs_walk_stats": {
-    "new": 0,
-    "updated": 0,
-    "kept_legacy": 0
+  "search_bundle": {
+    "shard_count": 5,
+    "shards": [
+      "search-bundle-00.json",
+      "search-bundle-01.json",
+      "search-bundle-02.json",
+      "search-bundle-03.json",
+      "search-bundle-04.json"
+    ],
+    "shard_sizes": {
+      "search-bundle-00.json": 10244230,
+      "search-bundle-01.json": 9898456,
+      "search-bundle-02.json": 10379214,
+      "search-bundle-03.json": 10203065,
+      "search-bundle-04.json": 11164046
+    },
+    "total": 12447,
+    "truncated": 5387,
+    "head_chars": 5000,
+    "size_bytes": 51889011,
+    "max_shard_bytes": 11164046
   },
-  "rate_limited": false
+  "search_index": {
+    "shard_count": 5,
+    "shards": [
+      "search-index-00.json",
+      "search-index-01.json",
+      "search-index-02.json",
+      "search-index-03.json",
+      "search-index-04.json"
+    ],
+    "shard_sizes": {
+      "search-index-00.json": 5312409,
+      "search-index-01.json": 4873797,
+      "search-index-02.json": 5266828,
+      "search-index-03.json": 5133763,
+      "search-index-04.json": 9185529
+    },
+    "total": 12447,
+    "size_bytes": 29772326,
+    "max_shard_bytes": 9185529
+  },
+  "audit": {
+    "ls_records": 243275,
+    "ls_with_text": 11846,
+    "ls_pypdf_empty_awaiting_ocr": 157,
+    "ls_pypdf_error_retryable": 0,
+    "ls_ocr_failed_permanent": 0,
+    "ls_never_attempted": 231272,
+    "rs_records": 2771,
+    "rs_with_text": 601,
+    "rs_pypdf_empty_awaiting_ocr": 0,
+    "rs_pypdf_error_retryable": 0,
+    "rs_ocr_failed_permanent": 0,
+    "rs_never_attempted": 2170
+  },
+  "text_shards": {
+    "records_with_text": 12447,
+    "shards": 24,
+    "r2_fallback": 0,
+    "total_text_bytes": 4262155,
+    "missing_files": 0,
+    "skipped_oversize_no_r2": 0,
+    "from_existing_shards": 11949,
+    "txt_files_removed": 498
+  }
 }
