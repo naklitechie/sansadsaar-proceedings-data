@@ -1,13 +1,13 @@
 {
   "phase": "derive",
-  "generated_at": "2026-05-23T22:45:50Z",
-  "elapsed_s": 39.6,
+  "generated_at": "2026-05-23T23:49:25Z",
+  "elapsed_s": 40.0,
   "totals": {
     "ls": 243275,
     "rs": 2771
   },
   "search_bundle": {
-    "shard_count": 8,
+    "shard_count": 9,
     "shards": [
       "search-bundle-00.json",
       "search-bundle-01.json",
@@ -16,26 +16,28 @@
       "search-bundle-04.json",
       "search-bundle-05.json",
       "search-bundle-06.json",
-      "search-bundle-07.json"
+      "search-bundle-07.json",
+      "search-bundle-08.json"
     ],
     "shard_sizes": {
-      "search-bundle-00.json": 9754690,
-      "search-bundle-01.json": 9794109,
-      "search-bundle-02.json": 9779249,
-      "search-bundle-03.json": 9955755,
-      "search-bundle-04.json": 10252426,
-      "search-bundle-05.json": 10058299,
-      "search-bundle-06.json": 10296357,
-      "search-bundle-07.json": 10566307
+      "search-bundle-00.json": 9713513,
+      "search-bundle-01.json": 9827072,
+      "search-bundle-02.json": 9700463,
+      "search-bundle-03.json": 9937138,
+      "search-bundle-04.json": 9968770,
+      "search-bundle-05.json": 10344450,
+      "search-bundle-06.json": 10233067,
+      "search-bundle-07.json": 11350098,
+      "search-bundle-08.json": 1353945
     },
-    "total": 19719,
-    "truncated": 8061,
+    "total": 20229,
+    "truncated": 8232,
     "head_chars": 5000,
-    "size_bytes": 80457192,
-    "max_shard_bytes": 10566307
+    "size_bytes": 82428516,
+    "max_shard_bytes": 11350098
   },
   "search_index": {
-    "shard_count": 8,
+    "shard_count": 9,
     "shards": [
       "search-index-00.json",
       "search-index-01.json",
@@ -44,44 +46,46 @@
       "search-index-04.json",
       "search-index-05.json",
       "search-index-06.json",
-      "search-index-07.json"
+      "search-index-07.json",
+      "search-index-08.json"
     ],
     "shard_sizes": {
-      "search-index-00.json": 4894925,
-      "search-index-01.json": 4730134,
-      "search-index-02.json": 4690843,
-      "search-index-03.json": 5118837,
-      "search-index-04.json": 5245574,
-      "search-index-05.json": 5127548,
-      "search-index-06.json": 5089865,
-      "search-index-07.json": 10812303
+      "search-index-00.json": 4897442,
+      "search-index-01.json": 4823206,
+      "search-index-02.json": 4586767,
+      "search-index-03.json": 5137670,
+      "search-index-04.json": 4925261,
+      "search-index-05.json": 5226892,
+      "search-index-06.json": 5138671,
+      "search-index-07.json": 9828412,
+      "search-index-08.json": 1956274
     },
-    "total": 19719,
-    "size_bytes": 45710029,
-    "max_shard_bytes": 10812303
+    "total": 20229,
+    "size_bytes": 46520595,
+    "max_shard_bytes": 9828412
   },
   "audit": {
     "ls_records": 243275,
-    "ls_with_text": 18794,
-    "ls_pypdf_empty_awaiting_ocr": 209,
+    "ls_with_text": 19283,
+    "ls_pypdf_empty_awaiting_ocr": 220,
     "ls_pypdf_error_retryable": 0,
     "ls_ocr_failed_permanent": 0,
-    "ls_never_attempted": 224272,
+    "ls_never_attempted": 223772,
     "rs_records": 2771,
-    "rs_with_text": 925,
+    "rs_with_text": 946,
     "rs_pypdf_empty_awaiting_ocr": 0,
     "rs_pypdf_error_retryable": 0,
     "rs_ocr_failed_permanent": 0,
-    "rs_never_attempted": 1846
+    "rs_never_attempted": 1825
   },
   "text_shards": {
-    "records_with_text": 19719,
-    "shards": 36,
+    "records_with_text": 20229,
+    "shards": 37,
     "r2_fallback": 0,
-    "total_text_bytes": 3733484,
+    "total_text_bytes": 3472956,
     "missing_files": 0,
     "skipped_oversize_no_r2": 0,
-    "from_existing_shards": 19199,
-    "txt_files_removed": 520
+    "from_existing_shards": 19719,
+    "txt_files_removed": 510
   }
 }
