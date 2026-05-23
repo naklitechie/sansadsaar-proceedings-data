@@ -11,8 +11,11 @@ on:
     workflows:
       - "Questions walk and publish"
     types: [completed]
-  schedule:
-    - cron: '*/30 * * * *'
+  # 30-min schedule removed 2026-05-23: was racing the in-job derive
+  # step in questions.yml on docs/questions/meta.json, causing rebase
+  # conflicts that exhausted the 5-attempt push retry loop. Cron slots
+  # were being lost at ~70%. Backstop need is covered by workflow_run
+  # (fires after each walk completes) and workflow_dispatch (manual).
   workflow_dispatch:
 
 permissions:
