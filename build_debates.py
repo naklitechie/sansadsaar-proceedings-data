@@ -806,8 +806,12 @@ def compute_audit(reports: dict[str, list[dict]]) -> dict:
             if ver not in RS_INGESTED_VERSIONS: continue
             counts["rs_version_units"] += 1
             fid = rs_versioned_file_id(int(ses), iso, ver)
-            # Shard key is `rs|<date>|<ver>`; marker key is `rs|<stem>`.
-            cid_text   = f"rs|{iso}|{ver}"
+            # Shard key is `rs|<base_id>|<ver>` where base_id = `RS<ses>_<iso>`
+            # (matches the items composition in phase_derive and the
+            # `f"rs|{base_id}|{ver}" in bundled_ids` check in phase_extract's
+            # candidate-skip path). Marker key is `rs|<stem>` (== `rs|<fid>`).
+            base_id    = rs_base_file_id(int(ses), iso)
+            cid_text   = f"rs|{base_id}|{ver}"
             cid_marker = f"rs|{fid}"
             if cid_text in bundled_ids:
                 counts["rs_with_text"] += 1
