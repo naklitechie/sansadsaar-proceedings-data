@@ -115,32 +115,54 @@ def _parse_date(raw: str) -> Optional[str]:
     return f"{int(y):04d}-{int(mo):02d}-{int(d):02d}"
 
 
-_URL_DATE_RE = re.compile(r"/(\d{6,8})\.pdf(?:\?|$)", re.IGNORECASE)
-
-
 def _url_date_matches(url: str, date_iso: str) -> bool:
-    """Verify the PDF URL's filename encodes the same date as the
-    requested sitting day. Defends against an upstream bug where
-    sansad.in's `date-wise-debate` returns the same placeholder PDF
-    URL (typically the most recent uploaded PDF) for sitting days
-    whose actual PDF hasn't been transcribed + uploaded yet.
+    """Verify that a PDF URL is the one for the requested sitting day
+    (and not a stand-in for some other date).
 
-    Observed in RS-269 (Dec 2025): all 6 sitting dates returned
-    URLs pointing at /Floor/269/4122025/04122025.pdf (the Dec 4
-    PDF), regardless of which date was queried. Without this check,
-    we'd persist 6 identical text files under 6 different file_ids.
+    The check exists because sansad.in's `date-wise-debate` endpoint
+    sometimes returns the same placeholder URL for many sitting days
+    in a row — typically the most recent uploaded PDF, parroted back
+    for older dates whose own PDFs haven't been transcribed yet.
+    Observed concretely in RS-269 (Dec 2025): all 6 sitting dates
+    returned `/Floor/269/4122025/04122025.pdf` (the Dec 4 PDF),
+    regardless of `debateDate`. Without this filter we'd persist 6
+    identical text files under 6 different file_ids.
 
-    URL filenames in this corpus use either YYYYMMDD or DDMMYYYY
-    formats depending on session/version; check both.
+    The corpus uses several URL conventions that have shifted over
+    time, so we cover all of them by substring-matching the requested
+    date against the full URL — for the placeholder-bug case only the
+    *actually-correct* date will match; for every other date the
+    digits don't appear anywhere in the URL and we reject.
+
+    Conventions seen (sessions 189..present):
+
+      Sessions 189..247 (Feb 2000 – Dec 2018):
+        Floor:    `/Floor/<N>/F<DD.MM.YYYY>.pdf`        e.g. F30.12.2003.pdf
+        English:  `/English/<N>/E<DD.MM.YYYY>.pdf`
+        Hindi:    `/Hindi/<N>/<DD.MM.YYYY>.pdf`
+      Session 248 (Jan 2019 — transition, mixed):
+        Floor/English still use the old `<X><DD.MM.YYYY>.pdf` form.
+        Part-1 jumps to `/Part-1.../<N>/<D[D]M[M]YYYY>/F1<DDMMYYYY>.pdf`
+        Hindi    likewise to `/Hindi/<N>/<D[D]M[M]YYYY>/Debate-<DDMMYYYY>.pdf`
+      Sessions ~249..present (modern):
+        `/Floor/<N>/<DDMMYYYY>/<DDMMYYYY>.pdf` (Floor)
+        `/Part-1QuestionAnswers/<N>/<DDMMYYYY>/<YYYYMMDD>.pdf` (Part-1)
+
+    The transitional folder-name format uses an *unpadded* day-month
+    (e.g. `722019` for 7 Feb 2019), so we generate unpadded variants
+    alongside the padded ones.
     """
     if not url or not date_iso: return False
     y, mo, d = date_iso[:4], date_iso[5:7], date_iso[8:10]
-    ymd_padded = f"{y}{mo}{d}"     # 20251210
-    dmy_padded = f"{d}{mo}{y}"     # 10122025
-    m = _URL_DATE_RE.search(url)
-    if not m: return False
-    s = m.group(1)
-    return s in (ymd_padded, dmy_padded)
+    d_unp, mo_unp = str(int(d)), str(int(mo))
+    candidates = (
+        f"{y}{mo}{d}",            # YYYYMMDD      — 20251211 modern Part-1 filename
+        f"{d}{mo}{y}",            # DDMMYYYY      — 12122025 modern Floor filename/folder
+        f"{d_unp}{mo}{y}",        # D-MM-YYYY     — 9122019  older folder, unpadded day
+        f"{d_unp}{mo_unp}{y}",    # D-M-YYYY      — 722019   older folder, both unpadded
+        f"{d}.{mo}.{y}",          # DD.MM.YYYY    — 30.12.2003 older filename
+    )
+    return any(c in url for c in candidates)
 
 
 # ── Enumerate sessions ──────────────────────────────────────────────────
