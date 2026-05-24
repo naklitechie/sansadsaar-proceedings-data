@@ -401,7 +401,20 @@ def walk_rs_and_merge(existing: dict[str, list[dict]]) -> tuple[dict[str, list[d
         if key in fresh_rs:
             new_rec = fresh_rs[key]
             if key in old_rs_by_key:
-                if old_rs_by_key[key] != new_rec: updated_count += 1
+                old_rec = old_rs_by_key[key]
+                # Never let an empty-versions discovery clobber an existing
+                # record that has working URLs. Upstream sometimes serves
+                # stale placeholder URLs (whose filenames don't match the
+                # requested date) for a session that previously had real
+                # URLs — without this guard, a re-walk would lose the
+                # working version map. See rajyasabha.py's _url_date_matches
+                # filter for the upstream bug we're defending against.
+                if (not new_rec.get("file_versions")
+                        and old_rec.get("file_versions")):
+                    out_rs.append(old_rec)
+                    kept_legacy += 1
+                    continue
+                if old_rec != new_rec: updated_count += 1
             else:
                 new_count += 1
             out_rs.append(new_rec)

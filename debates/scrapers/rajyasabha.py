@@ -206,9 +206,13 @@ def fetch_date_pdfs(session_no: int, date_raw: str) -> Optional[RSDebate]:
     if not versions:
         if rejected_stale:
             print(f"  RS{session_no} {date_raw}: all {rejected_stale} version URL(s) "
-                  f"were stale placeholders (pointing at a different date) — skipping; "
-                  f"will retry when upstream uploads correct PDFs")
-        return None
+                  f"were stale placeholders (pointing at a different date) — "
+                  f"recording sitting metadata with no versions; "
+                  f"will populate when upstream uploads correct PDFs")
+        else:
+            # No fileDetail entries at all — also persist as a discovered
+            # sitting (title-only) so consumers know the date existed.
+            pass
     return RSDebate(
         session_number=session_no,
         date_iso=      date_iso,
