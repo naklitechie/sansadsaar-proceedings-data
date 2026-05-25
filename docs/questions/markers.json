@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-05-25T20:59:34Z",
+  "generated_at": "2026-05-25T22:49:35Z",
   "totals": {
-    "pypdf-empty": 371,
+    "pypdf-empty": 372,
     "pypdf-error": 0,
     "ocr-failed": 0
   },
@@ -376,6 +376,7 @@
     "ls|LS18_S2_U_1187": "pypdf-empty",
     "ls|LS18_S2_U_1198": "pypdf-empty",
     "ls|LS18_S2_U_1159": "pypdf-empty",
-    "ls|LS18_S2_U_1208": "pypdf-empty"
+    "ls|LS18_S2_U_1208": "pypdf-empty",
+    "ls|LS18_S2_U_374": "pypdf-empty"
   }
 }
