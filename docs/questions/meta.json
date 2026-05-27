@@ -1,7 +1,7 @@
 {
   "phase": "derive",
-  "generated_at": "2026-05-26T23:05:11Z",
-  "elapsed_s": 49.4,
+  "generated_at": "2026-05-27T02:00:52Z",
+  "elapsed_s": 48.6,
   "totals": {
     "ls": 243275,
     "rs": 2771
@@ -25,26 +25,26 @@
       "search-bundle-13.json"
     ],
     "shard_sizes": {
-      "search-bundle-00.json": 9624780,
-      "search-bundle-01.json": 8957725,
-      "search-bundle-02.json": 9334382,
-      "search-bundle-03.json": 9165349,
-      "search-bundle-04.json": 9621366,
-      "search-bundle-05.json": 9460344,
-      "search-bundle-06.json": 9805548,
-      "search-bundle-07.json": 9606304,
-      "search-bundle-08.json": 9915462,
-      "search-bundle-09.json": 9966657,
-      "search-bundle-10.json": 10334201,
-      "search-bundle-11.json": 10168776,
-      "search-bundle-12.json": 10318052,
-      "search-bundle-13.json": 7537248
+      "search-bundle-00.json": 9433845,
+      "search-bundle-01.json": 9218032,
+      "search-bundle-02.json": 9125555,
+      "search-bundle-03.json": 9226384,
+      "search-bundle-04.json": 9640598,
+      "search-bundle-05.json": 9405840,
+      "search-bundle-06.json": 9576974,
+      "search-bundle-07.json": 9794096,
+      "search-bundle-08.json": 9694681,
+      "search-bundle-09.json": 10171172,
+      "search-bundle-10.json": 10282720,
+      "search-bundle-11.json": 10112889,
+      "search-bundle-12.json": 10256999,
+      "search-bundle-13.json": 9637700
     },
-    "total": 33851,
-    "truncated": 12620,
+    "total": 34343,
+    "truncated": 12748,
     "head_chars": 5000,
-    "size_bytes": 133816194,
-    "max_shard_bytes": 10334201
+    "size_bytes": 135577485,
+    "max_shard_bytes": 10282720
   },
   "search_index": {
     "shard_count": 14,
@@ -65,47 +65,47 @@
       "search-index-13.json"
     ],
     "shard_sizes": {
-      "search-index-00.json": 4594869,
-      "search-index-01.json": 4288216,
-      "search-index-02.json": 4647414,
-      "search-index-03.json": 4350566,
-      "search-index-04.json": 4916340,
-      "search-index-05.json": 4659002,
-      "search-index-06.json": 4897958,
-      "search-index-07.json": 4593163,
-      "search-index-08.json": 5049777,
-      "search-index-09.json": 4938492,
-      "search-index-10.json": 5249187,
-      "search-index-11.json": 5098617,
-      "search-index-12.json": 5620439,
-      "search-index-13.json": 10386159
+      "search-index-00.json": 4569669,
+      "search-index-01.json": 4431886,
+      "search-index-02.json": 4560473,
+      "search-index-03.json": 4348592,
+      "search-index-04.json": 4960659,
+      "search-index-05.json": 4655898,
+      "search-index-06.json": 4684695,
+      "search-index-07.json": 4662963,
+      "search-index-08.json": 4864719,
+      "search-index-09.json": 5017358,
+      "search-index-10.json": 5342844,
+      "search-index-11.json": 5102720,
+      "search-index-12.json": 5119603,
+      "search-index-13.json": 12495802
     },
-    "total": 33850,
-    "size_bytes": 73290199,
-    "max_shard_bytes": 10386159
+    "total": 34342,
+    "size_bytes": 74817881,
+    "max_shard_bytes": 12495802
   },
   "audit": {
     "ls_records": 243275,
-    "ls_with_text": 32431,
-    "ls_pypdf_empty_awaiting_ocr": 422,
-    "ls_pypdf_error_retryable": 18,
+    "ls_with_text": 32910,
+    "ls_pypdf_empty_awaiting_ocr": 432,
+    "ls_pypdf_error_retryable": 10,
     "ls_ocr_failed_permanent": 0,
-    "ls_never_attempted": 210404,
+    "ls_never_attempted": 209923,
     "rs_records": 2771,
-    "rs_with_text": 1420,
+    "rs_with_text": 1433,
     "rs_pypdf_empty_awaiting_ocr": 0,
     "rs_pypdf_error_retryable": 0,
     "rs_ocr_failed_permanent": 0,
-    "rs_never_attempted": 1351
+    "rs_never_attempted": 1338
   },
   "text_shards": {
-    "records_with_text": 33741,
+    "records_with_text": 34229,
     "shards": 57,
     "r2_fallback": 0,
-    "total_text_bytes": 3005514,
+    "total_text_bytes": 2998038,
     "missing_files": 0,
     "skipped_oversize_no_r2": 0,
-    "from_existing_shards": 33257,
-    "txt_files_removed": 484
+    "from_existing_shards": 33741,
+    "txt_files_removed": 488
   }
 }
