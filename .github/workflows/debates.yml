@@ -84,9 +84,12 @@ jobs:
 
       - name: Derive (bundle text shards + manifest + audit + search)
         # Must run in the SAME job as extract — text/ is gitignored, so the
-        # .txt files extract just produced live only on this runner.
-        # debates-derive.yml is kept as a 30-min backstop in case this step
-        # fails.
+        # .txt files extract just produced live only on this runner. This is
+        # the only derive path: the standalone debates-derive.yml backstop was
+        # retired 2026-05-28 (it ran without text/ files, so it could only
+        # rebuild empty/partial derived artifacts — and left manifest.json
+        # unstaged, breaking its own push-rebase loop). meta/audit stay current
+        # because this extract+derive runs every 2h vs the 6h walk cadence.
         env:
           BUILD_PHASE: 'derive'
         run: python build_debates.py
