@@ -1,119 +1,16 @@
 {
-  "phase": "derive",
-  "generated_at": "2026-05-28T13:04:29Z",
-  "elapsed_s": 51.5,
-  "totals": {
-    "ls": 243275,
-    "rs": 2771
+  "phase": "walk",
+  "generated_at": "2026-05-28T16:50:21Z",
+  "elapsed_s": 821.7,
+  "ls_walk_stats": {
+    "new": 0,
+    "updated": 0,
+    "kept_legacy": 24861
   },
-  "search_bundle": {
-    "shard_count": 16,
-    "shards": [
-      "search-bundle-00.json",
-      "search-bundle-01.json",
-      "search-bundle-02.json",
-      "search-bundle-03.json",
-      "search-bundle-04.json",
-      "search-bundle-05.json",
-      "search-bundle-06.json",
-      "search-bundle-07.json",
-      "search-bundle-08.json",
-      "search-bundle-09.json",
-      "search-bundle-10.json",
-      "search-bundle-11.json",
-      "search-bundle-12.json",
-      "search-bundle-13.json",
-      "search-bundle-14.json",
-      "search-bundle-15.json"
-    ],
-    "shard_sizes": {
-      "search-bundle-00.json": 8824977,
-      "search-bundle-01.json": 9545704,
-      "search-bundle-02.json": 9648264,
-      "search-bundle-03.json": 8934075,
-      "search-bundle-04.json": 9365094,
-      "search-bundle-05.json": 9140525,
-      "search-bundle-06.json": 9632402,
-      "search-bundle-07.json": 9493828,
-      "search-bundle-08.json": 9795759,
-      "search-bundle-09.json": 9606830,
-      "search-bundle-10.json": 9940538,
-      "search-bundle-11.json": 9939409,
-      "search-bundle-12.json": 10377912,
-      "search-bundle-13.json": 10153702,
-      "search-bundle-14.json": 10482210,
-      "search-bundle-15.json": 7447237
-    },
-    "total": 38834,
-    "truncated": 14019,
-    "head_chars": 5000,
-    "size_bytes": 152328466,
-    "max_shard_bytes": 10482210
+  "rs_walk_stats": {
+    "new": 0,
+    "updated": 0,
+    "kept_legacy": 0
   },
-  "search_index": {
-    "shard_count": 16,
-    "shards": [
-      "search-index-00.json",
-      "search-index-01.json",
-      "search-index-02.json",
-      "search-index-03.json",
-      "search-index-04.json",
-      "search-index-05.json",
-      "search-index-06.json",
-      "search-index-07.json",
-      "search-index-08.json",
-      "search-index-09.json",
-      "search-index-10.json",
-      "search-index-11.json",
-      "search-index-12.json",
-      "search-index-13.json",
-      "search-index-14.json",
-      "search-index-15.json"
-    ],
-    "shard_sizes": {
-      "search-index-00.json": 4327829,
-      "search-index-01.json": 4352040,
-      "search-index-02.json": 4549737,
-      "search-index-03.json": 4294104,
-      "search-index-04.json": 4626758,
-      "search-index-05.json": 4345002,
-      "search-index-06.json": 4896021,
-      "search-index-07.json": 4681188,
-      "search-index-08.json": 4887923,
-      "search-index-09.json": 4570719,
-      "search-index-10.json": 5122206,
-      "search-index-11.json": 4885325,
-      "search-index-12.json": 5274111,
-      "search-index-13.json": 5104096,
-      "search-index-14.json": 6027918,
-      "search-index-15.json": 10250002
-    },
-    "total": 38833,
-    "size_bytes": 82194979,
-    "max_shard_bytes": 10250002
-  },
-  "audit": {
-    "ls_records": 243275,
-    "ls_with_text": 37302,
-    "ls_pypdf_empty_awaiting_ocr": 478,
-    "ls_pypdf_error_retryable": 16,
-    "ls_ocr_failed_permanent": 0,
-    "ls_never_attempted": 205479,
-    "rs_records": 2771,
-    "rs_with_text": 1532,
-    "rs_pypdf_empty_awaiting_ocr": 1,
-    "rs_pypdf_error_retryable": 0,
-    "rs_ocr_failed_permanent": 0,
-    "rs_never_attempted": 1238
-  },
-  "text_shards": {
-    "records_with_text": 38456,
-    "shards": 62,
-    "r2_fallback": 0,
-    "total_text_bytes": 2176060,
-    "missing_files": 0,
-    "skipped_oversize_no_r2": 0,
-    "from_existing_shards": 37966,
-    "txt_files_removed": 490
-  }
+  "rate_limited": false
 }
