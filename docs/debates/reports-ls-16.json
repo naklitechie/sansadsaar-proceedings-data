@@ -4,6 +4,90 @@
       "house": "ls",
       "lok_sabha": 15,
       "session": 9,
+      "db_slno": 5943,
+      "title": "Presentation of the 21<sup>st</sup> and 22<sup>nd</sup> Reports\r\nof the Standing Committee on Energy.",
+      "debate_date": "14/12/2011",
+      "debate_type": 35,
+      "debate_type_desc": "PARLIAMENTARY COMMITTEES",
+      "members": [
+        {
+          "mp_name": "Shri Mulayam Singh Yadav",
+          "mp_code": 530,
+          "mp_part_code": 1
+        }
+      ],
+      "keywords": []
+    },
+    {
+      "house": "ls",
+      "lok_sabha": 15,
+      "session": 9,
+      "db_slno": 5942,
+      "title": "Secretary-General reported a message from Rajya Sabha that Rajya Sabha had\r\nno recommendations to make to the Lok Sabha in regard to the Appropriation (No.\r\n4) Bill, 2011, passed by the Lok Sabha on the 7<sup>th</sup> December, 2011.",
+      "debate_date": "14/12/2011",
+      "debate_type": 24,
+      "debate_type_desc": "MESSAGES FROM RAJYA SABHA",
+      "members": [
+        {
+          "mp_name": "Secretary-General",
+          "mp_code": 1002,
+          "mp_part_code": 1
+        }
+      ],
+      "keywords": []
+    },
+    {
+      "house": "ls",
+      "lok_sabha": 15,
+      "session": 9,
+      "db_slno": 5941,
+      "title": "Papers laid on\r\nthe Table of the House by Ministers/members.",
+      "debate_date": "14/12/2011",
+      "debate_type": 34,
+      "debate_type_desc": "PAPERS LAID ON THE TABLE",
+      "members": [
+        {
+          "mp_name": "Shri Vayalar Ravi",
+          "mp_code": 10019,
+          "mp_part_code": 1
+        },
+        {
+          "mp_name": "Shri Pratik Prakashbapu Patil",
+          "mp_code": 4211,
+          "mp_part_code": 2
+        },
+        {
+          "mp_name": "Shri V. Narayanasamy",
+          "mp_code": 4350,
+          "mp_part_code": 3
+        },
+        {
+          "mp_name": "Smt. Daggubati Purandeswari",
+          "mp_code": 4022,
+          "mp_part_code": 4
+        },
+        {
+          "mp_name": "Shri Sachin Pilot",
+          "mp_code": 4058,
+          "mp_part_code": 5
+        },
+        {
+          "mp_name": "Shri Ashwani Kumar",
+          "mp_code": 10032,
+          "mp_part_code": 6
+        },
+        {
+          "mp_name": "Shri Milind Murli Deora",
+          "mp_code": 4052,
+          "mp_part_code": 7
+        }
+      ],
+      "keywords": []
+    },
+    {
+      "house": "ls",
+      "lok_sabha": 15,
+      "session": 9,
       "db_slno": 5940,
       "title": "Motion for Adjournment regarding\r\nmoney deposited illegally in foreign banks and action taken.",
       "debate_date": "14/12/2011",
@@ -63752,68 +63836,6 @@
       "keywords": [
         "Compensations",
         "Maoism"
-      ]
-    },
-    {
-      "house": "ls",
-      "lok_sabha": 15,
-      "session": 6,
-      "db_slno": 3442,
-      "title": "Need to expedite implementation of paddy\r\nprocurement process in Punjab.",
-      "debate_date": "09/11/2010",
-      "debate_type": 46,
-      "debate_type_desc": "SPECIAL MENTION",
-      "members": [
-        {
-          "mp_name": "Shri Manish Tewari",
-          "mp_code": 4430,
-          "mp_part_code": 1
-        }
-      ],
-      "keywords": [
-        "Crop Procurement"
-      ]
-    },
-    {
-      "house": "ls",
-      "lok_sabha": 15,
-      "session": 6,
-      "db_slno": 3441,
-      "title": "Need to expedite construction of Nanguneri Special Economic Zone Project and\r\nallocate adequate funds for infrastructural development.",
-      "debate_date": "09/11/2010",
-      "debate_type": 46,
-      "debate_type_desc": "SPECIAL MENTION",
-      "members": [
-        {
-          "mp_name": "Shri S.S. Ramasubbu",
-          "mp_code": 4556,
-          "mp_part_code": 1
-        }
-      ],
-      "keywords": [
-        "Fund Allocation",
-        "Infrastructure Development",
-        "Special Economic Zones"
-      ]
-    },
-    {
-      "house": "ls",
-      "lok_sabha": 15,
-      "session": 6,
-      "db_slno": 3440,
-      "title": "Need to include Rajasthani Language in the Eight Schedule to the\r\nConstitution of India.",
-      "debate_date": "09/11/2010",
-      "debate_type": 46,
-      "debate_type_desc": "SPECIAL MENTION",
-      "members": [
-        {
-          "mp_name": "Shri Arjun Ram Meghwal",
-          "mp_code": 4399,
-          "mp_part_code": 1
-        }
-      ],
-      "keywords": [
-        "Language Promotion"
       ]
     }
   ],

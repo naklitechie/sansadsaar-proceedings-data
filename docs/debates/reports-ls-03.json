@@ -4,6 +4,70 @@
       "house": "ls",
       "lok_sabha": 17,
       "session": 11,
+      "db_slno": 11532,
+      "title": "Regarding plight of tribals in Kanniyakumari Parliamentary Constituency.-laid",
+      "debate_date": "24/03/2023",
+      "debate_type": 21,
+      "debate_type_desc": "MATTERS UNDER RULE-377",
+      "members": [
+        {
+          "mp_name": "Shri Vijay Kumar (ALIAS) Vijay Vasanth",
+          "mp_code": 5533,
+          "mp_part_code": 2
+        }
+      ],
+      "keywords": [
+        "Tribal Welfare",
+        "Basic Amenities"
+      ]
+    },
+    {
+      "house": "ls",
+      "lok_sabha": 17,
+      "session": 11,
+      "db_slno": 11531,
+      "title": "Regarding construction of a high level bridge over Mahanadi river in Boudh district.-laid",
+      "debate_date": "24/03/2023",
+      "debate_type": 21,
+      "debate_type_desc": "MATTERS UNDER RULE-377",
+      "members": [
+        {
+          "mp_name": "Smt. Sangeeta Kumari Singh Deo",
+          "mp_code": 426,
+          "mp_part_code": 1
+        }
+      ],
+      "keywords": [
+        "Bridges",
+        "Railway Projects"
+      ]
+    },
+    {
+      "house": "ls",
+      "lok_sabha": 17,
+      "session": 11,
+      "db_slno": 11530,
+      "title": "Need to provide social security benefits to persons living below poverty line and persons with disabilities.-laid",
+      "debate_date": "24/03/2023",
+      "debate_type": 21,
+      "debate_type_desc": "MATTERS UNDER RULE-377",
+      "members": [
+        {
+          "mp_name": "Kunwar Pushpendra Singh Chandel",
+          "mp_code": 4665,
+          "mp_part_code": 1
+        }
+      ],
+      "keywords": [
+        "Health Insurance",
+        "Pension",
+        "Pradhan Mantri Garib Kalyan Anna Yojana (PM-GKAY) "
+      ]
+    },
+    {
+      "house": "ls",
+      "lok_sabha": 17,
+      "session": 11,
       "db_slno": 11529,
       "title": "Need to construct Railway overbridge/underbridge at Railway crossings in Banda Parliamentary Constituency.-laid",
       "debate_date": "24/03/2023",
@@ -58806,64 +58870,6 @@
       ],
       "keywords": [
         "Unique Identification Number(UIN)"
-      ]
-    },
-    {
-      "house": "ls",
-      "lok_sabha": 17,
-      "session": 8,
-      "db_slno": 9320,
-      "title": "Regarding release and repatriation of the \r\nfishermen detained in Indonesia and Seychelles.",
-      "debate_date": "16/03/2022",
-      "debate_type": 46,
-      "debate_type_desc": "SPECIAL MENTION (ZERO HOUR)",
-      "members": [
-        {
-          "mp_name": "Adv. Adoor Prakash",
-          "mp_code": 5123,
-          "mp_part_code": 1
-        }
-      ],
-      "keywords": []
-    },
-    {
-      "house": "ls",
-      "lok_sabha": 17,
-      "session": 8,
-      "db_slno": 9319,
-      "title": "Regarding extensionof train return from \r\nAhamdabad to Rajkot.",
-      "debate_date": "16/03/2022",
-      "debate_type": 46,
-      "debate_type_desc": "SPECIAL MENTION (ZERO HOUR)",
-      "members": [
-        {
-          "mp_name": "Shri Mohanbhai Kalyanji Kundariya",
-          "mp_code": 4692,
-          "mp_part_code": 1
-        }
-      ],
-      "keywords": []
-    },
-    {
-      "house": "ls",
-      "lok_sabha": 17,
-      "session": 8,
-      "db_slno": 9318,
-      "title": "Regarding age relaxation for Army/ Paramilatary for applicants.",
-      "debate_date": "16/03/2022",
-      "debate_type": 46,
-      "debate_type_desc": "SPECIAL MENTION (ZERO HOUR)",
-      "members": [
-        {
-          "mp_name": "Shri  Dharambir Singh",
-          "mp_code": 4647,
-          "mp_part_code": 1
-        }
-      ],
-      "keywords": [
-        "Employment",
-        "Recruitment",
-        "Defence Forces"
       ]
     }
   ],

@@ -4,6 +4,60 @@
       "house": "ls",
       "lok_sabha": 17,
       "session": 3,
+      "db_slno": 3855,
+      "title": "Presentation of\r\nthe 11th, 12th and 13th Reports of Standing Committee on Agriculture.",
+      "debate_date": "13/03/2020",
+      "debate_type": 35,
+      "debate_type_desc": "PARLIAMENTARY COMMITTEES",
+      "members": [
+        {
+          "mp_name": "Shri Parvatagouda Chandanagouda Gaddigoudar",
+          "mp_code": 3984,
+          "mp_part_code": 1
+        }
+      ],
+      "keywords": []
+    },
+    {
+      "house": "ls",
+      "lok_sabha": 17,
+      "session": 3,
+      "db_slno": 3854,
+      "title": "Presentation of the 2nd\r\n Report of the\r\n Committee on Subordinate Legislation based on examination of statutory orders\r\nnotified by the Ministry of Finance and the Ministry of Human Resource Development\r\nunder delegated legislation.",
+      "debate_date": "13/03/2020",
+      "debate_type": 35,
+      "debate_type_desc": "PARLIAMENTARY COMMITTEES",
+      "members": [
+        {
+          "mp_name": "Shri Kanumuru Raghu Rama Krishna Raju",
+          "mp_code": 5097,
+          "mp_part_code": 1
+        }
+      ],
+      "keywords": []
+    },
+    {
+      "house": "ls",
+      "lok_sabha": 17,
+      "session": 3,
+      "db_slno": 3853,
+      "title": "Rajya Sabha agreed to the amendments made \r\nby the Lok Sabha in the Constitution (Scheduled Tribes) Order (Amendment) Bill,\r\n2019; Rajya Sabha agreed without any amendment to the Insolvency and Bankruptcy\r\nCode (Amendment) Bill, 2020 and to the Mineral Laws (Amendment) Bill, 2020, as\r\npassed by the Lok Sabha.",
+      "debate_date": "13/03/2020",
+      "debate_type": 24,
+      "debate_type_desc": "MESSAGES FROM RAJYA SABHA",
+      "members": [
+        {
+          "mp_name": "Secretary-General",
+          "mp_code": 1002,
+          "mp_part_code": 1
+        }
+      ],
+      "keywords": []
+    },
+    {
+      "house": "ls",
+      "lok_sabha": 17,
+      "session": 3,
       "db_slno": 3852,
       "title": "Papers laid on \r\nthe Table of the House by Ministers/Members.",
       "debate_date": "13/03/2020",
@@ -65684,67 +65738,6 @@
         "Water Supply",
         "Safe Drinking Water"
       ]
-    },
-    {
-      "house": "ls",
-      "lok_sabha": 17,
-      "session": 1,
-      "db_slno": 1395,
-      "title": "Introduction of National Medical Commission Bill, 2019.",
-      "debate_date": "22/07/2019",
-      "debate_type": 14,
-      "debate_type_desc": "GOVERNMENT BILLS",
-      "members": [
-        {
-          "mp_name": "Dr.  Harsh Vardhan",
-          "mp_code": 4776,
-          "mp_part_code": 1
-        }
-      ],
-      "keywords": [
-        "Medical Doctors",
-        "Medical Education",
-        "Medical Institutions",
-        "Regulations",
-        "National Eligibility cum Entrance Test (NEET)",
-        "Medical Profession"
-      ]
-    },
-    {
-      "house": "ls",
-      "lok_sabha": 17,
-      "session": 1,
-      "db_slno": 1394,
-      "title": "Laid a statement regarding the status of implementation of \r\nthe recommendations/observations contained in the 46th Report of the\r\n Standing Committee on Labour on Action taken by the Government on the\r\n observations/recommendations contained in 33rd Report of the \r\nCommittee on ''Industrial Training Institutes (ITIs) and Skill Development\r\n Initiative Scheme Welfare'' pertaining to the Ministry of Skill Development and\r\n Entrepreneurship.",
-      "debate_date": "22/07/2019",
-      "debate_type": 47,
-      "debate_type_desc": "STATEMENT BY MINISTER",
-      "members": [
-        {
-          "mp_name": "Shri Arjun Ram Meghwal",
-          "mp_code": 4399,
-          "mp_part_code": 1
-        }
-      ],
-      "keywords": []
-    },
-    {
-      "house": "ls",
-      "lok_sabha": 17,
-      "session": 1,
-      "db_slno": 1393,
-      "title": "Laid a statement regarding status of implementation of the further \r\nrecommendations/ observations contained in the 267 Report of the\r\nStanding Committee on Transport, Tourism and Culture on Action taken by the\r\nGovernment on the recommendations contained in 261<sup>st</sup> Report of the\r\nCommittee on Demands for Grants (2018-19) pertaining to the Ministry of \r\nTourism.",
-      "debate_date": "22/07/2019",
-      "debate_type": 47,
-      "debate_type_desc": "STATEMENT BY MINISTER",
-      "members": [
-        {
-          "mp_name": "Shri Prahlad Singh Patel",
-          "mp_code": 306,
-          "mp_part_code": 1
-        }
-      ],
-      "keywords": []
     }
   ],
   "count": 2500,

@@ -4,6 +4,105 @@
       "house": "ls",
       "lok_sabha": 16,
       "session": 5,
+      "db_slno": 4030,
+      "title": "Papers laid on the Table of the House by Ministers/Members.",
+      "debate_date": "27/07/2015",
+      "debate_type": 34,
+      "debate_type_desc": "PAPERS LAID ON THE TABLE",
+      "members": [
+        {
+          "mp_name": "SHRI ARUN JAITLEY",
+          "mp_code": 10004,
+          "mp_part_code": 1
+        },
+        {
+          "mp_name": "Shri Kalraj Mishra",
+          "mp_code": 4721,
+          "mp_part_code": 2
+        },
+        {
+          "mp_name": "Shri Shripad Yesso Naik",
+          "mp_code": 273,
+          "mp_part_code": 3
+        },
+        {
+          "mp_name": "Shri Inderjit Singh Rao",
+          "mp_code": 3904,
+          "mp_part_code": 4
+        },
+        {
+          "mp_name": "Shri Shripad Yesso Naik",
+          "mp_code": 273,
+          "mp_part_code": 5
+        },
+        {
+          "mp_name": "SMT. NIRMALA SITHARAMAN",
+          "mp_code": 10006,
+          "mp_part_code": 6
+        },
+        {
+          "mp_name": "Dr. Mahesh Sharma",
+          "mp_code": 4642,
+          "mp_part_code": 7
+        },
+        {
+          "mp_name": "Shri Manoj Kumar Sinha",
+          "mp_code": 463,
+          "mp_part_code": 8
+        },
+        {
+          "mp_name": "Shri Jayant Sinha",
+          "mp_code": 4768,
+          "mp_part_code": 9
+        },
+        {
+          "mp_name": "Col. Rajyavardhan Singh Rathore",
+          "mp_code": 4782,
+          "mp_part_code": 10
+        }
+      ],
+      "keywords": []
+    },
+    {
+      "house": "ls",
+      "lok_sabha": 16,
+      "session": 5,
+      "db_slno": 4029,
+      "title": "Ruling regarding notices of Adjournment Motion.",
+      "debate_date": "27/07/2015",
+      "debate_type": 63,
+      "debate_type_desc": "RULING BY THE SPEAKER",
+      "members": [
+        {
+          "mp_name": "Sumitra Mahajan (Tai)",
+          "mp_code": 220,
+          "mp_part_code": 1
+        }
+      ],
+      "keywords": []
+    },
+    {
+      "house": "ls",
+      "lok_sabha": 16,
+      "session": 5,
+      "db_slno": 4028,
+      "title": "Madam Speaker made Valedictory Reference on the \r\nconclusion of the 5th Session of the 16th Lok Sabha.",
+      "debate_date": "13/08/2015",
+      "debate_type": 53,
+      "debate_type_desc": "VALEDICTORY REFERENCE",
+      "members": [
+        {
+          "mp_name": "Sumitra Mahajan (Tai)",
+          "mp_code": 220,
+          "mp_part_code": 1
+        }
+      ],
+      "keywords": []
+    },
+    {
+      "house": "ls",
+      "lok_sabha": 16,
+      "session": 5,
       "db_slno": 4027,
       "title": "Regarding Business of the House.",
       "debate_date": "13/08/2015",
@@ -70207,98 +70306,6 @@
         {
           "mp_name": "Smt. Ranjeet Ranjan",
           "mp_code": 4093,
-          "mp_part_code": 1
-        }
-      ],
-      "keywords": []
-    },
-    {
-      "house": "ls",
-      "lok_sabha": 16,
-      "session": 3,
-      "db_slno": 2215,
-      "title": "Need to carry out repair work on\r\nDewas-Shivpuri and Ujjain-Kota National Highways in Madhya Pradesh.",
-      "debate_date": "19/12/2014",
-      "debate_type": 46,
-      "debate_type_desc": "SPECIAL MENTION",
-      "members": [
-        {
-          "mp_name": "Shri Manohar Utawal",
-          "mp_code": 4910,
-          "mp_part_code": 1
-        }
-      ],
-      "keywords": [
-        "Maintenance and Repair",
-        "Road Accidents",
-        "Road Construction"
-      ]
-    },
-    {
-      "house": "ls",
-      "lok_sabha": 16,
-      "session": 3,
-      "db_slno": 2214,
-      "title": "Regarding failure of the Government to introduce \r\nthe Constitutional Amendment Bill on the  India-Bangladesh Land Boundary\r\nAgreement.",
-      "debate_date": "19/12/2014",
-      "debate_type": 52,
-      "debate_type_desc": "SUBMISSIONS BY MEMBERS",
-      "members": [
-        {
-          "mp_name": "Dr. Shashi Tharoor",
-          "mp_code": 4569,
-          "mp_part_code": 1
-        },
-        {
-          "mp_name": "Shri N.K. Premachandran",
-          "mp_code": 3754,
-          "mp_part_code": 2
-        },
-        {
-          "mp_name": "Shri Ramachandran Mullappally",
-          "mp_code": 3085,
-          "mp_part_code": 3
-        },
-        {
-          "mp_name": "Shri Parayamparanbil Kuttappan Biju",
-          "mp_code": 4563,
-          "mp_part_code": 4
-        },
-        {
-          "mp_name": "Shri M. B. Rajesh",
-          "mp_code": 4562,
-          "mp_part_code": 5
-        },
-        {
-          "mp_name": "Shri Mohammad Salim",
-          "mp_code": 4190,
-          "mp_part_code": 6
-        },
-        {
-          "mp_name": "Shri M. VENKAIAH NAIDU",
-          "mp_code": 10001,
-          "mp_part_code": 7
-        }
-      ],
-      "keywords": [
-        "National Security",
-        "Terrorism",
-        "Indo-Bangladesh Relation"
-      ]
-    },
-    {
-      "house": "ls",
-      "lok_sabha": 16,
-      "session": 3,
-      "db_slno": 2213,
-      "title": "Issue regarding a \r\nmemorial that has been built in Golden temple premises.",
-      "debate_date": "19/12/2014",
-      "debate_type": 46,
-      "debate_type_desc": "SPECIAL MENTION",
-      "members": [
-        {
-          "mp_name": "Shri Ravneet Singh",
-          "mp_code": 4429,
           "mp_part_code": 1
         }
       ],

@@ -4,6 +4,60 @@
       "house": "ls",
       "lok_sabha": 16,
       "session": 12,
+      "db_slno": 12144,
+      "title": "The Minister of the State in the Ministry of Consumer Affairs, Food and\r\nPublic Distribution laid a statement regarding Status  of implementation of the\r\nrecommendations contained in the 15<sup>th </sup>Report of the Standing\r\nCommittee on Food, Consumer Affairs and Public Distribution.",
+      "debate_date": "08/08/2017",
+      "debate_type": 47,
+      "debate_type_desc": "STATEMENT BY MINISTER",
+      "members": [
+        {
+          "mp_name": "Shri C.R. Chaudhary",
+          "mp_code": 4636,
+          "mp_part_code": 1
+        }
+      ],
+      "keywords": []
+    },
+    {
+      "house": "ls",
+      "lok_sabha": 16,
+      "session": 12,
+      "db_slno": 12143,
+      "title": "The Minister of State in the Ministry of Agriculture and Farmers welfare\r\nlaid a statement regarding status  of implementation of the recommendations\r\ncontained in the 187<sup>th </sup>Report of the Standing Committee on Home\r\nAffairs.",
+      "debate_date": "08/08/2017",
+      "debate_type": 47,
+      "debate_type_desc": "STATEMENT BY MINISTER",
+      "members": [
+        {
+          "mp_name": "Shri S.S. Ahluwalia",
+          "mp_code": 4793,
+          "mp_part_code": 1
+        }
+      ],
+      "keywords": []
+    },
+    {
+      "house": "ls",
+      "lok_sabha": 16,
+      "session": 12,
+      "db_slno": 12142,
+      "title": "The </span><span style=''font-size:13.0pt''>Minister of State in the Ministry\r\nof Road Transport and Highways, Minister of State in the Ministry of Shipping and\r\nMinister of State in the Ministry of Chemicals And Fertilizers laid a statement\r\nregarding Status  of implementation of the recommendations contained in the 17\r\nand 28<sup>th</sup> Report of the Standing Committee on Chemicals and\r\nFertilizers.",
+      "debate_date": "08/08/2017",
+      "debate_type": 47,
+      "debate_type_desc": "STATEMENT BY MINISTER",
+      "members": [
+        {
+          "mp_name": "SHRI MANSUKH L. MANDAVIYA",
+          "mp_code": 10019,
+          "mp_part_code": 1
+        }
+      ],
+      "keywords": []
+    },
+    {
+      "house": "ls",
+      "lok_sabha": 16,
+      "session": 12,
       "db_slno": 12141,
       "title": "The Minister of State in the Ministry of Heavy Industries &amp; Public\r\nEnterprises laid a statement regarding status  of implementation of the\r\nrecommendations contained in the 277<sup>th </sup>Report of the Standing\r\nCommittee on Industry.",
       "debate_date": "08/08/2017",
@@ -76409,105 +76463,6 @@
       "keywords": [
         "Rural Development"
       ]
-    },
-    {
-      "house": "ls",
-      "lok_sabha": 16,
-      "session": 10,
-      "db_slno": 9709,
-      "title": "Observation regarding Zero Hour.",
-      "debate_date": "04/12/2015",
-      "debate_type": 33,
-      "debate_type_desc": "OBSERVATION BY THE CHAIR",
-      "members": [
-        {
-          "mp_name": "Sumitra Mahajan (Tai)",
-          "mp_code": 220,
-          "mp_part_code": 1
-        }
-      ],
-      "keywords": []
-    },
-    {
-      "house": "ls",
-      "lok_sabha": 16,
-      "session": 10,
-      "db_slno": 9708,
-      "title": "Motion regarding appointment of two Members of Lok Sabha to Central Advisory \r\nCommittee for the National Cadet Corps.",
-      "debate_date": "04/12/2015",
-      "debate_type": 59,
-      "debate_type_desc": "ELECTION TO COMMITTEES/BOARDS",
-      "members": [
-        {
-          "mp_name": "Shri Inderjit Singh Rao",
-          "mp_code": 3904,
-          "mp_part_code": 1
-        }
-      ],
-      "keywords": []
-    },
-    {
-      "house": "ls",
-      "lok_sabha": 16,
-      "session": 10,
-      "db_slno": 9707,
-      "title": "Statements regarding Government Business for the week commencing 7th December, 2015",
-      "debate_date": "04/12/2015",
-      "debate_type": 7,
-      "debate_type_desc": "BUSINESS OF HOUSE",
-      "members": [
-        {
-          "mp_name": "Shri Rajiv Pratap Rudy",
-          "mp_code": 385,
-          "mp_part_code": 1
-        },
-        {
-          "mp_name": "Shri Kaushalendra Kumar",
-          "mp_code": 4467,
-          "mp_part_code": 2
-        },
-        {
-          "mp_name": "Shri Rajeev Shankarrao Satav",
-          "mp_code": 4798,
-          "mp_part_code": 3
-        },
-        {
-          "mp_name": "Shri P.P. Chaudhary",
-          "mp_code": 4597,
-          "mp_part_code": 4
-        },
-        {
-          "mp_name": "Shri Chhedi Paswan",
-          "mp_code": 3361,
-          "mp_part_code": 5
-        },
-        {
-          "mp_name": "Shri Ramachandran Mullappally",
-          "mp_code": 3085,
-          "mp_part_code": 6
-        },
-        {
-          "mp_name": "Shri C.R. Chaudhary",
-          "mp_code": 4636,
-          "mp_part_code": 7
-        },
-        {
-          "mp_name": "Shri Anirudhan Sampath",
-          "mp_code": 3777,
-          "mp_part_code": 8
-        },
-        {
-          "mp_name": "Prof. Saugata Roy",
-          "mp_code": 2554,
-          "mp_part_code": 9
-        },
-        {
-          "mp_name": "Dr. Kirit Premjibhai Solanki",
-          "mp_code": 4444,
-          "mp_part_code": 10
-        }
-      ],
-      "keywords": []
     }
   ],
   "count": 2500,

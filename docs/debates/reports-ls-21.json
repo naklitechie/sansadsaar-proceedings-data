@@ -4,6 +4,89 @@
       "house": "ls",
       "lok_sabha": 14,
       "session": 7,
+      "db_slno": 4651,
+      "title": "Need to provide compensation to the\r\nfarmers whose crops have been affected due to unseasonal rains and hailstorm in\r\nRajasthan.",
+      "debate_date": "18/03/2006",
+      "debate_type": 46,
+      "debate_type_desc": "SPECIAL MENTION",
+      "members": [
+        {
+          "mp_name": "Prof. Rasa Singh Rawat",
+          "mp_code": 368,
+          "mp_part_code": 1
+        },
+        {
+          "mp_name": "Smt. Kiran Maheshwari",
+          "mp_code": 4008,
+          "mp_part_code": 2
+        }
+      ],
+      "keywords": [
+        "Natural Calamities",
+        "Loan Waiving",
+        "Crop Damages"
+      ]
+    },
+    {
+      "house": "ls",
+      "lok_sabha": 14,
+      "session": 7,
+      "db_slno": 4650,
+      "title": "Issue of raising the Water Level in Mullai Periyar Dam in\r\nKerala.",
+      "debate_date": "18/03/2006",
+      "debate_type": 46,
+      "debate_type_desc": "SPECIAL MENTION",
+      "members": [
+        {
+          "mp_name": "Dr. C. Krishnan",
+          "mp_code": 205,
+          "mp_part_code": 1
+        },
+        {
+          "mp_name": "Shri C. Kuppusami",
+          "mp_code": 212,
+          "mp_part_code": 2
+        },
+        {
+          "mp_name": "Shri Salarapatty Kuppusamy Kharventhan",
+          "mp_code": 3695,
+          "mp_part_code": 3
+        },
+        {
+          "mp_name": "Shri N.S.V. Chitthan",
+          "mp_code": 4063,
+          "mp_part_code": 4
+        }
+      ],
+      "keywords": [
+        "Irrigation Development",
+        "Safety Measures",
+        "Water Storage",
+        "Leakage"
+      ]
+    },
+    {
+      "house": "ls",
+      "lok_sabha": 14,
+      "session": 7,
+      "db_slno": 4649,
+      "title": "Situation arising out of the\r\nfinancial burden being faced by the poor due to sale of medicines at old and\r\nhigher rates by the pharmaceutical companies despite the notification by the\r\nGovernment reducing the prices of medicines.",
+      "debate_date": "18/03/2006",
+      "debate_type": 46,
+      "debate_type_desc": "SPECIAL MENTION",
+      "members": [
+        {
+          "mp_name": "Dr. Karan Singh Yadav",
+          "mp_code": 4059,
+          "mp_part_code": 1
+        }
+      ],
+      "keywords": []
+    },
+    {
+      "house": "ls",
+      "lok_sabha": 14,
+      "session": 7,
       "db_slno": 4648,
       "title": "Need to declare Uttranchal as a\r\ndrought affected State and provide special relief package to the State.",
       "debate_date": "18/03/2006",
@@ -67666,69 +67749,6 @@
         }
       ],
       "keywords": []
-    },
-    {
-      "house": "ls",
-      "lok_sabha": 14,
-      "session": 4,
-      "db_slno": 2028,
-      "title": "<b> </b>Need to implement Integrated Disease Monitoring\r\nProject in U.P.",
-      "debate_date": "26/04/2005",
-      "debate_type": 21,
-      "debate_type_desc": "MATTERS UNDER RULE-377",
-      "members": [
-        {
-          "mp_name": "Shri Ramji Lal Suman",
-          "mp_code": 475,
-          "mp_part_code": 1
-        }
-      ],
-      "keywords": [
-        "Health Services",
-        "Public Health",
-        "Uttar Pradesh"
-      ]
-    },
-    {
-      "house": "ls",
-      "lok_sabha": 14,
-      "session": 4,
-      "db_slno": 2027,
-      "title": "<b> </b>Need for introduction of DMU train services between\r\nMadurai and adjoining towns in Tamil Nadu.",
-      "debate_date": "26/04/2005",
-      "debate_type": 21,
-      "debate_type_desc": "MATTERS UNDER RULE-377",
-      "members": [
-        {
-          "mp_name": "Shri Mohan Ponnuswamy",
-          "mp_code": 252,
-          "mp_part_code": 1
-        }
-      ],
-      "keywords": []
-    },
-    {
-      "house": "ls",
-      "lok_sabha": 14,
-      "session": 4,
-      "db_slno": 2026,
-      "title": "Need to initiate measures for de-silting of shipping channel\r\nin Haldia Dock Complex.",
-      "debate_date": "26/04/2005",
-      "debate_type": 21,
-      "debate_type_desc": "MATTERS UNDER RULE-377",
-      "members": [
-        {
-          "mp_name": "Shri Lakshman Chandra Seth",
-          "mp_code": 410,
-          "mp_part_code": 1
-        }
-      ],
-      "keywords": [
-        "Central Government Clearance",
-        "Shipyards",
-        "Waterways",
-        "Desiltation"
-      ]
     }
   ],
   "count": 2500,

@@ -4,6 +4,68 @@
       "house": "ls",
       "lok_sabha": 18,
       "session": 4,
+      "db_slno": 3158,
+      "title": "Regarding Business of the House",
+      "debate_date": "10/03/2025",
+      "debate_type": 7,
+      "debate_type_desc": "BUSINESS OF HOUSE",
+      "members": [
+        {
+          "mp_name": "Dr. Mansukh Mandaviya",
+          "mp_code": 5555,
+          "mp_part_code": 1
+        }
+      ],
+      "keywords": []
+    },
+    {
+      "house": "ls",
+      "lok_sabha": 18,
+      "session": 4,
+      "db_slno": 3157,
+      "title": "Need to stop discharge of industrial effluents and sewage water in Bandi, Jojari and Luni rivers in Rajasthan-Laid",
+      "debate_date": "10/03/2025",
+      "debate_type": 21,
+      "debate_type_desc": "MATTERS UNDER RULE-377",
+      "members": [
+        {
+          "mp_name": "Shri Hanuman Beniwal",
+          "mp_code": 5205,
+          "mp_part_code": 1
+        }
+      ],
+      "keywords": [
+        "Industrial Wastes",
+        "River Pollution",
+        "Sewage Treatment Plants"
+      ]
+    },
+    {
+      "house": "ls",
+      "lok_sabha": 18,
+      "session": 4,
+      "db_slno": 3156,
+      "title": "Regarding recent statements by industry leaders on the need to increase working hours-Laid",
+      "debate_date": "10/03/2025",
+      "debate_type": 21,
+      "debate_type_desc": "MATTERS UNDER RULE-377",
+      "members": [
+        {
+          "mp_name": "Shri Raja Ram Singh",
+          "mp_code": 5642,
+          "mp_part_code": 1
+        }
+      ],
+      "keywords": [
+        "Labour Laws",
+        "Labour Legislation",
+        "Working Conditions"
+      ]
+    },
+    {
+      "house": "ls",
+      "lok_sabha": 18,
+      "session": 4,
       "db_slno": 3155,
       "title": "Need to increase production and export of shrimps-Laid",
       "debate_date": "10/03/2025",
@@ -64065,70 +64127,6 @@
       ],
       "keywords": [
         "Fishermen Welfare"
-      ]
-    },
-    {
-      "house": "ls",
-      "lok_sabha": 18,
-      "session": 2,
-      "db_slno": 605,
-      "title": "Regarding increase in funds for village development and increase in allowance for Gram Pradhan",
-      "debate_date": "01/08/2024",
-      "debate_type": 46,
-      "debate_type_desc": "SPECIAL MENTION (ZERO HOUR)",
-      "members": [
-        {
-          "mp_name": "Shri Praveen Patel",
-          "mp_code": 5583,
-          "mp_part_code": 1
-        }
-      ],
-      "keywords": [
-        "Fund Allocation",
-        "Rural Development"
-      ]
-    },
-    {
-      "house": "ls",
-      "lok_sabha": 18,
-      "session": 2,
-      "db_slno": 604,
-      "title": "Regarding requirement of additional funds for maintenance of State and National Highways in Arunachal Pradesh",
-      "debate_date": "01/08/2024",
-      "debate_type": 46,
-      "debate_type_desc": "SPECIAL MENTION (ZERO HOUR)",
-      "members": [
-        {
-          "mp_name": "Shri Tapir Gao",
-          "mp_code": 3973,
-          "mp_part_code": 1
-        }
-      ],
-      "keywords": [
-        "Fund Allocation",
-        "National Highways",
-        "Road Construction"
-      ]
-    },
-    {
-      "house": "ls",
-      "lok_sabha": 18,
-      "session": 2,
-      "db_slno": 603,
-      "title": "Regarding development of Maa Shakumbhari Devi Sidhpeeth and Hazrat Raipuri Dargah",
-      "debate_date": "01/08/2024",
-      "debate_type": 46,
-      "debate_type_desc": "SPECIAL MENTION (ZERO HOUR)",
-      "members": [
-        {
-          "mp_name": "Shri Imran Masood",
-          "mp_code": 5589,
-          "mp_part_code": 1
-        }
-      ],
-      "keywords": [
-        "Religious Places",
-        "Religious Sites"
       ]
     }
   ],
