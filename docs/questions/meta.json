@@ -1,16 +1,123 @@
 {
-  "phase": "walk",
-  "generated_at": "2026-05-29T16:25:33Z",
-  "elapsed_s": 827.1,
-  "ls_walk_stats": {
-    "new": 0,
-    "updated": 0,
-    "kept_legacy": 24861
+  "phase": "derive",
+  "generated_at": "2026-05-29T16:38:14Z",
+  "elapsed_s": 52.5,
+  "totals": {
+    "ls": 243275,
+    "rs": 2771
   },
-  "rs_walk_stats": {
-    "new": 0,
-    "updated": 0,
-    "kept_legacy": 0
+  "search_bundle": {
+    "shard_count": 17,
+    "shards": [
+      "search-bundle-00.json",
+      "search-bundle-01.json",
+      "search-bundle-02.json",
+      "search-bundle-03.json",
+      "search-bundle-04.json",
+      "search-bundle-05.json",
+      "search-bundle-06.json",
+      "search-bundle-07.json",
+      "search-bundle-08.json",
+      "search-bundle-09.json",
+      "search-bundle-10.json",
+      "search-bundle-11.json",
+      "search-bundle-12.json",
+      "search-bundle-13.json",
+      "search-bundle-14.json",
+      "search-bundle-15.json",
+      "search-bundle-16.json"
+    ],
+    "shard_sizes": {
+      "search-bundle-00.json": 8931514,
+      "search-bundle-01.json": 8969971,
+      "search-bundle-02.json": 9478076,
+      "search-bundle-03.json": 9543929,
+      "search-bundle-04.json": 9299995,
+      "search-bundle-05.json": 9156000,
+      "search-bundle-06.json": 9215516,
+      "search-bundle-07.json": 9591250,
+      "search-bundle-08.json": 9434138,
+      "search-bundle-09.json": 9486053,
+      "search-bundle-10.json": 9905355,
+      "search-bundle-11.json": 9629393,
+      "search-bundle-12.json": 10169152,
+      "search-bundle-13.json": 10227901,
+      "search-bundle-14.json": 10087053,
+      "search-bundle-15.json": 10301999,
+      "search-bundle-16.json": 11529700
+    },
+    "total": 42258,
+    "truncated": 14921,
+    "head_chars": 5000,
+    "size_bytes": 164956995,
+    "max_shard_bytes": 11529700
   },
-  "rate_limited": false
+  "search_index": {
+    "shard_count": 17,
+    "shards": [
+      "search-index-00.json",
+      "search-index-01.json",
+      "search-index-02.json",
+      "search-index-03.json",
+      "search-index-04.json",
+      "search-index-05.json",
+      "search-index-06.json",
+      "search-index-07.json",
+      "search-index-08.json",
+      "search-index-09.json",
+      "search-index-10.json",
+      "search-index-11.json",
+      "search-index-12.json",
+      "search-index-13.json",
+      "search-index-14.json",
+      "search-index-15.json",
+      "search-index-16.json"
+    ],
+    "shard_sizes": {
+      "search-index-00.json": 4175006,
+      "search-index-01.json": 4307181,
+      "search-index-02.json": 4397888,
+      "search-index-03.json": 4515745,
+      "search-index-04.json": 4448410,
+      "search-index-05.json": 4601736,
+      "search-index-06.json": 4340983,
+      "search-index-07.json": 4888068,
+      "search-index-08.json": 4689626,
+      "search-index-09.json": 4632255,
+      "search-index-10.json": 4772289,
+      "search-index-11.json": 4826393,
+      "search-index-12.json": 5031176,
+      "search-index-13.json": 5288042,
+      "search-index-14.json": 5081422,
+      "search-index-15.json": 5115638,
+      "search-index-16.json": 14038445
+    },
+    "total": 42257,
+    "size_bytes": 89150303,
+    "max_shard_bytes": 14038445
+  },
+  "audit": {
+    "ls_records": 243275,
+    "ls_with_text": 40660,
+    "ls_pypdf_empty_awaiting_ocr": 574,
+    "ls_pypdf_error_retryable": 10,
+    "ls_ocr_failed_permanent": 0,
+    "ls_never_attempted": 202031,
+    "rs_records": 2771,
+    "rs_with_text": 1598,
+    "rs_pypdf_empty_awaiting_ocr": 1,
+    "rs_pypdf_error_retryable": 0,
+    "rs_ocr_failed_permanent": 0,
+    "rs_never_attempted": 1172
+  },
+  "text_shards": {
+    "records_with_text": 41538,
+    "shards": 65,
+    "r2_fallback": 0,
+    "total_text_bytes": 2284318,
+    "missing_files": 0,
+    "skipped_oversize_no_r2": 0,
+    "from_existing_shards": 41057,
+    "txt_files_removed": 481
+  }
 }
