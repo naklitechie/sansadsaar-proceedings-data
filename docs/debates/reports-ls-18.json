@@ -4,6 +4,166 @@
       "house": "ls",
       "lok_sabha": 15,
       "session": 3,
+      "db_slno": 931,
+      "title": "Statement showing reasons for immediate legislation by the Central\r\nUniversities (Amendment) Ordinance, 2009.",
+      "debate_date": "24/11/2009",
+      "debate_type": 49,
+      "debate_type_desc": "STATEMENT REGARDING ORDINANCE",
+      "members": [
+        {
+          "mp_name": "Shri Kapil Sibal",
+          "mp_code": 4077,
+          "mp_part_code": 1
+        }
+      ],
+      "keywords": []
+    },
+    {
+      "house": "ls",
+      "lok_sabha": 15,
+      "session": 3,
+      "db_slno": 930,
+      "title": "Introduction of the Central Universities (Amendment) Bill, 2009.",
+      "debate_date": "24/11/2009",
+      "debate_type": 14,
+      "debate_type_desc": "GOVERNMENT BILLS",
+      "members": [
+        {
+          "mp_name": "Shri Kapil Sibal",
+          "mp_code": 4077,
+          "mp_part_code": 1
+        }
+      ],
+      "keywords": [
+        "Higher Education"
+      ]
+    },
+    {
+      "house": "ls",
+      "lok_sabha": 15,
+      "session": 3,
+      "db_slno": 929,
+      "title": "Motion regarding 6<sup>th</sup>\r\nReport of Business Advisory Committee (Motion Adopted).",
+      "debate_date": "24/11/2009",
+      "debate_type": 35,
+      "debate_type_desc": "PARLIAMENTARY COMMITTEES",
+      "members": [
+        {
+          "mp_name": "Shri Pawan Kumar Bansal",
+          "mp_code": 42,
+          "mp_part_code": 1
+        }
+      ],
+      "keywords": []
+    },
+    {
+      "house": "ls",
+      "lok_sabha": 15,
+      "session": 3,
+      "db_slno": 928,
+      "title": "Election\r\nof two members from Lok Sabha to the Coir Board.",
+      "debate_date": "24/11/2009",
+      "debate_type": 59,
+      "debate_type_desc": "ELECTION TO COMMITTEES/BOARDS",
+      "members": [
+        {
+          "mp_name": "Shri Dinsha J. Patel",
+          "mp_code": 309,
+          "mp_part_code": 1
+        }
+      ],
+      "keywords": []
+    },
+    {
+      "house": "ls",
+      "lok_sabha": 15,
+      "session": 3,
+      "db_slno": 927,
+      "title": "The Minister of State in the Ministry of Information and Broadcasting laid\r\na statement regarding status of implementation of the recommendations contained\r\nin the 67<sup>th</sup> Report of Standing Committee on Information Technology\r\non 'Television Audience Measurement in India', pertaining to the Ministry of\r\nInformation and Broadcasting.",
+      "debate_date": "24/11/2009",
+      "debate_type": 47,
+      "debate_type_desc": "STATEMENT BY MINISTER",
+      "members": [],
+      "keywords": []
+    },
+    {
+      "house": "ls",
+      "lok_sabha": 15,
+      "session": 3,
+      "db_slno": 926,
+      "title": "Presentation of the 203<sup>rd</sup>\r\nReport of the Standing Committee of Science &amp; Technology, Environment &amp;\r\nForests on the National Green Tribunal Bill, 2009.",
+      "debate_date": "24/11/2009",
+      "debate_type": 35,
+      "debate_type_desc": "PARLIAMENTARY COMMITTEES",
+      "members": [
+        {
+          "mp_name": "Smt. C. R. Patil",
+          "mp_code": 4452,
+          "mp_part_code": 1
+        }
+      ],
+      "keywords": []
+    },
+    {
+      "house": "ls",
+      "lok_sabha": 15,
+      "session": 3,
+      "db_slno": 925,
+      "title": "Presentation of 1<sup>st</sup> to 3<sup>rd</sup> Reports of the Committee on\r\nEstimates.",
+      "debate_date": "24/11/2009",
+      "debate_type": 35,
+      "debate_type_desc": "PARLIAMENTARY COMMITTEES",
+      "members": [
+        {
+          "mp_name": "Shri Francisco Sardinha",
+          "mp_code": 3914,
+          "mp_part_code": 1
+        }
+      ],
+      "keywords": []
+    },
+    {
+      "house": "ls",
+      "lok_sabha": 15,
+      "session": 3,
+      "db_slno": 924,
+      "title": "Papers laid on the Table of the House by\r\nMinisters/members.",
+      "debate_date": "24/11/2009",
+      "debate_type": 34,
+      "debate_type_desc": "PAPERS LAID ON THE TABLE",
+      "members": [
+        {
+          "mp_name": "Shri Dinsha J. Patel",
+          "mp_code": 309,
+          "mp_part_code": 1
+        },
+        {
+          "mp_name": "Shri Ramachandran Mullappally",
+          "mp_code": 3085,
+          "mp_part_code": 2
+        },
+        {
+          "mp_name": "Prof. K.V. Thomas",
+          "mp_code": 3209,
+          "mp_part_code": 3
+        },
+        {
+          "mp_name": "Kunwar Ratanjeet Pratap Narayan Singh",
+          "mp_code": 4345,
+          "mp_part_code": 4
+        },
+        {
+          "mp_name": "Shri Palaniappan Chidambaram",
+          "mp_code": 3000,
+          "mp_part_code": 5
+        }
+      ],
+      "keywords": []
+    },
+    {
+      "house": "ls",
+      "lok_sabha": 15,
+      "session": 3,
       "db_slno": 923,
       "title": "Need to ensure proper monitoring of\r\nfinancial package released for distressed farmers of Vidarbha region in\r\nMaharasthra.",
       "debate_date": "23/11/2009",
@@ -69089,179 +69249,6 @@
         }
       ],
       "keywords": []
-    },
-    {
-      "house": "ls",
-      "lok_sabha": 14,
-      "session": 13,
-      "db_slno": 9709,
-      "title": "Need to include ''Kudumbi'' tribe of Kerala in the list of Scheduled Tribes category-Laid.",
-      "debate_date": "10/03/2008",
-      "debate_type": 21,
-      "debate_type_desc": "MATTERS UNDER RULE-377",
-      "members": [
-        {
-          "mp_name": "Shri M. P. Veerendra Kumar",
-          "mp_code": 3822,
-          "mp_part_code": 1
-        }
-      ],
-      "keywords": [
-        "Castes",
-        "Reservation Policy"
-      ]
-    },
-    {
-      "house": "ls",
-      "lok_sabha": 14,
-      "session": 13,
-      "db_slno": 9708,
-      "title": "Need to ensure appropriate utilization of funds under Pradhan Mantri Gram Sadak Yojana in Punjab-Laid.",
-      "debate_date": "10/03/2008",
-      "debate_type": 21,
-      "debate_type_desc": "MATTERS UNDER RULE-377",
-      "members": [
-        {
-          "mp_name": "Sardar Zora Singh Mann",
-          "mp_code": 242,
-          "mp_part_code": 1
-        }
-      ],
-      "keywords": [
-        "Irregularities",
-        "Fund Utilization"
-      ]
-    },
-    {
-      "house": "ls",
-      "lok_sabha": 14,
-      "session": 13,
-      "db_slno": 9707,
-      "title": "Need to simplify the procedure for attestation of documents of citizens seeikng jobs abroad-Laid.",
-      "debate_date": "10/03/2008",
-      "debate_type": 21,
-      "debate_type_desc": "MATTERS UNDER RULE-377",
-      "members": [
-        {
-          "mp_name": "Shri M. Appadurai",
-          "mp_code": 4087,
-          "mp_part_code": 1
-        }
-      ],
-      "keywords": [
-        "Certificates",
-        "Documents",
-        "Gulf Countries"
-      ]
-    },
-    {
-      "house": "ls",
-      "lok_sabha": 14,
-      "session": 13,
-      "db_slno": 9706,
-      "title": "Need to provide easy availability of kerosene in the country-Laid.",
-      "debate_date": "10/03/2008",
-      "debate_type": 21,
-      "debate_type_desc": "MATTERS UNDER RULE-377",
-      "members": [
-        {
-          "mp_name": "Shri  Kamala Prasad",
-          "mp_code": 4098,
-          "mp_part_code": 1
-        }
-      ],
-      "keywords": [
-        "Black Market"
-      ]
-    },
-    {
-      "house": "ls",
-      "lok_sabha": 14,
-      "session": 13,
-      "db_slno": 9705,
-      "title": "Need to implement measures for the welfare of the farmers in the country -Laid.",
-      "debate_date": "10/03/2008",
-      "debate_type": 21,
-      "debate_type_desc": "MATTERS UNDER RULE-377",
-      "members": [
-        {
-          "mp_name": "Shri Ram Kripal Yadav",
-          "mp_code": 3832,
-          "mp_part_code": 1
-        }
-      ],
-      "keywords": [
-        "Bank Loans",
-        "Seeds",
-        "Agricultural facilities",
-        "Welfare Measures",
-        "Fertilizer"
-      ]
-    },
-    {
-      "house": "ls",
-      "lok_sabha": 14,
-      "session": 13,
-      "db_slno": 9704,
-      "title": "Need to expedite construction and linking of National Highways with district headquarters in Chail Parliamentary Constituency -Laid.",
-      "debate_date": "10/03/2008",
-      "debate_type": 21,
-      "debate_type_desc": "MATTERS UNDER RULE-377",
-      "members": [
-        {
-          "mp_name": "Shri Shailendra Kumar",
-          "mp_code": 3870,
-          "mp_part_code": 1
-        }
-      ],
-      "keywords": [
-        "Bridges",
-        "Road Construction"
-      ]
-    },
-    {
-      "house": "ls",
-      "lok_sabha": 14,
-      "session": 13,
-      "db_slno": 9703,
-      "title": "Need to widen and upgrade N.H. 75-76 between Jhansi-Mirzapur-Hamirpur (Uttar Pradesh) and Chhattarpur (Madhya Pradesh) and NH 86 between Kanpur-Sagar passing through Hamirpur Parliamentary Constituency-laid",
-      "debate_date": "10/03/2008",
-      "debate_type": 21,
-      "debate_type_desc": "MATTERS UNDER RULE-377",
-      "members": [
-        {
-          "mp_name": "Shri Rajnarayan Budholiya",
-          "mp_code": 4174,
-          "mp_part_code": 1
-        }
-      ],
-      "keywords": [
-        "Bridges",
-        "National Highways",
-        "Road Construction",
-        "Modernisation"
-      ]
-    },
-    {
-      "house": "ls",
-      "lok_sabha": 14,
-      "session": 13,
-      "db_slno": 9702,
-      "title": "Need to grant pension to the surviving freedom-fighters of Naval Mutiny-Laid.",
-      "debate_date": "10/03/2008",
-      "debate_type": 21,
-      "debate_type_desc": "MATTERS UNDER RULE-377",
-      "members": [
-        {
-          "mp_name": "Shri P. Karunakaran",
-          "mp_code": 4178,
-          "mp_part_code": 1
-        }
-      ],
-      "keywords": [
-        "Freedom Movement",
-        "Indian Navy"
-      ]
     }
   ],
   "count": 2500,

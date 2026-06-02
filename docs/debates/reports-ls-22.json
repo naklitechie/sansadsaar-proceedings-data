@@ -4,6 +4,166 @@
       "house": "ls",
       "lok_sabha": 14,
       "session": 4,
+      "db_slno": 2037,
+      "title": "Presentation of 12<sup>th</sup> Report of Committee on Public\r\nAccounts.",
+      "debate_date": "26/04/2005",
+      "debate_type": 35,
+      "debate_type_desc": "PARLIAMENTARY COMMITTEES",
+      "members": [
+        {
+          "mp_name": "Shri Naveen Jindal",
+          "mp_code": 4041,
+          "mp_part_code": 1
+        }
+      ],
+      "keywords": []
+    },
+    {
+      "house": "ls",
+      "lok_sabha": 14,
+      "session": 4,
+      "db_slno": 2036,
+      "title": "<b> </b>Need to declare Sunderbans Waterways in West Bengal as\r\nNational Waterways.",
+      "debate_date": "26/04/2005",
+      "debate_type": 21,
+      "debate_type_desc": "MATTERS UNDER RULE-377",
+      "members": [
+        {
+          "mp_name": "Shri Sanat Kumar Mandal",
+          "mp_code": 235,
+          "mp_part_code": 1
+        }
+      ],
+      "keywords": [
+        "Socio-economic Development"
+      ]
+    },
+    {
+      "house": "ls",
+      "lok_sabha": 14,
+      "session": 4,
+      "db_slno": 2035,
+      "title": "Need to solve the emergent problems on account of abolition\r\nof contract labour at FCI depot, West Hill, Kerala.",
+      "debate_date": "26/04/2005",
+      "debate_type": 21,
+      "debate_type_desc": "MATTERS UNDER RULE-377",
+      "members": [
+        {
+          "mp_name": "Shri M. P. Veerendra Kumar",
+          "mp_code": 3822,
+          "mp_part_code": 1
+        }
+      ],
+      "keywords": [
+        "Labour Welfare"
+      ]
+    },
+    {
+      "house": "ls",
+      "lok_sabha": 14,
+      "session": 4,
+      "db_slno": 2034,
+      "title": "<b> </b>Need to include &#145;Kurmi&#146; caste of Jharkhand\r\nin the list of Scheduled Tribes.",
+      "debate_date": "26/04/2005",
+      "debate_type": 21,
+      "debate_type_desc": "MATTERS UNDER RULE-377",
+      "members": [
+        {
+          "mp_name": "Shri Sunil Kumar Mahato",
+          "mp_code": 4119,
+          "mp_part_code": 1
+        }
+      ],
+      "keywords": [
+        "Backward Classes",
+        "Social Justice"
+      ]
+    },
+    {
+      "house": "ls",
+      "lok_sabha": 14,
+      "session": 4,
+      "db_slno": 2033,
+      "title": "<b> </b>Need to rescind the order for recovery of bonus from\r\nthe workers of NTC Mill in Coimbatore, Sivagangai and Ramanathapuram districts in Tamil\r\nNadu.",
+      "debate_date": "26/04/2005",
+      "debate_type": 21,
+      "debate_type_desc": "MATTERS UNDER RULE-377",
+      "members": [
+        {
+          "mp_name": "Shri M. Appadurai",
+          "mp_code": 4087,
+          "mp_part_code": 1
+        }
+      ],
+      "keywords": [
+        "Employees",
+        "Wages"
+      ]
+    },
+    {
+      "house": "ls",
+      "lok_sabha": 14,
+      "session": 4,
+      "db_slno": 2032,
+      "title": "Need to streamline the functioning of cooperative societies\r\nin Tamil Nadu.",
+      "debate_date": "26/04/2005",
+      "debate_type": 21,
+      "debate_type_desc": "MATTERS UNDER RULE-377",
+      "members": [
+        {
+          "mp_name": "Shri Danapal Venugopal",
+          "mp_code": 507,
+          "mp_part_code": 1
+        }
+      ],
+      "keywords": [
+        "Constitutional Amendment",
+        "Elections"
+      ]
+    },
+    {
+      "house": "ls",
+      "lok_sabha": 14,
+      "session": 4,
+      "db_slno": 2030,
+      "title": "<b> </b>Need to provide ownership rights to the Tribals living\r\nin forest areas of Mirzapur district, U.P.",
+      "debate_date": "26/04/2005",
+      "debate_type": 21,
+      "debate_type_desc": "MATTERS UNDER RULE-377",
+      "members": [
+        {
+          "mp_name": "Shri Narendra Kumar Kushwaha",
+          "mp_code": 4103,
+          "mp_part_code": 1
+        }
+      ],
+      "keywords": [
+        "Land Ownership",
+        "Uttar Pradesh"
+      ]
+    },
+    {
+      "house": "ls",
+      "lok_sabha": 14,
+      "session": 4,
+      "db_slno": 2029,
+      "title": "<b> </b>Need to construct a bridge on Bhuthi &#150; Balan\r\nriver at Lokha &#150; Narhiya section of National Highway No. 104 in Bihar .",
+      "debate_date": "26/04/2005",
+      "debate_type": 21,
+      "debate_type_desc": "MATTERS UNDER RULE-377",
+      "members": [
+        {
+          "mp_name": "Shri Devendra Prasad Yadav",
+          "mp_code": 525,
+          "mp_part_code": 1
+        }
+      ],
+      "keywords": []
+    },
+    {
+      "house": "ls",
+      "lok_sabha": 14,
+      "session": 4,
       "db_slno": 2028,
       "title": "<b> </b>Need to implement Integrated Disease Monitoring\r\nProject in U.P.",
       "debate_date": "26/04/2005",
@@ -54031,7 +54191,7 @@
       "keywords": []
     }
   ],
-  "count": 1949,
+  "count": 1957,
   "house": "ls",
   "shard_index": 22
 }

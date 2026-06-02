@@ -3,6 +3,281 @@
     {
       "house": "ls",
       "lok_sabha": 16,
+      "session": 16,
+      "db_slno": 14666,
+      "title": "Announcement regarding obituary references.",
+      "debate_date": "11/12/2018",
+      "debate_type": 2,
+      "debate_type_desc": "ANNOUNCEMENT BY THE CHAIR",
+      "members": [
+        {
+          "mp_name": "Sumitra Mahajan (Tai)",
+          "mp_code": 220,
+          "mp_part_code": 1
+        }
+      ],
+      "keywords": []
+    },
+    {
+      "house": "ls",
+      "lok_sabha": 16,
+      "session": 16,
+      "db_slno": 9822,
+      "title": "The Minister of State in the Ministry of Shipping made a statement regarding actions\r\ntaken in the aftermath of  ship collision which took place off Kamarajar\r\nHarbour on 28 January 2017.",
+      "debate_date": "03/02/2017",
+      "debate_type": 47,
+      "debate_type_desc": "STATEMENT BY MINISTER",
+      "members": [
+        {
+          "mp_name": "Shri Pon Radhakrishnan",
+          "mp_code": 341,
+          "mp_part_code": 1
+        }
+      ],
+      "keywords": [
+        "Coast Guard Organisation",
+        "Indian Oil Corporation",
+        "Oil Leakage",
+        "Pollution Control",
+        "Oil Spillage"
+      ]
+    },
+    {
+      "house": "ls",
+      "lok_sabha": 16,
+      "session": 15,
+      "db_slno": 15826,
+      "title": "Need to take action against elements\r\n affecting pluralistic and democratic ethos of the country.",
+      "debate_date": "18/07/2018",
+      "debate_type": 52,
+      "debate_type_desc": "SUBMISSIONS BY MEMBERS",
+      "members": [
+        {
+          "mp_name": "Dr. Shashi Tharoor",
+          "mp_code": 4569,
+          "mp_part_code": 1
+        },
+        {
+          "mp_name": "Shri Rabindra Kumar Jena",
+          "mp_code": 4795,
+          "mp_part_code": 2
+        },
+        {
+          "mp_name": "Dr. Kulamani Samal",
+          "mp_code": 4820,
+          "mp_part_code": 3
+        },
+        {
+          "mp_name": "Shri Anirudhan Sampath",
+          "mp_code": 3777,
+          "mp_part_code": 4
+        },
+        {
+          "mp_name": "Shri P. Karunakaran",
+          "mp_code": 4178,
+          "mp_part_code": 5
+        },
+        {
+          "mp_name": "Shri Parayamparanbil Kuttappan Biju",
+          "mp_code": 4563,
+          "mp_part_code": 6
+        },
+        {
+          "mp_name": "Shri Md. Badaruddoza Khan",
+          "mp_code": 4824,
+          "mp_part_code": 7
+        },
+        {
+          "mp_name": "Shri Sankar Prasad Datta",
+          "mp_code": 4822,
+          "mp_part_code": 8
+        },
+        {
+          "mp_name": "Shri M. B. Rajesh",
+          "mp_code": 4562,
+          "mp_part_code": 9
+        },
+        {
+          "mp_name": "Shri  Ananth Kumar",
+          "mp_code": 20,
+          "mp_part_code": 10
+        },
+        {
+          "mp_name": "Dr. M. Thambi durai",
+          "mp_code": 3205,
+          "mp_part_code": 11
+        }
+      ],
+      "keywords": [
+        "Law and Order",
+        "Violence",
+        "Freedom of Expression",
+        "Intolerence",
+        "Mob Lynching"
+      ]
+    },
+    {
+      "house": "ls",
+      "lok_sabha": 16,
+      "session": 15,
+      "db_slno": 15825,
+      "title": "Regarding no confidence motion.",
+      "debate_date": "18/07/2018",
+      "debate_type": 52,
+      "debate_type_desc": "SUBMISSIONS BY MEMBERS",
+      "members": [
+        {
+          "mp_name": "Shri Mallikarjun Kharge",
+          "mp_code": 4315,
+          "mp_part_code": 1
+        },
+        {
+          "mp_name": "Shri  Ananth Kumar",
+          "mp_code": 20,
+          "mp_part_code": 2
+        },
+        {
+          "mp_name": "Sumitra Mahajan (Tai)",
+          "mp_code": 220,
+          "mp_part_code": 3
+        }
+      ],
+      "keywords": []
+    },
+    {
+      "house": "ls",
+      "lok_sabha": 16,
+      "session": 15,
+      "db_slno": 15824,
+      "title": "Regarding repair of canals in Saurashtra \r\nregion of Gujarat.",
+      "debate_date": "18/07/2018",
+      "debate_type": 52,
+      "debate_type_desc": "SUBMISSIONS BY MEMBERS",
+      "members": [
+        {
+          "mp_name": "Shri Mallikarjun Kharge",
+          "mp_code": 4315,
+          "mp_part_code": 1
+        },
+        {
+          "mp_name": "Shri  Ananth Kumar",
+          "mp_code": 20,
+          "mp_part_code": 2
+        }
+      ],
+      "keywords": []
+    },
+    {
+      "house": "ls",
+      "lok_sabha": 16,
+      "session": 15,
+      "db_slno": 15823,
+      "title": "Regarding Motion of No-Confidence in Council of Ministers (Leave of the House granted).",
+      "debate_date": "18/07/2018",
+      "debate_type": 2,
+      "debate_type_desc": "ANNOUNCEMENT BY THE CHAIR",
+      "members": [
+        {
+          "mp_name": "Sumitra Mahajan (Tai)",
+          "mp_code": 220,
+          "mp_part_code": 1
+        },
+        {
+          "mp_name": "Shri  Ananth Kumar",
+          "mp_code": 20,
+          "mp_part_code": 2
+        }
+      ],
+      "keywords": []
+    },
+    {
+      "house": "ls",
+      "lok_sabha": 16,
+      "session": 15,
+      "db_slno": 15768,
+      "title": "Provision of wi-fi\r\nfacility inside the chamber.",
+      "debate_date": "18/07/2018",
+      "debate_type": 2,
+      "debate_type_desc": "ANNOUNCEMENT BY THE CHAIR",
+      "members": [
+        {
+          "mp_name": "Sumitra Mahajan (Tai)",
+          "mp_code": 220,
+          "mp_part_code": 1
+        }
+      ],
+      "keywords": []
+    },
+    {
+      "house": "ls",
+      "lok_sabha": 16,
+      "session": 15,
+      "db_slno": 15767,
+      "title": "Regarding immediate intervention on developmental issues in Kerala alongwith unprecedented flood \r\nsituation in various parts of the State.",
+      "debate_date": "23/07/2018",
+      "debate_type": 52,
+      "debate_type_desc": "SUBMISSIONS BY MEMBERS",
+      "members": [
+        {
+          "mp_name": "Shri K. C. Venugopal",
+          "mp_code": 4567,
+          "mp_part_code": 1
+        },
+        {
+          "mp_name": "Shri Ramachandran Mullappally",
+          "mp_code": 3085,
+          "mp_part_code": 2
+        },
+        {
+          "mp_name": "Smt. Supriya Sadanand Sule",
+          "mp_code": 4392,
+          "mp_part_code": 3
+        },
+        {
+          "mp_name": "Shri P. Karunakaran",
+          "mp_code": 4178,
+          "mp_part_code": 4
+        },
+        {
+          "mp_name": "Shri M. B. Rajesh",
+          "mp_code": 4562,
+          "mp_part_code": 5
+        },
+        {
+          "mp_name": "Shri Parayamparanbil Kuttappan Biju",
+          "mp_code": 4563,
+          "mp_part_code": 6
+        },
+        {
+          "mp_name": "Smt. P.K.Sreemathi Teacher",
+          "mp_code": 4906,
+          "mp_part_code": 7
+        },
+        {
+          "mp_name": "Shri (Adv.) Joice George",
+          "mp_code": 4686,
+          "mp_part_code": 8
+        },
+        {
+          "mp_name": "Shri  Ananth Kumar",
+          "mp_code": 20,
+          "mp_part_code": 9
+        }
+      ],
+      "keywords": [
+        "Development Programmes",
+        "Drinking Water",
+        "Flood Control",
+        "Flood Damage",
+        "Medical Facilities",
+        "Fishermen Welfare",
+        "Natural Disaster Relief",
+        "Shelters"
+      ]
+    },
+    {
+      "house": "ls",
+      "lok_sabha": 16,
       "session": 15,
       "db_slno": 15647,
       "title": "Need to provide stoppage of \r\nPadatik Express at Jalpaiguri Road station in West Bengal.",
@@ -69524,164 +69799,6 @@
         "Ground Water",
         "Water Recharge Pragramme"
       ]
-    },
-    {
-      "house": "ls",
-      "lok_sabha": 16,
-      "session": 12,
-      "db_slno": 12152,
-      "title": "<span style=''background:white''>Need to provide funds for various old and\r\nongoing projects in Jharkhand.",
-      "debate_date": "08/08/2017",
-      "debate_type": 21,
-      "debate_type_desc": "MATTERS UNDER RULE-377",
-      "members": [
-        {
-          "mp_name": "Shri Nishikant Dubey",
-          "mp_code": 4324,
-          "mp_part_code": 1
-        }
-      ],
-      "keywords": [
-        "Funds"
-      ]
-    },
-    {
-      "house": "ls",
-      "lok_sabha": 16,
-      "session": 12,
-      "db_slno": 12151,
-      "title": "Need to undertake renovation of Sabya Airport in Gopalganj district, Bihar.",
-      "debate_date": "08/08/2017",
-      "debate_type": 21,
-      "debate_type_desc": "MATTERS UNDER RULE-377",
-      "members": [
-        {
-          "mp_name": "Shri Janak Ram",
-          "mp_code": 4719,
-          "mp_part_code": 1
-        }
-      ],
-      "keywords": []
-    },
-    {
-      "house": "ls",
-      "lok_sabha": 16,
-      "session": 12,
-      "db_slno": 12150,
-      "title": "<span\r\nstyle=''background:white''>Need to set up a cyber security authority in the\r\ncountry.",
-      "debate_date": "08/08/2017",
-      "debate_type": 21,
-      "debate_type_desc": "MATTERS UNDER RULE-377",
-      "members": [
-        {
-          "mp_name": "PROF. RICHARD HAY",
-          "mp_code": 4932,
-          "mp_part_code": 1
-        }
-      ],
-      "keywords": [
-        "Digitisation"
-      ]
-    },
-    {
-      "house": "ls",
-      "lok_sabha": 16,
-      "session": 12,
-      "db_slno": 12149,
-      "title": "<span style=''background:white''>Need to construct raised platforms in\r\nKaziranga National Park and Pobitora Wildlife sanctuary to enable animals take shelters\r\nduring floods.",
-      "debate_date": "08/08/2017",
-      "debate_type": 21,
-      "debate_type_desc": "MATTERS UNDER RULE-377",
-      "members": [
-        {
-          "mp_name": "Shri Kamakhya Prasad Tasa",
-          "mp_code": 4739,
-          "mp_part_code": 1
-        }
-      ],
-      "keywords": [
-        "Flood Control",
-        "Flood Losses",
-        "Flood Prone Areas",
-        "Floods"
-      ]
-    },
-    {
-      "house": "ls",
-      "lok_sabha": 16,
-      "session": 12,
-      "db_slno": 12148,
-      "title": "Need to increase the frequency of Ranchi-Tori train\r\nno. 58653/58654 and extend the operation of the train upto Garhwa Road.",
-      "debate_date": "08/08/2017",
-      "debate_type": 21,
-      "debate_type_desc": "MATTERS UNDER RULE-377",
-      "members": [
-        {
-          "mp_name": "Shri Sunil Kumar Singh",
-          "mp_code": 4750,
-          "mp_part_code": 1
-        }
-      ],
-      "keywords": [
-        "Railway Service",
-        "Railway Facilities"
-      ]
-    },
-    {
-      "house": "ls",
-      "lok_sabha": 16,
-      "session": 12,
-      "db_slno": 12147,
-      "title": "<span style=''background:white''>Need to provide financial assistance to\r\nfarmers of desert areas of Rajasthan for fencing of their agricultural fields.",
-      "debate_date": "08/08/2017",
-      "debate_type": 21,
-      "debate_type_desc": "MATTERS UNDER RULE-377",
-      "members": [
-        {
-          "mp_name": "Shri Rahul Kaswan",
-          "mp_code": 4654,
-          "mp_part_code": 1
-        }
-      ],
-      "keywords": [
-        "Financial Aid"
-      ]
-    },
-    {
-      "house": "ls",
-      "lok_sabha": 16,
-      "session": 12,
-      "db_slno": 12146,
-      "title": "Election of two\r\nMembers of the Lok Sabha to Coconut Development Board.",
-      "debate_date": "08/08/2017",
-      "debate_type": 59,
-      "debate_type_desc": "ELECTION TO COMMITTEES/BOARDS",
-      "members": [
-        {
-          "mp_name": "Shri Radha Mohan Singh",
-          "mp_code": 451,
-          "mp_part_code": 1
-        }
-      ],
-      "keywords": []
-    },
-    {
-      "house": "ls",
-      "lok_sabha": 16,
-      "session": 12,
-      "db_slno": 12145,
-      "title": "Election of two members of Rajya Sabha to the Committee on Public Accounts.",
-      "debate_date": "08/08/2017",
-      "debate_type": 59,
-      "debate_type_desc": "ELECTION TO COMMITTEES/BOARDS",
-      "members": [
-        {
-          "mp_name": "Shri Nishikant Dubey",
-          "mp_code": 4324,
-          "mp_part_code": 1
-        }
-      ],
-      "keywords": []
     }
   ],
   "count": 2500,
