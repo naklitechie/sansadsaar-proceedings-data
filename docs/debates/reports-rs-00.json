@@ -3,6 +3,19 @@
     {
       "house": "rs",
       "session": 269,
+      "date": "16/12/2025",
+      "date_iso": "2025-12-16",
+      "file_versions": [
+        {
+          "version": "floor",
+          "url": "https://cms.rajyasabha.nic.in/UploadedFiles/Debates/OfficialDebatesDatewise/Floor/269/16122025/16122025.pdf"
+        }
+      ],
+      "title": "Rajya Sabha · Session 269 · 16/12/2025"
+    },
+    {
+      "house": "rs",
+      "session": 269,
       "date": "12/12/2025",
       "date_iso": "2025-12-12",
       "file_versions": [
@@ -24744,7 +24757,7 @@
       "title": "Rajya Sabha · Session 189 · 23/02/2000"
     }
   ],
-  "count": 1702,
+  "count": 1703,
   "house": "rs",
   "shard_index": 0
 }
