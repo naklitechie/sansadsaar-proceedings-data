@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-06-07T08:47:21Z",
+  "generated_at": "2026-06-07T11:04:37Z",
   "totals": {
-    "pypdf-empty": 1915,
-    "pypdf-error": 16,
+    "pypdf-empty": 1946,
+    "pypdf-error": 15,
     "ocr-failed": 0
   },
   "markers": {
@@ -1770,7 +1770,6 @@
     "ls|LS17_S5_U_5040": "pypdf-empty",
     "ls|LS17_S6_U_23": "pypdf-error",
     "ls|LS17_S6_U_19": "pypdf-error",
-    "ls|LS17_S6_U_117": "pypdf-error",
     "ls|LS17_S6_U_51": "pypdf-error",
     "ls|LS17_S6_U_116": "pypdf-error",
     "ls|LS17_S6_U_55": "pypdf-error",
@@ -1936,6 +1935,37 @@
     "ls|LS17_S5_U_2991": "pypdf-empty",
     "ls|LS17_S5_U_3078": "pypdf-empty",
     "ls|LS17_S5_U_2725": "pypdf-empty",
-    "ls|LS17_S5_U_3039": "pypdf-empty"
+    "ls|LS17_S5_U_3039": "pypdf-empty",
+    "ls|LS17_S5_U_2356": "pypdf-empty",
+    "ls|LS17_S5_U_2285": "pypdf-empty",
+    "ls|LS17_S5_U_2306": "pypdf-empty",
+    "ls|LS17_S5_U_2311": "pypdf-empty",
+    "ls|LS17_S5_U_2234": "pypdf-empty",
+    "ls|LS17_S5_U_2332": "pypdf-empty",
+    "ls|LS17_S5_U_2510": "pypdf-empty",
+    "ls|LS17_S5_U_2321": "pypdf-empty",
+    "ls|LS17_S5_U_2286": "pypdf-empty",
+    "ls|LS17_S5_U_2391": "pypdf-empty",
+    "ls|LS17_S5_U_2482": "pypdf-empty",
+    "ls|LS17_S5_U_2304": "pypdf-empty",
+    "ls|LS17_S5_U_2333": "pypdf-empty",
+    "ls|LS17_S5_U_2313": "pypdf-empty",
+    "ls|LS17_S5_U_2422": "pypdf-empty",
+    "ls|LS17_S5_U_2485": "pypdf-empty",
+    "ls|LS17_S5_U_2487": "pypdf-empty",
+    "ls|LS17_S5_U_2378": "pypdf-empty",
+    "ls|LS17_S5_U_2384": "pypdf-empty",
+    "ls|LS17_S5_U_2318": "pypdf-empty",
+    "ls|LS17_S5_U_2326": "pypdf-empty",
+    "ls|LS17_S5_U_2456": "pypdf-empty",
+    "ls|LS17_S5_U_2315": "pypdf-empty",
+    "ls|LS17_S5_U_2416": "pypdf-empty",
+    "ls|LS17_S5_U_2410": "pypdf-empty",
+    "ls|LS17_S5_U_2361": "pypdf-empty",
+    "ls|LS17_S5_U_2490": "pypdf-empty",
+    "ls|LS17_S5_U_2359": "pypdf-empty",
+    "ls|LS17_S5_U_2447": "pypdf-empty",
+    "ls|LS17_S5_U_2492": "pypdf-empty",
+    "ls|LS17_S5_U_2466": "pypdf-empty"
   }
 }
