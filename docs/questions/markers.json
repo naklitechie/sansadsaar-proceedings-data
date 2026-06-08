@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-06-08T14:47:19Z",
+  "generated_at": "2026-06-08T17:48:23Z",
   "totals": {
-    "pypdf-empty": 2117,
-    "pypdf-error": 38,
+    "pypdf-empty": 2139,
+    "pypdf-error": 35,
     "ocr-failed": 0
   },
   "markers": {
@@ -2075,9 +2075,7 @@
     "ls|LS17_S5_U_204": "pypdf-error",
     "ls|LS17_S5_U_229": "pypdf-error",
     "ls|LS17_S5_U_337": "pypdf-error",
-    "ls|LS17_S5_U_328": "pypdf-error",
     "ls|LS17_S5_U_170": "pypdf-error",
-    "ls|LS17_S5_U_336": "pypdf-error",
     "ls|LS17_S5_U_185": "pypdf-error",
     "ls|LS17_S5_U_312": "pypdf-error",
     "ls|LS17_S5_U_225": "pypdf-error",
@@ -2093,7 +2091,6 @@
     "ls|LS17_S5_U_115": "pypdf-error",
     "ls|LS17_S5_U_70": "pypdf-error",
     "ls|LS17_S5_U_28": "pypdf-error",
-    "ls|LS17_S5_U_151": "pypdf-error",
     "ls|LS17_S5_U_113": "pypdf-error",
     "ls|LS17_S5_U_63": "pypdf-error",
     "ls|LS17_S5_U_39": "pypdf-error",
@@ -2160,6 +2157,28 @@
     "ls|LS17_S4_U_1406": "pypdf-empty",
     "ls|LS17_S4_U_1535": "pypdf-empty",
     "ls|LS17_S4_U_1438": "pypdf-empty",
-    "ls|LS17_S4_U_1441": "pypdf-empty"
+    "ls|LS17_S4_U_1441": "pypdf-empty",
+    "ls|LS17_S4_U_1229": "pypdf-empty",
+    "ls|LS17_S4_U_1268": "pypdf-empty",
+    "ls|LS17_S4_U_1193": "pypdf-empty",
+    "ls|LS17_S4_U_901": "pypdf-empty",
+    "ls|LS17_S4_U_1202": "pypdf-empty",
+    "ls|LS17_S4_U_1216": "pypdf-empty",
+    "ls|LS17_S4_U_1303": "pypdf-empty",
+    "ls|LS17_S4_U_1205": "pypdf-empty",
+    "ls|LS17_S4_U_910": "pypdf-empty",
+    "ls|LS17_S4_U_1254": "pypdf-empty",
+    "ls|LS17_S4_U_1230": "pypdf-empty",
+    "ls|LS17_S4_U_1274": "pypdf-empty",
+    "ls|LS17_S4_U_1294": "pypdf-empty",
+    "ls|LS17_S4_U_915": "pypdf-empty",
+    "ls|LS17_S4_U_906": "pypdf-empty",
+    "ls|LS17_S4_U_1248": "pypdf-empty",
+    "ls|LS17_S4_U_1196": "pypdf-empty",
+    "ls|LS17_S4_U_1257": "pypdf-empty",
+    "ls|LS17_S4_U_1214": "pypdf-empty",
+    "ls|LS17_S4_U_919": "pypdf-empty",
+    "ls|LS17_S4_U_1188": "pypdf-empty",
+    "ls|LS17_S4_U_1260": "pypdf-empty"
   }
 }
