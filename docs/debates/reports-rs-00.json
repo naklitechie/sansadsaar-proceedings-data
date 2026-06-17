@@ -33,6 +33,19 @@
     {
       "house": "rs",
       "session": 269,
+      "date": "15/12/2025",
+      "date_iso": "2025-12-15",
+      "file_versions": [
+        {
+          "version": "part1",
+          "url": "https://cms.rajyasabha.nic.in/UploadedFiles/Debates/OfficialDebatesDatewise/Part-1QuestionAnswers/269/15122025/15122025.pdf"
+        }
+      ],
+      "title": "Rajya Sabha · Session 269 · 15/12/2025"
+    },
+    {
+      "house": "rs",
+      "session": 269,
       "date": "12/12/2025",
       "date_iso": "2025-12-12",
       "file_versions": [
@@ -114,6 +127,19 @@
     {
       "house": "rs",
       "session": 269,
+      "date": "05/12/2025",
+      "date_iso": "2025-12-05",
+      "file_versions": [
+        {
+          "version": "part1",
+          "url": "https://cms.rajyasabha.nic.in/UploadedFiles/Debates/OfficialDebatesDatewise/Part-1QuestionAnswers/269/15122025/15122025.pdf"
+        }
+      ],
+      "title": "Rajya Sabha · Session 269 · 05/12/2025"
+    },
+    {
+      "house": "rs",
+      "session": 269,
       "date": "04/12/2025",
       "date_iso": "2025-12-04",
       "file_versions": [
@@ -153,7 +179,7 @@
       "file_versions": [
         {
           "version": "floor",
-          "url": "https://cms.rajyasabha.nic.in/UploadedFiles/Debates/OfficialDebatesDatewise/Floor/269/12122025/12122025.pdf"
+          "url": "https://cms.rajyasabha.nic.in/UploadedFiles/Debates/OfficialDebatesDatewise/Floor/269/2122025/02122025.pdf"
         },
         {
           "version": "part1",
@@ -170,11 +196,11 @@
       "file_versions": [
         {
           "version": "floor",
-          "url": "https://cms.rajyasabha.nic.in/UploadedFiles/Debates/OfficialDebatesDatewise/Floor/269/11122025/11122025.pdf"
+          "url": "https://cms.rajyasabha.nic.in/UploadedFiles/Debates/OfficialDebatesDatewise/Floor/269/1122025/01122025.pdf"
         },
         {
           "version": "part1",
-          "url": "https://cms.rajyasabha.nic.in/UploadedFiles/Debates/OfficialDebatesDatewise/Part-1QuestionAnswers/269/11122025/20251211.pdf"
+          "url": "https://cms.rajyasabha.nic.in/UploadedFiles/Debates/OfficialDebatesDatewise/Part-1QuestionAnswers/269/1122025/20251201.pdf"
         }
       ],
       "title": "Rajya Sabha · Session 269 · 01/12/2025"
@@ -24791,7 +24817,7 @@
       "title": "Rajya Sabha · Session 189 · 23/02/2000"
     }
   ],
-  "count": 1705,
+  "count": 1707,
   "house": "rs",
   "shard_index": 0
 }
