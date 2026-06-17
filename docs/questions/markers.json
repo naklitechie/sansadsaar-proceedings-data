@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-06-17T19:24:31Z",
+  "generated_at": "2026-06-17T21:57:14Z",
   "totals": {
-    "pypdf-empty": 3518,
-    "pypdf-error": 22,
+    "pypdf-empty": 3528,
+    "pypdf-error": 16,
     "ocr-failed": 0
   },
   "markers": {
@@ -3383,21 +3383,16 @@
     "ls|LS16_S16_U_421": "pypdf-empty",
     "ls|LS16_S16_U_466": "pypdf-empty",
     "ls|LS16_S16_U_451": "pypdf-empty",
-    "ls|LS16_S16_U_315": "pypdf-error",
     "ls|LS16_S16_U_338": "pypdf-error",
     "ls|LS16_S16_U_129": "pypdf-error",
     "ls|LS16_S16_U_108": "pypdf-error",
-    "ls|LS16_S16_U_110": "pypdf-error",
     "ls|LS16_S16_U_150": "pypdf-error",
     "ls|LS16_S16_U_138": "pypdf-error",
     "ls|LS16_S16_U_187": "pypdf-error",
     "ls|LS16_S16_U_169": "pypdf-error",
-    "ls|LS16_S16_U_181": "pypdf-error",
-    "ls|LS16_S16_U_210": "pypdf-error",
     "ls|LS16_S16_U_208": "pypdf-empty",
     "ls|LS16_S15_U_4072": "pypdf-empty",
     "ls|LS16_S15_U_4109": "pypdf-empty",
-    "ls|LS16_S16_U_27": "pypdf-error",
     "ls|LS16_S15_U_4136": "pypdf-empty",
     "ls|LS16_S15_U_4046": "pypdf-empty",
     "ls|LS16_S15_U_4077": "pypdf-empty",
@@ -3409,7 +3404,6 @@
     "ls|LS16_S16_U_73": "pypdf-error",
     "ls|LS16_S16_U_5": "pypdf-error",
     "ls|LS16_S16_U_45": "pypdf-error",
-    "ls|LS16_S16_U_47": "pypdf-error",
     "ls|LS16_S16_U_13": "pypdf-empty",
     "ls|LS16_S15_U_3783": "pypdf-empty",
     "ls|LS16_S15_U_4022": "pypdf-empty",
@@ -3545,6 +3539,16 @@
     "ls|LS16_S15_U_2115": "pypdf-empty",
     "ls|LS16_S15_U_2149": "pypdf-empty",
     "ls|LS16_S15_U_2283": "pypdf-empty",
-    "ls|LS16_S15_U_2175": "pypdf-empty"
+    "ls|LS16_S15_U_2175": "pypdf-empty",
+    "ls|LS16_S15_U_2081": "pypdf-empty",
+    "ls|LS16_S15_U_2088": "pypdf-empty",
+    "ls|LS16_S15_U_2077": "pypdf-empty",
+    "ls|LS16_S15_U_1652": "pypdf-empty",
+    "ls|LS16_S15_U_1651": "pypdf-empty",
+    "ls|LS16_S15_U_1726": "pypdf-empty",
+    "ls|LS16_S15_U_2083": "pypdf-empty",
+    "ls|LS16_S15_U_1789": "pypdf-empty",
+    "ls|LS16_S15_U_1822": "pypdf-empty",
+    "ls|LS16_S15_U_1802": "pypdf-empty"
   }
 }
