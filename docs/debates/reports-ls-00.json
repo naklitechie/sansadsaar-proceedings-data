@@ -4,6 +4,248 @@
       "house": "ls",
       "lok_sabha": 18,
       "session": 7,
+      "db_slno": 5939,
+      "title": "Regarding Need to regularise unauthorised affluent colonies in Delhi under PM-UDAY Scheme and provide civic amenities in the colonies-Laid",
+      "debate_date": "09/03/2026",
+      "debate_type": 21,
+      "debate_type_desc": "MATTERS UNDER RULE-377",
+      "members": [
+        {
+          "mp_name": "Shri Ramvir Singh Bidhuri",
+          "mp_code": 5543,
+          "mp_part_code": 1
+        }
+      ],
+      "keywords": [
+        "Regularisation",
+        "Basic Facilities"
+      ]
+    },
+    {
+      "house": "ls",
+      "lok_sabha": 18,
+      "session": 7,
+      "db_slno": 5938,
+      "title": "Regarding Need to expedite Bengaluru Suburban Rail Project and expand Namma Metro to address traffic congestion in Bengaluru, Karnataka-Laid",
+      "debate_date": "09/03/2026",
+      "debate_type": 21,
+      "debate_type_desc": "MATTERS UNDER RULE-377",
+      "members": [
+        {
+          "mp_name": "Shri P C Mohan",
+          "mp_code": 4321,
+          "mp_part_code": 1
+        }
+      ],
+      "keywords": [
+        "Road Traffic",
+        "Rail Connectivity"
+      ]
+    },
+    {
+      "house": "ls",
+      "lok_sabha": 18,
+      "session": 7,
+      "db_slno": 5935,
+      "title": "Ruling regarding Notices of Adjournment Motion",
+      "debate_date": "09/03/2026",
+      "debate_type": 63,
+      "debate_type_desc": "RULING BY THE SPEAKER",
+      "members": [
+        {
+          "mp_name": "Shri Jagdambika Pal",
+          "mp_code": 4295,
+          "mp_part_code": 1
+        },
+        {
+          "mp_name": "Shri K C Venugopal",
+          "mp_code": 4567,
+          "mp_part_code": 2
+        },
+        {
+          "mp_name": "Shri Asaduddin Owaisi",
+          "mp_code": 4091,
+          "mp_part_code": 3
+        }
+      ],
+      "keywords": []
+    },
+    {
+      "house": "ls",
+      "lok_sabha": 18,
+      "session": 7,
+      "db_slno": 5934,
+      "title": "Reference regarding Point of Order",
+      "debate_date": "09/03/2026",
+      "debate_type": 37,
+      "debate_type_desc": "POINTS OF ORDER",
+      "members": [
+        {
+          "mp_name": "Shri Asaduddin Owaisi",
+          "mp_code": 4091,
+          "mp_part_code": 1
+        },
+        {
+          "mp_name": "Shri Jagdambika Pal",
+          "mp_code": 4295,
+          "mp_part_code": 2
+        }
+      ],
+      "keywords": []
+    },
+    {
+      "house": "ls",
+      "lok_sabha": 18,
+      "session": 7,
+      "db_slno": 5933,
+      "title": "Papers Laid on the table of the House by Ministers/ Members",
+      "debate_date": "09/03/2026",
+      "debate_type": 34,
+      "debate_type_desc": "PAPERS LAID ON THE TABLE",
+      "members": [
+        {
+          "mp_name": "Shri Arjun Ram Meghwal",
+          "mp_code": 4399,
+          "mp_part_code": 1
+        },
+        {
+          "mp_name": "Shri Nityanand Rai",
+          "mp_code": 4625,
+          "mp_part_code": 2
+        },
+        {
+          "mp_name": "Shri Suresh Gopi",
+          "mp_code": 5552,
+          "mp_part_code": 3
+        },
+        {
+          "mp_name": "Smt. Raksha Nikhil Khadse",
+          "mp_code": 4722,
+          "mp_part_code": 4
+        },
+        {
+          "mp_name": "Shri Harsh Malhotra",
+          "mp_code": 5563,
+          "mp_part_code": 6
+        }
+      ],
+      "keywords": []
+    },
+    {
+      "house": "ls",
+      "lok_sabha": 18,
+      "session": 7,
+      "db_slno": 5932,
+      "title": "Presentation of 25th to 27th Reports of Standing Committee on Rural Development and Panchayati Raj",
+      "debate_date": "09/03/2026",
+      "debate_type": 35,
+      "debate_type_desc": "PARLIAMENTARY COMMITTEES",
+      "members": [
+        {
+          "mp_name": "Shri Vijay Kumar Dubey",
+          "mp_code": 5151,
+          "mp_part_code": 1
+        }
+      ],
+      "keywords": []
+    },
+    {
+      "house": "ls",
+      "lok_sabha": 18,
+      "session": 7,
+      "db_slno": 5931,
+      "title": "Laid 405th Report of Standing Committee on Science and Technology Environment Forests and Climate Change",
+      "debate_date": "09/03/2026",
+      "debate_type": 35,
+      "debate_type_desc": "PARLIAMENTARY COMMITTEES",
+      "members": [
+        {
+          "mp_name": "Smt. Himadri Singh",
+          "mp_code": 5070,
+          "mp_part_code": 1
+        },
+        {
+          "mp_name": "Shri Jagdambika Pal",
+          "mp_code": 4295,
+          "mp_part_code": 2
+        }
+      ],
+      "keywords": []
+    },
+    {
+      "house": "ls",
+      "lok_sabha": 18,
+      "session": 7,
+      "db_slno": 5930,
+      "title": "The Minister of External Affairs (Dr Saurab Manyam Jaishankar) made a Statement a Minister regarding The Situation in West Asia",
+      "debate_date": "09/03/2026",
+      "debate_type": 47,
+      "debate_type_desc": "STATEMENT BY MINISTER",
+      "members": [
+        {
+          "mp_name": "Shri S. Jaishankar",
+          "mp_code": 2426,
+          "mp_part_code": 1
+        },
+        {
+          "mp_name": "Shri Jagdambika Pal",
+          "mp_code": 4295,
+          "mp_part_code": 2
+        },
+        {
+          "mp_name": "Shri Kiren Rijiju",
+          "mp_code": 3972,
+          "mp_part_code": 5
+        }
+      ],
+      "keywords": [
+        "Diplomacy",
+        "Gulf Countries",
+        "Sovereignty",
+        "International Boundries",
+        "Air Strike"
+      ]
+    },
+    {
+      "house": "ls",
+      "lok_sabha": 18,
+      "session": 7,
+      "db_slno": 5929,
+      "title": "The chair, on behalf of the House, Congratulated the Indian Cricket Team for Winning ICC Men Cricket T20 World Cup, 2026",
+      "debate_date": "09/03/2026",
+      "debate_type": 13,
+      "debate_type_desc": "FELICITATIONS",
+      "members": [
+        {
+          "mp_name": "Shri Jagdambika Pal",
+          "mp_code": 4295,
+          "mp_part_code": 1
+        }
+      ],
+      "keywords": []
+    },
+    {
+      "house": "ls",
+      "lok_sabha": 18,
+      "session": 7,
+      "db_slno": 5928,
+      "title": "The Speaker made references to the passing away of Dr. Ricky Andrew J. Syngkon Sitting Member of LS, Kumari Sushila Tiriya, Member of Tenth and Eleventh and Twelfth LS, shri Devi Bux Singh member of tenth Shri Purnmasi Ram Member of Fifteenth LS Shri K.P. Unnikrishnan Member of Fifth, Sixth, Seventh Eighth Ninth and Tenth Lok Sabha Kumari Sushila Tiriya, Member of Tenth and Eleventh and Twelfth LS, shri Devi Bux Singh member of tenth Shri Purnmasi Ram Member of Fifteenth LS Shri K.P. Unnikrishnan Member of Fifth, Sixth, Seventh Eighth Ninth and Tenth Lok Sabha",
+      "debate_date": "09/03/2026",
+      "debate_type": 32,
+      "debate_type_desc": "OBITUARY REFERENCE",
+      "members": [
+        {
+          "mp_name": "Shri N K Premachandran",
+          "mp_code": 3754,
+          "mp_part_code": 1
+        }
+      ],
+      "keywords": []
+    },
+    {
+      "house": "ls",
+      "lok_sabha": 18,
+      "session": 7,
       "db_slno": 5927,
       "title": "Reference regarding Point of Order in the discussion",
       "debate_date": "10/03/2026",
@@ -57716,531 +57958,6 @@
         }
       ],
       "keywords": []
-    },
-    {
-      "house": "ls",
-      "lok_sabha": 18,
-      "session": 5,
-      "db_slno": 3436,
-      "title": "Papers laid on the Table of the House by Ministers/Members",
-      "debate_date": "23/07/2025",
-      "debate_type": 34,
-      "debate_type_desc": "PAPERS LAID ON THE TABLE",
-      "members": [
-        {
-          "mp_name": "Dr. Chandra Sekhar Pemmasani",
-          "mp_code": 5636,
-          "mp_part_code": 1
-        },
-        {
-          "mp_name": "Shri Satish Chandra Dubey",
-          "mp_code": 2435,
-          "mp_part_code": 2
-        },
-        {
-          "mp_name": "Smt. Nimuben Jayantibhai Bambhaniya",
-          "mp_code": 5614,
-          "mp_part_code": 3
-        }
-      ],
-      "keywords": []
-    },
-    {
-      "house": "ls",
-      "lok_sabha": 18,
-      "session": 5,
-      "db_slno": 3435,
-      "title": "Ruling regarding Notices of Adjournment Motion",
-      "debate_date": "23/07/2025",
-      "debate_type": 63,
-      "debate_type_desc": "RULING BY THE SPEAKER",
-      "members": [
-        {
-          "mp_name": "Smt. Sandhya Ray",
-          "mp_code": 5058,
-          "mp_part_code": 1
-        }
-      ],
-      "keywords": []
-    },
-    {
-      "house": "ls",
-      "lok_sabha": 18,
-      "session": 5,
-      "db_slno": 3434,
-      "title": "Special discussion on India's Strong, Successful and Decisive 'Operation Sindoor' in response to Terrorist Attack in Pahalgam",
-      "debate_date": "28/07/2025",
-      "debate_type": 72,
-      "debate_type_desc": "SPECIAL DISCUSSION",
-      "members": [
-        {
-          "mp_name": "Shri Om Birla",
-          "mp_code": 4716,
-          "mp_part_code": 1
-        },
-        {
-          "mp_name": "Shri Rajnath Singh",
-          "mp_code": 4268,
-          "mp_part_code": 2
-        },
-        {
-          "mp_name": "Shri Gaurav Gogoi",
-          "mp_code": 4788,
-          "mp_part_code": 3
-        },
-        {
-          "mp_name": "Shri Ramashankar  Vidharthi Rajbhar",
-          "mp_code": 4305,
-          "mp_part_code": 8
-        },
-        {
-          "mp_name": "Shri Kalyan Banerjee",
-          "mp_code": 4498,
-          "mp_part_code": 9
-        },
-        {
-          "mp_name": "Shri Lavu Sri Krishna Devarayalu",
-          "mp_code": 5096,
-          "mp_part_code": 10
-        },
-        {
-          "mp_name": "Shri Rajiv Ranjan Singh",
-          "mp_code": 4134,
-          "mp_part_code": 11
-        },
-        {
-          "mp_name": "Shri Arvind Ganpat Sawant",
-          "mp_code": 4713,
-          "mp_part_code": 12
-        },
-        {
-          "mp_name": "Shri Amar Sharadrao Kale",
-          "mp_code": 5820,
-          "mp_part_code": 13
-        },
-        {
-          "mp_name": "Shri Baijayant Panda",
-          "mp_code": 4422,
-          "mp_part_code": 14
-        },
-        {
-          "mp_name": "Shri Deepender Singh Hooda",
-          "mp_code": 4207,
-          "mp_part_code": 15
-        },
-        {
-          "mp_name": "Shri Krishna Prasad Tenneti",
-          "mp_code": 5680,
-          "mp_part_code": 16
-        },
-        {
-          "mp_name": "Shri Arjun Ram Meghwal",
-          "mp_code": 4399,
-          "mp_part_code": 17
-        },
-        {
-          "mp_name": "Smt. Shambhavi",
-          "mp_code": 5685,
-          "mp_part_code": 19
-        },
-        {
-          "mp_name": "Shri Abhay Kumar Sinha",
-          "mp_code": 5646,
-          "mp_part_code": 20
-        },
-        {
-          "mp_name": "Shri Y S Avinash Reddy",
-          "mp_code": 4816,
-          "mp_part_code": 21
-        },
-        {
-          "mp_name": "Shri S. Jaishankar",
-          "mp_code": 2426,
-          "mp_part_code": 22
-        },
-        {
-          "mp_name": "Shri Amit Shah",
-          "mp_code": 5021,
-          "mp_part_code": 23
-        },
-        {
-          "mp_name": "Shri Mian Altaf Ahmad",
-          "mp_code": 5781,
-          "mp_part_code": 29
-        },
-        {
-          "mp_name": "Shri  Chhotelal",
-          "mp_code": 4859,
-          "mp_part_code": 30
-        },
-        {
-          "mp_name": "Shri Tejasvi Surya",
-          "mp_code": 5182,
-          "mp_part_code": 32
-        },
-        {
-          "mp_name": "Ms. Praniti Sushilkumar Shinde",
-          "mp_code": 5759,
-          "mp_part_code": 33
-        },
-        {
-          "mp_name": "Shri Tatkare Sunil Dattatrey",
-          "mp_code": 5199,
-          "mp_part_code": 34
-        },
-        {
-          "mp_name": "Smt. Supriya Sule",
-          "mp_code": 4392,
-          "mp_part_code": 35
-        },
-        {
-          "mp_name": "Shri Anurag Singh Thakur",
-          "mp_code": 4249,
-          "mp_part_code": 36
-        },
-        {
-          "mp_name": "Shri S Venkatesan",
-          "mp_code": 4965,
-          "mp_part_code": 37
-        },
-        {
-          "mp_name": "Shri Dileshwar Kamait",
-          "mp_code": 5222,
-          "mp_part_code": 38
-        },
-        {
-          "mp_name": "Shri M Mallesh Babu",
-          "mp_code": 5655,
-          "mp_part_code": 39
-        },
-        {
-          "mp_name": "Shri Raja Ram Singh",
-          "mp_code": 5642,
-          "mp_part_code": 40
-        },
-        {
-          "mp_name": "Dr. Rajkumar Sangwan",
-          "mp_code": 5550,
-          "mp_part_code": 41
-        },
-        {
-          "mp_name": "Shri Saptagiri Sankar Ulaka",
-          "mp_code": 4996,
-          "mp_part_code": 42
-        },
-        {
-          "mp_name": "Shri Asaduddin Owaisi",
-          "mp_code": 4091,
-          "mp_part_code": 43
-        },
-        {
-          "mp_name": "Adv K. Francis George",
-          "mp_code": 138,
-          "mp_part_code": 44
-        },
-        {
-          "mp_name": "Adv. Chandra Shekhar",
-          "mp_code": 5647,
-          "mp_part_code": 46
-        },
-        {
-          "mp_name": "Shri N K Premachandran",
-          "mp_code": 3754,
-          "mp_part_code": 47
-        },
-        {
-          "mp_name": "Dr. Thirumaavalavan Tholkappiyan",
-          "mp_code": 4549,
-          "mp_part_code": 48
-        },
-        {
-          "mp_name": "Shri Dilip Saikia",
-          "mp_code": 5107,
-          "mp_part_code": 49
-        },
-        {
-          "mp_name": "Shri Hanuman Beniwal",
-          "mp_code": 5205,
-          "mp_part_code": 50
-        },
-        {
-          "mp_name": "Shri Balashowry Vallabhaneni",
-          "mp_code": 4021,
-          "mp_part_code": 51
-        },
-        {
-          "mp_name": "Shri Patel Umeshbhai Babubhai",
-          "mp_code": 5714,
-          "mp_part_code": 52
-        },
-        {
-          "mp_name": "Shri Aga Syed Ruhullah Mehdi",
-          "mp_code": 5761,
-          "mp_part_code": 53
-        },
-        {
-          "mp_name": "Shri Rajesh Ranjan",
-          "mp_code": 554,
-          "mp_part_code": 54
-        },
-        {
-          "mp_name": "Shri Durai Vaiko",
-          "mp_code": 5828,
-          "mp_part_code": 55
-        },
-        {
-          "mp_name": "Shri Dharmendra Yadav",
-          "mp_code": 4206,
-          "mp_part_code": 56
-        },
-        {
-          "mp_name": "Smt. Nirmala Sitharaman",
-          "mp_code": 2288,
-          "mp_part_code": 58
-        },
-        {
-          "mp_name": "Shri Jugal Kishore",
-          "mp_code": 4720,
-          "mp_part_code": 61
-        },
-        {
-          "mp_name": "Shri Brijendra Singh Ola",
-          "mp_code": 5720,
-          "mp_part_code": 62
-        },
-        {
-          "mp_name": "Shri Mohmad Haneefa",
-          "mp_code": 5808,
-          "mp_part_code": 63
-        },
-        {
-          "mp_name": "Shri Rajkumar Roat",
-          "mp_code": 5764,
-          "mp_part_code": 64
-        },
-        {
-          "mp_name": "Shri Vishaldada Prakashbapu Patil",
-          "mp_code": 5756,
-          "mp_part_code": 65
-        },
-        {
-          "mp_name": "Smt. Kamaljeet Sehrawat",
-          "mp_code": 5565,
-          "mp_part_code": 66
-        },
-        {
-          "mp_name": "Shri Gurjeet Singh Aujla",
-          "mp_code": 4940,
-          "mp_part_code": 67
-        },
-        {
-          "mp_name": "Shri Saumitra Khan",
-          "mp_code": 4875,
-          "mp_part_code": 68
-        },
-        {
-          "mp_name": "Shri Manoj Kumar",
-          "mp_code": 5578,
-          "mp_part_code": 69
-        },
-        {
-          "mp_name": "Shri Anand Bhadauria",
-          "mp_code": 5815,
-          "mp_part_code": 70
-        },
-        {
-          "mp_name": "Shri Amrinder Singh Raja Warring",
-          "mp_code": 5747,
-          "mp_part_code": 71
-        },
-        {
-          "mp_name": "Smt. Lovely Anand",
-          "mp_code": 3464,
-          "mp_part_code": 72
-        },
-        {
-          "mp_name": "Shri Shafi Parambil",
-          "mp_code": 5698,
-          "mp_part_code": 73
-        }
-      ],
-      "keywords": [
-        "Asian Development Bank",
-        "Code of Conduct",
-        "Democracy",
-        "Foreign Policy",
-        "Foreign Relations",
-        "Infiltration",
-        "Media",
-        "Terrorism",
-        "Tourists",
-        "War",
-        "Transparency",
-        "Political Dialogue",
-        "Kargil War",
-        "Ceasefire",
-        "Economy",
-        "Terrorist",
-        "Indo-Pak Relations",
-        "Indian Air Force",
-        "Zero Tolerance",
-        "Indo-Pak Border",
-        "Cross Border Trade",
-        "Shanghai Cooperation Organisation",
-        "Operation Sindoor",
-        "Air Strike"
-      ]
-    },
-    {
-      "house": "ls",
-      "lok_sabha": 18,
-      "session": 5,
-      "db_slno": 3433,
-      "title": "Statement regarding notices given by various Members",
-      "debate_date": "28/07/2025",
-      "debate_type": 47,
-      "debate_type_desc": "STATEMENT BY MINISTER",
-      "members": [
-        {
-          "mp_name": "Shri Om Birla",
-          "mp_code": 4716,
-          "mp_part_code": 1
-        },
-        {
-          "mp_name": "Shri Kiren Rijiju",
-          "mp_code": 3972,
-          "mp_part_code": 2
-        }
-      ],
-      "keywords": [
-        "Parliamentary Notices",
-        "Business of the House"
-      ]
-    },
-    {
-      "house": "ls",
-      "lok_sabha": 18,
-      "session": 5,
-      "db_slno": 3432,
-      "title": "Observation regarding discussion on 'Operation Sindoor'",
-      "debate_date": "28/07/2025",
-      "debate_type": 33,
-      "debate_type_desc": "OBSERVATION BY THE CHAIR",
-      "members": [
-        {
-          "mp_name": "Shri Om Birla",
-          "mp_code": 4716,
-          "mp_part_code": 1
-        }
-      ],
-      "keywords": [
-        "Observation"
-      ]
-    },
-    {
-      "house": "ls",
-      "lok_sabha": 18,
-      "session": 5,
-      "db_slno": 3431,
-      "title": "Need to open CGHS Wellness Centre at Kollam-laid",
-      "debate_date": "28/07/2025",
-      "debate_type": 21,
-      "debate_type_desc": "MATTERS UNDER RULE-377",
-      "members": [
-        {
-          "mp_name": "Shri N K Premachandran",
-          "mp_code": 3754,
-          "mp_part_code": 1
-        }
-      ],
-      "keywords": [
-        "CGHS",
-        "Medical Facilities"
-      ]
-    },
-    {
-      "house": "ls",
-      "lok_sabha": 18,
-      "session": 5,
-      "db_slno": 3430,
-      "title": "Regarding correction in the spelling of 'DHANGAR' caste erroneously spelt as 'DHANGAD' in the official records-laid",
-      "debate_date": "28/07/2025",
-      "debate_type": 21,
-      "debate_type_desc": "MATTERS UNDER RULE-377",
-      "members": [
-        {
-          "mp_name": "Shri Chandan Chauhan",
-          "mp_code": 5547,
-          "mp_part_code": 1
-        }
-      ],
-      "keywords": [
-        "Scheduled Castes"
-      ]
-    },
-    {
-      "house": "ls",
-      "lok_sabha": 18,
-      "session": 5,
-      "db_slno": 3429,
-      "title": "Need to restart recording and broadcasting of Urdu Service Programmes by Akashwani-laid",
-      "debate_date": "28/07/2025",
-      "debate_type": 21,
-      "debate_type_desc": "MATTERS UNDER RULE-377",
-      "members": [
-        {
-          "mp_name": "Shri Raja Ram Singh",
-          "mp_code": 5642,
-          "mp_part_code": 1
-        }
-      ],
-      "keywords": [
-        "Eighth Schedule",
-        "Urdu Langauge",
-        "Akashvani Centre"
-      ]
-    },
-    {
-      "house": "ls",
-      "lok_sabha": 18,
-      "session": 5,
-      "db_slno": 3428,
-      "title": "Regarding proper implementation of PM Fasal Bima Yojna in Marathwada region of Maharashtra-laid",
-      "debate_date": "28/07/2025",
-      "debate_type": 21,
-      "debate_type_desc": "MATTERS UNDER RULE-377",
-      "members": [
-        {
-          "mp_name": "Shri Bajrang Manohar Sonwane",
-          "mp_code": 5645,
-          "mp_part_code": 1
-        }
-      ],
-      "keywords": [
-        "Pradhan Mantri Fasal Bima Yojana"
-      ]
-    },
-    {
-      "house": "ls",
-      "lok_sabha": 18,
-      "session": 5,
-      "db_slno": 3427,
-      "title": "Regarding uniform norms for construction of houses in urban and rural areas under Pradhan Mantri Awas Yojana-laid",
-      "debate_date": "28/07/2025",
-      "debate_type": 21,
-      "debate_type_desc": "MATTERS UNDER RULE-377",
-      "members": [
-        {
-          "mp_name": "Shri Sanjay Haribhau Jadhav",
-          "mp_code": 4735,
-          "mp_part_code": 1
-        }
-      ],
-      "keywords": [
-        "Building Materials",
-        "Quality Control",
-        "House Construction"
-      ]
     }
   ],
   "count": 2500,
