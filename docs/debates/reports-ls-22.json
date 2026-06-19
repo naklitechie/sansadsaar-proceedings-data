@@ -4,6 +4,55 @@
       "house": "ls",
       "lok_sabha": 14,
       "session": 4,
+      "db_slno": 2321,
+      "title": "Introduction of Admiralty Bill,2005.",
+      "debate_date": "11/05/2005",
+      "debate_type": 14,
+      "debate_type_desc": "GOVERNMENT BILLS",
+      "members": [
+        {
+          "mp_name": "Shri T.R. Baalu",
+          "mp_code": 26,
+          "mp_part_code": 1
+        }
+      ],
+      "keywords": [
+        "Dispute Settlement",
+        "Maritime Law",
+        "Shipping Industry",
+        "Damages"
+      ]
+    },
+    {
+      "house": "ls",
+      "lok_sabha": 14,
+      "session": 4,
+      "db_slno": 2320,
+      "title": "Status of implementation of recommendations<span\r\nstyle=\"mso-spacerun: yes\">  </span>contained in 1<sup>st</sup> Report of\r\nStanding Committee on External Affairs<span style=\"mso-spacerun: yes\"> \r\n</span>on Demands for Grants (2004-2005).",
+      "debate_date": "11/05/2005",
+      "debate_type": 47,
+      "debate_type_desc": "STATEMENT BY MINISTER",
+      "members": [
+        {
+          "mp_name": "Shri E. Ahamed",
+          "mp_code": 10,
+          "mp_part_code": 1
+        }
+      ],
+      "keywords": [
+        "Budget Allocation",
+        "Diplomatic Missions",
+        "Districts",
+        "ICCR",
+        "Official Languages",
+        "Passports",
+        "UN"
+      ]
+    },
+    {
+      "house": "ls",
+      "lok_sabha": 14,
+      "session": 4,
       "db_slno": 2319,
       "title": "Status of implementation\r\nof recommendations contained in the 133<sup>rd</sup> Report of Standing Committee\r\non Science and Technology, Environment and<span style=\"mso-spacerun: yes\"> \r\n</span>Forests pertaining to Department of Science and Technology.",
       "debate_date": "11/05/2005",
@@ -62356,7 +62405,7 @@
       "keywords": []
     }
   ],
-  "count": 2227,
+  "count": 2229,
   "house": "ls",
   "shard_index": 22
 }

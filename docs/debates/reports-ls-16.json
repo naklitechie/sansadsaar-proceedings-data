@@ -4,6 +4,42 @@
       "house": "ls",
       "lok_sabha": 15,
       "session": 9,
+      "db_slno": 6223,
+      "title": "The Minister of\r\nState in the Ministry of Textiles laid a statement regarding s</span><span\r\nstyle=''font-size:13.0pt;font-family:AryanUnicode;mso-bidi-font-weight:bold''>tatus\r\nof implementation of the recommendations contained in the 16<sup>th</sup> Report of the Standing\r\nCommittee on Labour on ‘Development of Jute Sector’, pertaining to the Ministry\r\nof Textiles.",
+      "debate_date": "22/12/2011",
+      "debate_type": 47,
+      "debate_type_desc": "STATEMENT BY MINISTER",
+      "members": [
+        {
+          "mp_name": "Smt. Lakshmi Panabaka",
+          "mp_code": 3740,
+          "mp_part_code": 1
+        }
+      ],
+      "keywords": []
+    },
+    {
+      "house": "ls",
+      "lok_sabha": 15,
+      "session": 9,
+      "db_slno": 6222,
+      "title": "Introduction of\r\nthe National Food Security Bill, 2011.",
+      "debate_date": "22/12/2011",
+      "debate_type": 14,
+      "debate_type_desc": "GOVERNMENT BILLS",
+      "members": [
+        {
+          "mp_name": "Prof. K.V. Thomas",
+          "mp_code": 3209,
+          "mp_part_code": 1
+        }
+      ],
+      "keywords": []
+    },
+    {
+      "house": "ls",
+      "lok_sabha": 15,
+      "session": 9,
       "db_slno": 6221,
       "title": "Motion regarding 33<sup>rd</sup> Report of\r\nBusiness Advisory Committee (Motion Adopted).",
       "debate_date": "22/12/2011",
@@ -65367,42 +65403,6 @@
         {
           "mp_name": "Dr. C. P. Joshi",
           "mp_code": 4414,
-          "mp_part_code": 1
-        }
-      ],
-      "keywords": []
-    },
-    {
-      "house": "ls",
-      "lok_sabha": 15,
-      "session": 6,
-      "db_slno": 3722,
-      "title": "The Minister of Parliamentary Affairs and Minister of Water Resources laid\r\na statement regarding status of implementation of the recommendations contained\r\nin the 212<sup>th</sup> and 215<sup>th</sup> Reports of the Standing Committee\r\non Industry pertaining to the Department of Heavy Industry, Ministry of Heavy\r\nIndustries and Public Enterprises.",
-      "debate_date": "09/12/2010",
-      "debate_type": 47,
-      "debate_type_desc": "STATEMENT BY MINISTER",
-      "members": [
-        {
-          "mp_name": "Shri Pawan Kumar Bansal",
-          "mp_code": 42,
-          "mp_part_code": 1
-        }
-      ],
-      "keywords": []
-    },
-    {
-      "house": "ls",
-      "lok_sabha": 15,
-      "session": 6,
-      "db_slno": 3721,
-      "title": "The Minister of Steel laid a statement regarding\r\nstatus of implementation of the recommendations contained in the 6<sup>th</sup>\r\nReport of the Standing Committee on Coal and Steel on Demands for Grants\r\n(2010-11) pertaining to the Ministry of Steel.",
-      "debate_date": "09/12/2010",
-      "debate_type": 47,
-      "debate_type_desc": "STATEMENT BY MINISTER",
-      "members": [
-        {
-          "mp_name": "Shri Virbhadra Singh",
-          "mp_code": 2907,
           "mp_part_code": 1
         }
       ],

@@ -4,6 +4,48 @@
       "house": "ls",
       "lok_sabha": 17,
       "session": 12,
+      "db_slno": 11812,
+      "title": "Re: One Nation - One Voter ID- laid",
+      "debate_date": "27/07/2023",
+      "debate_type": 21,
+      "debate_type_desc": "MATTERS UNDER RULE-377",
+      "members": [
+        {
+          "mp_name": "Shri Bhola Singh",
+          "mp_code": 4605,
+          "mp_part_code": 1
+        }
+      ],
+      "keywords": [
+        "One Nation One Election",
+        "One Nation, One Voter List"
+      ]
+    },
+    {
+      "house": "ls",
+      "lok_sabha": 17,
+      "session": 12,
+      "db_slno": 11811,
+      "title": "Need to complete the construction of check dam at Balurghat - laid",
+      "debate_date": "27/07/2023",
+      "debate_type": 21,
+      "debate_type_desc": "MATTERS UNDER RULE-377",
+      "members": [
+        {
+          "mp_name": "Shri Sukanta Majumdar",
+          "mp_code": 5035,
+          "mp_part_code": 1
+        }
+      ],
+      "keywords": [
+        "Construction",
+        "Dams"
+      ]
+    },
+    {
+      "house": "ls",
+      "lok_sabha": 17,
+      "session": 12,
       "db_slno": 11810,
       "title": "Need to delegate power to MPs to take action against officers found guilty of negligence or irregularities in implementation of development schemes during DISHA meetings - laid",
       "debate_date": "27/07/2023",
@@ -59303,47 +59345,6 @@
       "keywords": [
         "Court Judgements",
         "Criminal Law"
-      ]
-    },
-    {
-      "house": "ls",
-      "lok_sabha": 17,
-      "session": 9,
-      "db_slno": 9000,
-      "title": "Regarding release of funds for\r\n works undertaken under Deen Dayal Upadhyay Gram Jyoti Yojana in Madhya Pradesh.-Laid",
-      "debate_date": "18/07/2022",
-      "debate_type": 21,
-      "debate_type_desc": "MATTERS UNDER RULE-377",
-      "members": [
-        {
-          "mp_name": "Shri Ganesh Singh",
-          "mp_code": 3986,
-          "mp_part_code": 1
-        }
-      ],
-      "keywords": [
-        "Rural Development",
-        "Rural Electrification"
-      ]
-    },
-    {
-      "house": "ls",
-      "lok_sabha": 17,
-      "session": 9,
-      "db_slno": 8999,
-      "title": "Regarding provision \r\nof salary, allowances and other facilities to wardens of civil defence service.-Laid",
-      "debate_date": "18/07/2022",
-      "debate_type": 21,
-      "debate_type_desc": "MATTERS UNDER RULE-377",
-      "members": [
-        {
-          "mp_name": "Shri Rajendra Agrawal",
-          "mp_code": 4267,
-          "mp_part_code": 1
-        }
-      ],
-      "keywords": [
-        "Training Allowances"
       ]
     }
   ],

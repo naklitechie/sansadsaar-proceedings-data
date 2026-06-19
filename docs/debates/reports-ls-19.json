@@ -4,6 +4,48 @@
       "house": "ls",
       "lok_sabha": 14,
       "session": 13,
+      "db_slno": 9982,
+      "title": "Need to set up a branch of Allahabad Bank in Salempur Parliamentary Constituency,\r\nUttar Pradesh.",
+      "debate_date": "29/04/2008",
+      "debate_type": 46,
+      "debate_type_desc": "SPECIAL MENTION",
+      "members": [
+        {
+          "mp_name": "Shri Hari Kewal Prasad",
+          "mp_code": 3367,
+          "mp_part_code": 1
+        }
+      ],
+      "keywords": [
+        "Bank Branches"
+      ]
+    },
+    {
+      "house": "ls",
+      "lok_sabha": 14,
+      "session": 13,
+      "db_slno": 9981,
+      "title": "Regarding security threat in the airports due to engagement of contract\r\nlabourers by private agencies.",
+      "debate_date": "29/04/2008",
+      "debate_type": 46,
+      "debate_type_desc": "SPECIAL MENTION",
+      "members": [
+        {
+          "mp_name": "Dr. K.S. Manoj",
+          "mp_code": 4182,
+          "mp_part_code": 1
+        }
+      ],
+      "keywords": [
+        "Casual Workers",
+        "Civil Aviation",
+        "Security Measures"
+      ]
+    },
+    {
+      "house": "ls",
+      "lok_sabha": 14,
+      "session": 13,
       "db_slno": 9980,
       "title": "Need to supply LPG cylinders at subsidized rate to madrasas in Tamil Nadu.",
       "debate_date": "29/04/2008",
@@ -67293,44 +67335,6 @@
       "keywords": [
         "Financial Aid",
         "Central Assistance"
-      ]
-    },
-    {
-      "house": "ls",
-      "lok_sabha": 14,
-      "session": 10,
-      "db_slno": 7428,
-      "title": "Need to construct\r\na bridge over river Sikarhana at Pirapanti Ghat, Bihar.",
-      "debate_date": "19/03/2007",
-      "debate_type": 21,
-      "debate_type_desc": "MATTERS UNDER RULE-377",
-      "members": [
-        {
-          "mp_name": "Shri Raghunath Jha",
-          "mp_code": 169,
-          "mp_part_code": 1
-        }
-      ],
-      "keywords": []
-    },
-    {
-      "house": "ls",
-      "lok_sabha": 14,
-      "session": 10,
-      "db_slno": 7427,
-      "title": "Need to widen and\r\nstrengthen the National Highway passing through Hamirpur Parliamentary\r\nConstituency in Uttar Pradesh.",
-      "debate_date": "19/03/2007",
-      "debate_type": 21,
-      "debate_type_desc": "MATTERS UNDER RULE-377",
-      "members": [
-        {
-          "mp_name": "Shri Rajnarayan Budholiya",
-          "mp_code": 4174,
-          "mp_part_code": 1
-        }
-      ],
-      "keywords": [
-        "Road Development"
       ]
     }
   ],

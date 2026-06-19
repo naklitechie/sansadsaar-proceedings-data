@@ -4,6 +4,49 @@
       "house": "ls",
       "lok_sabha": 16,
       "session": 7,
+      "db_slno": 7132,
+      "title": "Introduction of \r\nthe Constitution (Amendment) Bill, 2016 (Amendment of articles 243K and\r\n 243ZA).",
+      "debate_date": "11/03/2016",
+      "debate_type": 39,
+      "debate_type_desc": "PRIVATE MEMBERS' BILLS",
+      "members": [
+        {
+          "mp_name": "Dr. Boora Narsaiah Goud",
+          "mp_code": 4803,
+          "mp_part_code": 1
+        }
+      ],
+      "keywords": [
+        "Elections",
+        "Panchayats"
+      ]
+    },
+    {
+      "house": "ls",
+      "lok_sabha": 16,
+      "session": 7,
+      "db_slno": 7131,
+      "title": "Introduction of the Maintenance \r\nand Welfare of Parents and Senior Citizens (Amendment) Bill, 2016. (Insertion\r\nof new Chapter IIA)",
+      "debate_date": "11/03/2016",
+      "debate_type": 39,
+      "debate_type_desc": "PRIVATE MEMBERS' BILLS",
+      "members": [
+        {
+          "mp_name": "Dr. Boora Narsaiah Goud",
+          "mp_code": 4803,
+          "mp_part_code": 1
+        }
+      ],
+      "keywords": [
+        "Old Age Benefits",
+        "Social Security",
+        "Basic Amenities"
+      ]
+    },
+    {
+      "house": "ls",
+      "lok_sabha": 16,
+      "session": 7,
       "db_slno": 7130,
       "title": "Introduction of the Surrogate Advertisements (Prohibition) Bill, 2016.",
       "debate_date": "11/03/2016",
@@ -72002,47 +72045,6 @@
         "Clothing Industry",
         "Textile Workers",
         "Mills"
-      ]
-    },
-    {
-      "house": "ls",
-      "lok_sabha": 16,
-      "session": 5,
-      "db_slno": 4368,
-      "title": "Introduction of the Prohibition of Indecent Advertisements Bill, 2015.",
-      "debate_date": "07/08/2015",
-      "debate_type": 39,
-      "debate_type_desc": "PRIVATE MEMBERS' BILLS",
-      "members": [
-        {
-          "mp_name": "Dr. Kirit Premjibhai Solanki",
-          "mp_code": 4444,
-          "mp_part_code": 1
-        }
-      ],
-      "keywords": [
-        "Advertising"
-      ]
-    },
-    {
-      "house": "ls",
-      "lok_sabha": 16,
-      "session": 5,
-      "db_slno": 4367,
-      "title": "Introduction of the Constitution (Amendment)\r\n Bill, 2015. (Amendment of Article 72)",
-      "debate_date": "07/08/2015",
-      "debate_type": 39,
-      "debate_type_desc": "PRIVATE MEMBERS' BILLS",
-      "members": [
-        {
-          "mp_name": "Dr. Kirit Premjibhai Solanki",
-          "mp_code": 4444,
-          "mp_part_code": 1
-        }
-      ],
-      "keywords": [
-        "Employment Opportunities",
-        "Youth Development"
       ]
     }
   ],

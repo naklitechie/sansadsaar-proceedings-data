@@ -4,6 +4,47 @@
       "house": "ls",
       "lok_sabha": 15,
       "session": 12,
+      "db_slno": 8731,
+      "title": "Need to augment irrigation facilities in the \r\ncountry.",
+      "debate_date": "13/12/2012",
+      "debate_type": 21,
+      "debate_type_desc": "MATTERS UNDER RULE-377",
+      "members": [
+        {
+          "mp_name": "Shri Hansraj Gangaram Ahir",
+          "mp_code": 3640,
+          "mp_part_code": 1
+        }
+      ],
+      "keywords": [
+        "Irrigation Development",
+        "Irrigation Projects"
+      ]
+    },
+    {
+      "house": "ls",
+      "lok_sabha": 15,
+      "session": 12,
+      "db_slno": 8730,
+      "title": "Need to \r\nexpedite construction of bye-pass in Gumla city in Lohardaga parliamentary\r\nconstituency in Jharkhand.",
+      "debate_date": "13/12/2012",
+      "debate_type": 21,
+      "debate_type_desc": "MATTERS UNDER RULE-377",
+      "members": [
+        {
+          "mp_name": "Shri Sudarshan Bhagat",
+          "mp_code": 4329,
+          "mp_part_code": 1
+        }
+      ],
+      "keywords": [
+        "Road Construction"
+      ]
+    },
+    {
+      "house": "ls",
+      "lok_sabha": 15,
+      "session": 12,
       "db_slno": 8729,
       "title": "Need to investigate the collapse of metro\r\nrail service to Indira Gandhi International Airport, New Delhi.",
       "debate_date": "13/12/2012",
@@ -66501,42 +66542,6 @@
         "Financial Aid",
         "Rehabilitation"
       ]
-    },
-    {
-      "house": "ls",
-      "lok_sabha": 15,
-      "session": 9,
-      "db_slno": 6223,
-      "title": "The Minister of\r\nState in the Ministry of Textiles laid a statement regarding s</span><span\r\nstyle=''font-size:13.0pt;font-family:AryanUnicode;mso-bidi-font-weight:bold''>tatus\r\nof implementation of the recommendations contained in the 16<sup>th</sup> Report of the Standing\r\nCommittee on Labour on ‘Development of Jute Sector’, pertaining to the Ministry\r\nof Textiles.",
-      "debate_date": "22/12/2011",
-      "debate_type": 47,
-      "debate_type_desc": "STATEMENT BY MINISTER",
-      "members": [
-        {
-          "mp_name": "Smt. Lakshmi Panabaka",
-          "mp_code": 3740,
-          "mp_part_code": 1
-        }
-      ],
-      "keywords": []
-    },
-    {
-      "house": "ls",
-      "lok_sabha": 15,
-      "session": 9,
-      "db_slno": 6222,
-      "title": "Introduction of\r\nthe National Food Security Bill, 2011.",
-      "debate_date": "22/12/2011",
-      "debate_type": 14,
-      "debate_type_desc": "GOVERNMENT BILLS",
-      "members": [
-        {
-          "mp_name": "Prof. K.V. Thomas",
-          "mp_code": 3209,
-          "mp_part_code": 1
-        }
-      ],
-      "keywords": []
     }
   ],
   "count": 2500,

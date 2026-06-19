@@ -4,6 +4,42 @@
       "house": "ls",
       "lok_sabha": 15,
       "session": 3,
+      "db_slno": 1203,
+      "title": "Madam Speaker made references to the passing away of Shri K.C.Sharma, Member, 7<sup>th</sup>\r\nLok Sabha; Shri S.Xavier, member, 4<sup>th</sup> Lok Sabha; Shri Surendra Pal\r\nSingh, member 3<sup>rd</sup>, 4<sup>th</sup>, 5<sup>th</sup> and 8<sup>th</sup>\r\nLok Sabhas and Shri Shambhu Nath, member 4<sup>th</sup> and 5<sup>th</sup> Lok Sabhas.",
+      "debate_date": "18/12/2009",
+      "debate_type": 32,
+      "debate_type_desc": "OBITUARY REFERENCE",
+      "members": [
+        {
+          "mp_name": "Smt. Meira Kumar",
+          "mp_code": 3066,
+          "mp_part_code": 1
+        }
+      ],
+      "keywords": []
+    },
+    {
+      "house": "ls",
+      "lok_sabha": 15,
+      "session": 3,
+      "db_slno": 1202,
+      "title": "Motion for consideration of Resolution \r\nregarding appointment of Parliamentary Railway Convention Committee to review the \r\nRate of Dividend payable by the Indian Railways. (Resolution Adopted.)",
+      "debate_date": "15/12/2009",
+      "debate_type": 16,
+      "debate_type_desc": "GOVERNMENT RESOLUTIONS",
+      "members": [
+        {
+          "mp_name": "Shri K.H. Muniyappa",
+          "mp_code": 261,
+          "mp_part_code": 1
+        }
+      ],
+      "keywords": []
+    },
+    {
+      "house": "ls",
+      "lok_sabha": 15,
+      "session": 3,
       "db_slno": 1201,
       "title": "Need to include\r\n SC Christians in the scheduled caste list –Laid.",
       "debate_date": "15/12/2009",
@@ -68080,48 +68116,6 @@
         "Bills Introduction",
         "Transparency",
         "Lokpal"
-      ]
-    },
-    {
-      "house": "ls",
-      "lok_sabha": 14,
-      "session": 13,
-      "db_slno": 9982,
-      "title": "Need to set up a branch of Allahabad Bank in Salempur Parliamentary Constituency,\r\nUttar Pradesh.",
-      "debate_date": "29/04/2008",
-      "debate_type": 46,
-      "debate_type_desc": "SPECIAL MENTION",
-      "members": [
-        {
-          "mp_name": "Shri Hari Kewal Prasad",
-          "mp_code": 3367,
-          "mp_part_code": 1
-        }
-      ],
-      "keywords": [
-        "Bank Branches"
-      ]
-    },
-    {
-      "house": "ls",
-      "lok_sabha": 14,
-      "session": 13,
-      "db_slno": 9981,
-      "title": "Regarding security threat in the airports due to engagement of contract\r\nlabourers by private agencies.",
-      "debate_date": "29/04/2008",
-      "debate_type": 46,
-      "debate_type_desc": "SPECIAL MENTION",
-      "members": [
-        {
-          "mp_name": "Dr. K.S. Manoj",
-          "mp_code": 4182,
-          "mp_part_code": 1
-        }
-      ],
-      "keywords": [
-        "Casual Workers",
-        "Civil Aviation",
-        "Security Measures"
       ]
     }
   ],

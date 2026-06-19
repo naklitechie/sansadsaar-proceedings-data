@@ -4,6 +4,42 @@
       "house": "ls",
       "lok_sabha": 18,
       "session": 5,
+      "db_slno": 3438,
+      "title": "Presentation of 11th and 12th Reports of the Standing Committee on Rural Development and Panchayati Raj",
+      "debate_date": "23/07/2025",
+      "debate_type": 35,
+      "debate_type_desc": "PARLIAMENTARY COMMITTEES",
+      "members": [
+        {
+          "mp_name": "Shri Vijay Kumar Dubey",
+          "mp_code": 5151,
+          "mp_part_code": 1
+        }
+      ],
+      "keywords": []
+    },
+    {
+      "house": "ls",
+      "lok_sabha": 18,
+      "session": 5,
+      "db_slno": 3437,
+      "title": "Presentation of 6th Report of the Committee on Estimates",
+      "debate_date": "23/07/2025",
+      "debate_type": 35,
+      "debate_type_desc": "PARLIAMENTARY COMMITTEES",
+      "members": [
+        {
+          "mp_name": "Shri Brijmohan Agrawal",
+          "mp_code": 5677,
+          "mp_part_code": 1
+        }
+      ],
+      "keywords": []
+    },
+    {
+      "house": "ls",
+      "lok_sabha": 18,
+      "session": 5,
       "db_slno": 3436,
       "title": "Papers laid on the Table of the House by Ministers/Members",
       "debate_date": "23/07/2025",
@@ -63703,47 +63739,6 @@
         }
       ],
       "keywords": []
-    },
-    {
-      "house": "ls",
-      "lok_sabha": 18,
-      "session": 2,
-      "db_slno": 885,
-      "title": "Regarding illegal immigration by Rohingya refugees in the North Eastern States",
-      "debate_date": "09/08/2024",
-      "debate_type": 46,
-      "debate_type_desc": "SPECIAL MENTION (ZERO HOUR)",
-      "members": [
-        {
-          "mp_name": "Shri Saleng A Sangma",
-          "mp_code": 5553,
-          "mp_part_code": 1
-        }
-      ],
-      "keywords": [
-        "Border Areas",
-        "Illegal Emmigration"
-      ]
-    },
-    {
-      "house": "ls",
-      "lok_sabha": 18,
-      "session": 2,
-      "db_slno": 884,
-      "title": "Regarding safety and security of the Hindus and Minorities in Bangladesh",
-      "debate_date": "09/08/2024",
-      "debate_type": 46,
-      "debate_type_desc": "SPECIAL MENTION (ZERO HOUR)",
-      "members": [
-        {
-          "mp_name": "Shri Anurag Singh Thakur",
-          "mp_code": 4249,
-          "mp_part_code": 1
-        }
-      ],
-      "keywords": [
-        "International Relations"
-      ]
     }
   ],
   "count": 2500,

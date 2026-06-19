@@ -4,6 +4,47 @@
       "house": "ls",
       "lok_sabha": 16,
       "session": 3,
+      "db_slno": 2501,
+      "title": "Need to implement Uniform Civil Code in the country.",
+      "debate_date": "22/12/2014",
+      "debate_type": 46,
+      "debate_type_desc": "SPECIAL MENTION",
+      "members": [
+        {
+          "mp_name": "Shri Chandrakant Bhaurao Khaire",
+          "mp_code": 189,
+          "mp_part_code": 1
+        }
+      ],
+      "keywords": [
+        "Unity & Integrity"
+      ]
+    },
+    {
+      "house": "ls",
+      "lok_sabha": 16,
+      "session": 3,
+      "db_slno": 2500,
+      "title": "Need to allot more funds for successfully implementation of the Sansad Adarsh\r\nGram Yojana.",
+      "debate_date": "22/12/2014",
+      "debate_type": 46,
+      "debate_type_desc": "SPECIAL MENTION",
+      "members": [
+        {
+          "mp_name": "Shri V. Panneer Selvam",
+          "mp_code": 4833,
+          "mp_part_code": 1
+        }
+      ],
+      "keywords": [
+        "Development Programmes",
+        "Basic Amenities"
+      ]
+    },
+    {
+      "house": "ls",
+      "lok_sabha": 16,
+      "session": 3,
       "db_slno": 2499,
       "title": "Need to construct railway over bridge in Balamau city in Misrikh Parliamentary Constituency.",
       "debate_date": "22/12/2014",
@@ -65372,45 +65413,6 @@
       "keywords": [
         "Public Sector Undertakings",
         "Industrial Revival"
-      ]
-    },
-    {
-      "house": "ls",
-      "lok_sabha": 15,
-      "session": 15,
-      "db_slno": 11239,
-      "title": "Issue regarding package for refugees.",
-      "debate_date": "21/02/2014",
-      "debate_type": 46,
-      "debate_type_desc": "SPECIAL MENTION",
-      "members": [
-        {
-          "mp_name": "Shri Madan Lal Sharma",
-          "mp_code": 4047,
-          "mp_part_code": 1
-        }
-      ],
-      "keywords": []
-    },
-    {
-      "house": "ls",
-      "lok_sabha": 15,
-      "session": 15,
-      "db_slno": 11238,
-      "title": "Need to open a Central School in Agar districts in Devas Parliamentary Constituency\r\nin Madhya Pradesh.",
-      "debate_date": "21/02/2014",
-      "debate_type": 46,
-      "debate_type_desc": "SPECIAL MENTION",
-      "members": [
-        {
-          "mp_name": "Shri Sajjan Singh Verma",
-          "mp_code": 4517,
-          "mp_part_code": 1
-        }
-      ],
-      "keywords": [
-        "Education",
-        "Kendriya Vidyalayas"
       ]
     }
   ],

@@ -4,6 +4,42 @@
       "house": "ls",
       "lok_sabha": 17,
       "session": 6,
+      "db_slno": 6493,
+      "title": "Regarding\r\n Notices of Adjounment Motion.",
+      "debate_date": "27/07/2021",
+      "debate_type": 63,
+      "debate_type_desc": "RULING BY THE SPEAKER",
+      "members": [
+        {
+          "mp_name": "Shri Rajendra Agrawal",
+          "mp_code": 4267,
+          "mp_part_code": 1
+        }
+      ],
+      "keywords": []
+    },
+    {
+      "house": "ls",
+      "lok_sabha": 17,
+      "session": 6,
+      "db_slno": 6492,
+      "title": "The Speaker made Valedictory Reference on\r\nthe conclusion of the 6th Session of the 17th Lok Sabha.",
+      "debate_date": "11/08/2021",
+      "debate_type": 53,
+      "debate_type_desc": "VALEDICTORY REFERENCE",
+      "members": [
+        {
+          "mp_name": "Shri Om Birla",
+          "mp_code": 4716,
+          "mp_part_code": 1
+        }
+      ],
+      "keywords": []
+    },
+    {
+      "house": "ls",
+      "lok_sabha": 17,
+      "session": 6,
       "db_slno": 6491,
       "title": "The Speaker made references to the passing\r\n away of Shri Virbhadra Singh, Member of the 3rd, 4th, 5th, 7th and 15th Lok\r\nSabhas; Shri Nityananda Misra, Member of the 7th and 8th Lok Sabhas; Prof.\r\nGopalrao Mayekar, Member of the 9th Lok Sabha and Shri Sudarsan Ray Chaudhuri,\r\nMember of the 9th and 10th Lok Sabhas.",
       "debate_date": "11/08/2021",
@@ -64285,46 +64321,6 @@
         }
       ],
       "keywords": []
-    },
-    {
-      "house": "ls",
-      "lok_sabha": 17,
-      "session": 3,
-      "db_slno": 4192,
-      "title": "The Speaker made references \r\nto the passing away of Shri Ram Krishna Yadav, Member of the 9th Lok Sabha,\r\nShri Tapas Paul, Member of the 15th and 16th Lok Sabhas, and Smt.\r\nKrishna Bose, Member of the 11th, 12th and 13th Lok Sabhas.",
-      "debate_date": "16/03/2020",
-      "debate_type": 32,
-      "debate_type_desc": "OBITUARY REFERENCE",
-      "members": [
-        {
-          "mp_name": "Shri Om Birla",
-          "mp_code": 4716,
-          "mp_part_code": 1
-        }
-      ],
-      "keywords": []
-    },
-    {
-      "house": "ls",
-      "lok_sabha": 17,
-      "session": 3,
-      "db_slno": 4191,
-      "title": "Regarding construction of shed on canning \r\nrailway platform in West Bengal-laid.",
-      "debate_date": "12/03/2020",
-      "debate_type": 21,
-      "debate_type_desc": "MATTERS UNDER RULE-377",
-      "members": [
-        {
-          "mp_name": "Smt. Pratima Mondal",
-          "mp_code": 4871,
-          "mp_part_code": 1
-        }
-      ],
-      "keywords": [
-        "Railways",
-        "Railway Passenger Amenities",
-        "Railway Line"
-      ]
     }
   ],
   "count": 2500,

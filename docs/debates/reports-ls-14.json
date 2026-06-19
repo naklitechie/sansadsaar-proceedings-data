@@ -4,6 +4,45 @@
       "house": "ls",
       "lok_sabha": 15,
       "session": 15,
+      "db_slno": 11239,
+      "title": "Issue regarding package for refugees.",
+      "debate_date": "21/02/2014",
+      "debate_type": 46,
+      "debate_type_desc": "SPECIAL MENTION",
+      "members": [
+        {
+          "mp_name": "Shri Madan Lal Sharma",
+          "mp_code": 4047,
+          "mp_part_code": 1
+        }
+      ],
+      "keywords": []
+    },
+    {
+      "house": "ls",
+      "lok_sabha": 15,
+      "session": 15,
+      "db_slno": 11238,
+      "title": "Need to open a Central School in Agar districts in Devas Parliamentary Constituency\r\nin Madhya Pradesh.",
+      "debate_date": "21/02/2014",
+      "debate_type": 46,
+      "debate_type_desc": "SPECIAL MENTION",
+      "members": [
+        {
+          "mp_name": "Shri Sajjan Singh Verma",
+          "mp_code": 4517,
+          "mp_part_code": 1
+        }
+      ],
+      "keywords": [
+        "Education",
+        "Kendriya Vidyalayas"
+      ]
+    },
+    {
+      "house": "ls",
+      "lok_sabha": 15,
+      "session": 15,
       "db_slno": 11237,
       "title": "Need to give Central assistance to vessels manufacturers in Sant Kabir Nagar\r\nParliamentary Constituency.",
       "debate_date": "21/02/2014",
@@ -65533,47 +65572,6 @@
       "keywords": [
         "Pollution Control",
         "River Pollution"
-      ]
-    },
-    {
-      "house": "ls",
-      "lok_sabha": 15,
-      "session": 12,
-      "db_slno": 8731,
-      "title": "Need to augment irrigation facilities in the \r\ncountry.",
-      "debate_date": "13/12/2012",
-      "debate_type": 21,
-      "debate_type_desc": "MATTERS UNDER RULE-377",
-      "members": [
-        {
-          "mp_name": "Shri Hansraj Gangaram Ahir",
-          "mp_code": 3640,
-          "mp_part_code": 1
-        }
-      ],
-      "keywords": [
-        "Irrigation Development",
-        "Irrigation Projects"
-      ]
-    },
-    {
-      "house": "ls",
-      "lok_sabha": 15,
-      "session": 12,
-      "db_slno": 8730,
-      "title": "Need to \r\nexpedite construction of bye-pass in Gumla city in Lohardaga parliamentary\r\nconstituency in Jharkhand.",
-      "debate_date": "13/12/2012",
-      "debate_type": 21,
-      "debate_type_desc": "MATTERS UNDER RULE-377",
-      "members": [
-        {
-          "mp_name": "Shri Sudarshan Bhagat",
-          "mp_code": 4329,
-          "mp_part_code": 1
-        }
-      ],
-      "keywords": [
-        "Road Construction"
       ]
     }
   ],

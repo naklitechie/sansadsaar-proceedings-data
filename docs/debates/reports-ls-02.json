@@ -4,6 +4,47 @@
       "house": "ls",
       "lok_sabha": 18,
       "session": 2,
+      "db_slno": 885,
+      "title": "Regarding illegal immigration by Rohingya refugees in the North Eastern States",
+      "debate_date": "09/08/2024",
+      "debate_type": 46,
+      "debate_type_desc": "SPECIAL MENTION (ZERO HOUR)",
+      "members": [
+        {
+          "mp_name": "Shri Saleng A Sangma",
+          "mp_code": 5553,
+          "mp_part_code": 1
+        }
+      ],
+      "keywords": [
+        "Border Areas",
+        "Illegal Emmigration"
+      ]
+    },
+    {
+      "house": "ls",
+      "lok_sabha": 18,
+      "session": 2,
+      "db_slno": 884,
+      "title": "Regarding safety and security of the Hindus and Minorities in Bangladesh",
+      "debate_date": "09/08/2024",
+      "debate_type": 46,
+      "debate_type_desc": "SPECIAL MENTION (ZERO HOUR)",
+      "members": [
+        {
+          "mp_name": "Shri Anurag Singh Thakur",
+          "mp_code": 4249,
+          "mp_part_code": 1
+        }
+      ],
+      "keywords": [
+        "International Relations"
+      ]
+    },
+    {
+      "house": "ls",
+      "lok_sabha": 18,
+      "session": 2,
       "db_slno": 883,
       "title": "Regarding the honorarium paid to Anganwadi workers",
       "debate_date": "09/08/2024",
@@ -67456,48 +67497,6 @@
         "Farmers",
         "Relief Measures",
         "Rainfalls"
-      ]
-    },
-    {
-      "house": "ls",
-      "lok_sabha": 17,
-      "session": 12,
-      "db_slno": 11812,
-      "title": "Re: One Nation - One Voter ID- laid",
-      "debate_date": "27/07/2023",
-      "debate_type": 21,
-      "debate_type_desc": "MATTERS UNDER RULE-377",
-      "members": [
-        {
-          "mp_name": "Shri Bhola Singh",
-          "mp_code": 4605,
-          "mp_part_code": 1
-        }
-      ],
-      "keywords": [
-        "One Nation One Election",
-        "One Nation, One Voter List"
-      ]
-    },
-    {
-      "house": "ls",
-      "lok_sabha": 17,
-      "session": 12,
-      "db_slno": 11811,
-      "title": "Need to complete the construction of check dam at Balurghat - laid",
-      "debate_date": "27/07/2023",
-      "debate_type": 21,
-      "debate_type_desc": "MATTERS UNDER RULE-377",
-      "members": [
-        {
-          "mp_name": "Shri Sukanta Majumdar",
-          "mp_code": 5035,
-          "mp_part_code": 1
-        }
-      ],
-      "keywords": [
-        "Construction",
-        "Dams"
       ]
     }
   ],
