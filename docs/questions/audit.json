@@ -1,17 +1,17 @@
 {
-  "audited_at": "2026-06-22T14:29:29Z",
+  "audited_at": "2026-06-22T18:47:24Z",
   "totals": {
     "ls_records": 243275,
-    "ls_with_text": 110566,
-    "ls_pypdf_empty_awaiting_ocr": 4207,
-    "ls_pypdf_error_retryable": 31,
+    "ls_with_text": 110992,
+    "ls_pypdf_empty_awaiting_ocr": 4236,
+    "ls_pypdf_error_retryable": 27,
     "ls_ocr_failed_permanent": 0,
-    "ls_never_attempted": 128471,
+    "ls_never_attempted": 128020,
     "rs_records": 2771,
-    "rs_with_text": 2052,
+    "rs_with_text": 2053,
     "rs_pypdf_empty_awaiting_ocr": 1,
     "rs_pypdf_error_retryable": 0,
     "rs_ocr_failed_permanent": 0,
-    "rs_never_attempted": 718
+    "rs_never_attempted": 717
   }
 }
