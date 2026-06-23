@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-06-22T23:15:27Z",
+  "generated_at": "2026-06-23T01:59:31Z",
   "totals": {
-    "pypdf-empty": 4224,
-    "pypdf-error": 14,
+    "pypdf-empty": 4238,
+    "pypdf-error": 12,
     "ocr-failed": 0
   },
   "markers": {
@@ -3918,7 +3918,6 @@
     "ls|LS16_S14_U_674": "pypdf-empty",
     "ls|LS16_S14_U_669": "pypdf-empty",
     "ls|LS16_S14_U_311": "pypdf-empty",
-    "ls|LS16_S14_U_308": "pypdf-error",
     "ls|LS16_S14_U_156": "pypdf-error",
     "ls|LS16_S14_U_18": "pypdf-error",
     "ls|LS16_S14_U_127": "pypdf-error",
@@ -4083,7 +4082,6 @@
     "ls|LS16_S13_U_493": "pypdf-empty",
     "ls|LS16_S13_U_479": "pypdf-empty",
     "ls|LS16_S13_U_267": "pypdf-error",
-    "ls|LS16_S13_U_62": "pypdf-error",
     "ls|LS16_S12_U_4311": "pypdf-empty",
     "ls|LS16_S12_U_4348": "pypdf-empty",
     "ls|LS16_S12_U_4248": "pypdf-empty",
@@ -4243,6 +4241,20 @@
     "ls|LS16_S12_U_1909": "pypdf-empty",
     "ls|LS16_S12_U_1526": "pypdf-empty",
     "ls|LS16_S12_U_1917": "pypdf-empty",
-    "ls|LS16_S12_U_1892": "pypdf-empty"
+    "ls|LS16_S12_U_1892": "pypdf-empty",
+    "ls|LS16_S12_U_1103": "pypdf-empty",
+    "ls|LS16_S12_U_1138": "pypdf-empty",
+    "ls|LS16_S12_U_1123": "pypdf-empty",
+    "ls|LS16_S12_U_1474": "pypdf-empty",
+    "ls|LS16_S12_U_1498": "pypdf-empty",
+    "ls|LS16_S12_U_1069": "pypdf-empty",
+    "ls|LS16_S12_U_1112": "pypdf-empty",
+    "ls|LS16_S12_U_1101": "pypdf-empty",
+    "ls|LS16_S12_U_1105": "pypdf-empty",
+    "ls|LS16_S12_U_1429": "pypdf-empty",
+    "ls|LS16_S12_U_1090": "pypdf-empty",
+    "ls|LS16_S12_U_1136": "pypdf-empty",
+    "ls|LS16_S12_U_1070": "pypdf-empty",
+    "ls|LS16_S12_U_1503": "pypdf-empty"
   }
 }
