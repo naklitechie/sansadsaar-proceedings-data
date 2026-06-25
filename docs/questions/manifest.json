@@ -1,1009 +1,585 @@
 {
   "texts": {
     "ls": {
-      "LS16_S11_U_403": {
-        "size": 45210,
-        "url": "text/ls/LS16_S11_U_403.txt"
-      },
-      "LS16_S11_U_404": {
-        "size": 3782,
-        "url": "text/ls/LS16_S11_U_404.txt"
-      },
-      "LS16_S11_U_405": {
-        "size": 4318,
-        "url": "text/ls/LS16_S11_U_405.txt"
-      },
-      "LS16_S11_U_409": {
-        "size": 3434,
-        "url": "text/ls/LS16_S11_U_409.txt"
-      },
-      "LS16_S11_U_410": {
-        "size": 4993,
-        "url": "text/ls/LS16_S11_U_410.txt"
-      },
-      "LS16_S11_U_411": {
-        "size": 2610,
-        "url": "text/ls/LS16_S11_U_411.txt"
-      },
-      "LS16_S11_U_412": {
-        "size": 3315,
-        "url": "text/ls/LS16_S11_U_412.txt"
-      },
-      "LS16_S11_U_413": {
-        "size": 2884,
-        "url": "text/ls/LS16_S11_U_413.txt"
-      },
-      "LS16_S11_U_415": {
-        "size": 3934,
-        "url": "text/ls/LS16_S11_U_415.txt"
-      },
-      "LS16_S11_U_417": {
-        "size": 2461,
-        "url": "text/ls/LS16_S11_U_417.txt"
-      },
-      "LS16_S11_U_418": {
-        "size": 943,
-        "url": "text/ls/LS16_S11_U_418.txt"
-      },
-      "LS16_S11_U_419": {
-        "size": 6434,
-        "url": "text/ls/LS16_S11_U_419.txt"
-      },
-      "LS16_S11_U_420": {
-        "size": 5589,
-        "url": "text/ls/LS16_S11_U_420.txt"
-      },
-      "LS16_S11_U_422": {
-        "size": 2393,
-        "url": "text/ls/LS16_S11_U_422.txt"
-      },
-      "LS16_S11_U_423": {
-        "size": 11257,
-        "url": "text/ls/LS16_S11_U_423.txt"
-      },
-      "LS16_S11_U_426": {
-        "size": 4358,
-        "url": "text/ls/LS16_S11_U_426.txt"
-      },
-      "LS16_S11_U_427": {
-        "size": 1452,
-        "url": "text/ls/LS16_S11_U_427.txt"
-      },
-      "LS16_S11_U_428": {
-        "size": 1149,
-        "url": "text/ls/LS16_S11_U_428.txt"
-      },
-      "LS16_S11_U_429": {
-        "size": 3360,
-        "url": "text/ls/LS16_S11_U_429.txt"
-      },
-      "LS16_S11_U_430": {
-        "size": 2442,
-        "url": "text/ls/LS16_S11_U_430.txt"
-      },
-      "LS16_S11_U_432": {
-        "size": 2577,
-        "url": "text/ls/LS16_S11_U_432.txt"
-      },
-      "LS16_S11_U_434": {
-        "size": 1690,
-        "url": "text/ls/LS16_S11_U_434.txt"
-      },
-      "LS16_S11_U_437": {
-        "size": 1234,
-        "url": "text/ls/LS16_S11_U_437.txt"
-      },
-      "LS16_S11_U_438": {
-        "size": 1467,
-        "url": "text/ls/LS16_S11_U_438.txt"
-      },
-      "LS16_S11_U_440": {
-        "size": 3593,
-        "url": "text/ls/LS16_S11_U_440.txt"
-      },
-      "LS16_S11_U_442": {
-        "size": 3721,
-        "url": "text/ls/LS16_S11_U_442.txt"
-      },
-      "LS16_S11_U_443": {
-        "size": 1814,
-        "url": "text/ls/LS16_S11_U_443.txt"
-      },
-      "LS16_S11_U_444": {
-        "size": 6103,
-        "url": "text/ls/LS16_S11_U_444.txt"
-      },
-      "LS16_S11_U_446": {
-        "size": 13230,
-        "url": "text/ls/LS16_S11_U_446.txt"
-      },
-      "LS16_S11_U_447": {
-        "size": 22340,
-        "url": "text/ls/LS16_S11_U_447.txt"
-      },
-      "LS16_S11_U_448": {
-        "size": 2399,
-        "url": "text/ls/LS16_S11_U_448.txt"
-      },
-      "LS16_S11_U_449": {
-        "size": 4341,
-        "url": "text/ls/LS16_S11_U_449.txt"
-      },
-      "LS16_S11_U_450": {
-        "size": 2585,
-        "url": "text/ls/LS16_S11_U_450.txt"
-      },
-      "LS16_S11_U_451": {
-        "size": 1858,
-        "url": "text/ls/LS16_S11_U_451.txt"
-      },
-      "LS16_S11_U_452": {
-        "size": 3326,
-        "url": "text/ls/LS16_S11_U_452.txt"
-      },
-      "LS16_S11_U_453": {
-        "size": 2678,
-        "url": "text/ls/LS16_S11_U_453.txt"
-      },
-      "LS16_S11_U_455": {
-        "size": 5542,
-        "url": "text/ls/LS16_S11_U_455.txt"
-      },
-      "LS16_S11_U_458": {
-        "size": 1608,
-        "url": "text/ls/LS16_S11_U_458.txt"
-      },
-      "LS16_S11_U_460": {
-        "size": 1981,
-        "url": "text/ls/LS16_S11_U_460.txt"
-      },
-      "LS16_S11_U_463": {
-        "size": 4929,
-        "url": "text/ls/LS16_S11_U_463.txt"
-      },
-      "LS16_S11_U_466": {
-        "size": 1487,
-        "url": "text/ls/LS16_S11_U_466.txt"
-      },
-      "LS16_S11_U_467": {
-        "size": 2252,
-        "url": "text/ls/LS16_S11_U_467.txt"
-      },
-      "LS16_S11_U_468": {
-        "size": 2470,
-        "url": "text/ls/LS16_S11_U_468.txt"
-      },
-      "LS16_S11_U_469": {
-        "size": 1175,
-        "url": "text/ls/LS16_S11_U_469.txt"
-      },
-      "LS16_S11_U_470": {
-        "size": 992,
-        "url": "text/ls/LS16_S11_U_470.txt"
-      },
-      "LS16_S11_U_472": {
-        "size": 3421,
-        "url": "text/ls/LS16_S11_U_472.txt"
-      },
-      "LS16_S11_U_474": {
-        "size": 4227,
-        "url": "text/ls/LS16_S11_U_474.txt"
-      },
-      "LS16_S11_U_476": {
-        "size": 1536,
-        "url": "text/ls/LS16_S11_U_476.txt"
-      },
-      "LS16_S11_U_477": {
-        "size": 2073,
-        "url": "text/ls/LS16_S11_U_477.txt"
-      },
-      "LS16_S11_U_479": {
-        "size": 2747,
-        "url": "text/ls/LS16_S11_U_479.txt"
-      },
-      "LS16_S11_U_481": {
-        "size": 1737,
-        "url": "text/ls/LS16_S11_U_481.txt"
-      },
-      "LS16_S11_U_483": {
-        "size": 1127,
-        "url": "text/ls/LS16_S11_U_483.txt"
-      },
-      "LS16_S11_U_486": {
-        "size": 2715,
-        "url": "text/ls/LS16_S11_U_486.txt"
-      },
-      "LS16_S11_U_490": {
-        "size": 1173,
-        "url": "text/ls/LS16_S11_U_490.txt"
-      },
-      "LS16_S11_U_491": {
-        "size": 4862,
-        "url": "text/ls/LS16_S11_U_491.txt"
-      },
-      "LS16_S11_U_492": {
-        "size": 7570,
-        "url": "text/ls/LS16_S11_U_492.txt"
-      },
-      "LS16_S11_U_493": {
-        "size": 3599,
-        "url": "text/ls/LS16_S11_U_493.txt"
-      },
-      "LS16_S11_U_494": {
-        "size": 2346,
-        "url": "text/ls/LS16_S11_U_494.txt"
-      },
-      "LS16_S11_U_495": {
-        "size": 708,
-        "url": "text/ls/LS16_S11_U_495.txt"
-      },
-      "LS16_S11_U_497": {
-        "size": 1491,
-        "url": "text/ls/LS16_S11_U_497.txt"
-      },
-      "LS16_S11_U_499": {
-        "size": 2235,
-        "url": "text/ls/LS16_S11_U_499.txt"
-      },
-      "LS16_S11_U_500": {
-        "size": 1827,
-        "url": "text/ls/LS16_S11_U_500.txt"
-      },
-      "LS16_S11_U_503": {
-        "size": 2927,
-        "url": "text/ls/LS16_S11_U_503.txt"
-      },
-      "LS16_S11_U_504": {
-        "size": 11022,
-        "url": "text/ls/LS16_S11_U_504.txt"
-      },
-      "LS16_S11_U_506": {
-        "size": 2438,
-        "url": "text/ls/LS16_S11_U_506.txt"
-      },
-      "LS16_S11_U_507": {
-        "size": 2167,
-        "url": "text/ls/LS16_S11_U_507.txt"
-      },
-      "LS16_S11_U_510": {
-        "size": 1417,
-        "url": "text/ls/LS16_S11_U_510.txt"
-      },
-      "LS16_S11_U_511": {
-        "size": 1558,
-        "url": "text/ls/LS16_S11_U_511.txt"
-      },
-      "LS16_S11_U_516": {
-        "size": 4818,
-        "url": "text/ls/LS16_S11_U_516.txt"
-      },
-      "LS16_S11_U_518": {
-        "size": 901,
-        "url": "text/ls/LS16_S11_U_518.txt"
-      },
-      "LS16_S11_U_520": {
-        "size": 2309,
-        "url": "text/ls/LS16_S11_U_520.txt"
-      },
-      "LS16_S11_U_521": {
-        "size": 823,
-        "url": "text/ls/LS16_S11_U_521.txt"
-      },
-      "LS16_S11_U_522": {
-        "size": 1356,
-        "url": "text/ls/LS16_S11_U_522.txt"
-      },
-      "LS16_S11_U_523": {
-        "size": 2645,
-        "url": "text/ls/LS16_S11_U_523.txt"
-      },
-      "LS16_S11_U_525": {
-        "size": 1029,
-        "url": "text/ls/LS16_S11_U_525.txt"
-      },
-      "LS16_S11_U_526": {
-        "size": 3250,
-        "url": "text/ls/LS16_S11_U_526.txt"
-      },
-      "LS16_S11_U_527": {
-        "size": 1289,
-        "url": "text/ls/LS16_S11_U_527.txt"
-      },
-      "LS16_S11_U_528": {
-        "size": 1851,
-        "url": "text/ls/LS16_S11_U_528.txt"
-      },
-      "LS16_S11_U_529": {
-        "size": 1801,
-        "url": "text/ls/LS16_S11_U_529.txt"
-      },
-      "LS16_S11_U_531": {
-        "size": 991,
-        "url": "text/ls/LS16_S11_U_531.txt"
-      },
-      "LS16_S11_U_532": {
-        "size": 3280,
-        "url": "text/ls/LS16_S11_U_532.txt"
-      },
-      "LS16_S11_U_534": {
-        "size": 2302,
-        "url": "text/ls/LS16_S11_U_534.txt"
-      },
-      "LS16_S11_U_535": {
-        "size": 1419,
-        "url": "text/ls/LS16_S11_U_535.txt"
-      },
-      "LS16_S11_U_536": {
-        "size": 1637,
-        "url": "text/ls/LS16_S11_U_536.txt"
-      },
-      "LS16_S11_U_538": {
-        "size": 1472,
-        "url": "text/ls/LS16_S11_U_538.txt"
-      },
-      "LS16_S11_U_539": {
-        "size": 2323,
-        "url": "text/ls/LS16_S11_U_539.txt"
-      },
-      "LS16_S11_U_540": {
-        "size": 1990,
-        "url": "text/ls/LS16_S11_U_540.txt"
-      },
-      "LS16_S11_U_547": {
-        "size": 1328,
-        "url": "text/ls/LS16_S11_U_547.txt"
-      },
-      "LS16_S11_U_548": {
-        "size": 2667,
-        "url": "text/ls/LS16_S11_U_548.txt"
-      },
-      "LS16_S11_U_549": {
-        "size": 1113,
-        "url": "text/ls/LS16_S11_U_549.txt"
-      },
-      "LS16_S11_U_550": {
-        "size": 4074,
-        "url": "text/ls/LS16_S11_U_550.txt"
-      },
-      "LS16_S11_U_551": {
-        "size": 8058,
-        "url": "text/ls/LS16_S11_U_551.txt"
-      },
-      "LS16_S11_U_554": {
-        "size": 3544,
-        "url": "text/ls/LS16_S11_U_554.txt"
-      },
-      "LS16_S11_U_555": {
-        "size": 2657,
-        "url": "text/ls/LS16_S11_U_555.txt"
-      },
-      "LS16_S11_U_556": {
-        "size": 2424,
-        "url": "text/ls/LS16_S11_U_556.txt"
-      },
-      "LS16_S11_U_557": {
-        "size": 9366,
-        "url": "text/ls/LS16_S11_U_557.txt"
-      },
-      "LS16_S11_U_558": {
-        "size": 4823,
-        "url": "text/ls/LS16_S11_U_558.txt"
-      },
-      "LS16_S11_U_560": {
-        "size": 9329,
-        "url": "text/ls/LS16_S11_U_560.txt"
-      },
-      "LS16_S11_U_561": {
-        "size": 4031,
-        "url": "text/ls/LS16_S11_U_561.txt"
-      },
-      "LS16_S11_U_562": {
-        "size": 1961,
-        "url": "text/ls/LS16_S11_U_562.txt"
-      },
-      "LS16_S11_U_563": {
-        "size": 3187,
-        "url": "text/ls/LS16_S11_U_563.txt"
-      },
-      "LS16_S11_U_564": {
-        "size": 88743,
-        "url": "text/ls/LS16_S11_U_564.txt"
-      },
-      "LS16_S11_U_565": {
-        "size": 2811,
-        "url": "text/ls/LS16_S11_U_565.txt"
-      },
-      "LS16_S11_U_566": {
-        "size": 7667,
-        "url": "text/ls/LS16_S11_U_566.txt"
-      },
-      "LS16_S11_U_567": {
-        "size": 1797,
-        "url": "text/ls/LS16_S11_U_567.txt"
-      },
-      "LS16_S11_U_568": {
-        "size": 5185,
-        "url": "text/ls/LS16_S11_U_568.txt"
-      },
-      "LS16_S11_U_569": {
-        "size": 1815,
-        "url": "text/ls/LS16_S11_U_569.txt"
-      },
-      "LS16_S11_U_570": {
-        "size": 4246,
-        "url": "text/ls/LS16_S11_U_570.txt"
-      },
-      "LS16_S11_U_571": {
-        "size": 8349,
-        "url": "text/ls/LS16_S11_U_571.txt"
-      },
-      "LS16_S11_U_572": {
-        "size": 2808,
-        "url": "text/ls/LS16_S11_U_572.txt"
-      },
-      "LS16_S11_U_573": {
-        "size": 4770,
-        "url": "text/ls/LS16_S11_U_573.txt"
-      },
-      "LS16_S11_U_574": {
-        "size": 1127,
-        "url": "text/ls/LS16_S11_U_574.txt"
-      },
-      "LS16_S11_U_575": {
-        "size": 9749,
-        "url": "text/ls/LS16_S11_U_575.txt"
-      },
-      "LS16_S11_U_576": {
-        "size": 14834,
-        "url": "text/ls/LS16_S11_U_576.txt"
-      },
-      "LS16_S11_U_577": {
-        "size": 2918,
-        "url": "text/ls/LS16_S11_U_577.txt"
-      },
-      "LS16_S11_U_578": {
-        "size": 1359,
-        "url": "text/ls/LS16_S11_U_578.txt"
-      },
-      "LS16_S11_U_579": {
-        "size": 5513,
-        "url": "text/ls/LS16_S11_U_579.txt"
-      },
-      "LS16_S11_U_580": {
-        "size": 5512,
-        "url": "text/ls/LS16_S11_U_580.txt"
-      },
-      "LS16_S11_U_581": {
-        "size": 4370,
-        "url": "text/ls/LS16_S11_U_581.txt"
-      },
-      "LS16_S11_U_582": {
-        "size": 4852,
-        "url": "text/ls/LS16_S11_U_582.txt"
-      },
-      "LS16_S11_U_583": {
-        "size": 1548,
-        "url": "text/ls/LS16_S11_U_583.txt"
-      },
-      "LS16_S11_U_584": {
-        "size": 2111,
-        "url": "text/ls/LS16_S11_U_584.txt"
-      },
-      "LS16_S11_U_585": {
-        "size": 2505,
-        "url": "text/ls/LS16_S11_U_585.txt"
-      },
-      "LS16_S11_U_586": {
-        "size": 1766,
-        "url": "text/ls/LS16_S11_U_586.txt"
-      },
-      "LS16_S11_U_587": {
-        "size": 3479,
-        "url": "text/ls/LS16_S11_U_587.txt"
-      },
-      "LS16_S11_U_588": {
-        "size": 6189,
-        "url": "text/ls/LS16_S11_U_588.txt"
-      },
-      "LS16_S11_U_589": {
-        "size": 1394,
-        "url": "text/ls/LS16_S11_U_589.txt"
-      },
-      "LS16_S11_U_590": {
-        "size": 2858,
-        "url": "text/ls/LS16_S11_U_590.txt"
-      },
-      "LS16_S11_U_591": {
-        "size": 11705,
-        "url": "text/ls/LS16_S11_U_591.txt"
-      },
-      "LS16_S11_U_592": {
-        "size": 2356,
-        "url": "text/ls/LS16_S11_U_592.txt"
-      },
-      "LS16_S11_U_593": {
-        "size": 10800,
-        "url": "text/ls/LS16_S11_U_593.txt"
-      },
-      "LS16_S11_U_594": {
-        "size": 1702,
-        "url": "text/ls/LS16_S11_U_594.txt"
-      },
-      "LS16_S11_U_595": {
-        "size": 8563,
-        "url": "text/ls/LS16_S11_U_595.txt"
-      },
-      "LS16_S11_U_596": {
-        "size": 1953,
-        "url": "text/ls/LS16_S11_U_596.txt"
-      },
-      "LS16_S11_U_597": {
-        "size": 1781,
-        "url": "text/ls/LS16_S11_U_597.txt"
-      },
-      "LS16_S11_U_598": {
-        "size": 7308,
-        "url": "text/ls/LS16_S11_U_598.txt"
-      },
-      "LS16_S11_U_599": {
-        "size": 4398,
-        "url": "text/ls/LS16_S11_U_599.txt"
-      },
-      "LS16_S11_U_600": {
-        "size": 509,
-        "url": "text/ls/LS16_S11_U_600.txt"
-      },
-      "LS16_S11_U_601": {
-        "size": 7646,
-        "url": "text/ls/LS16_S11_U_601.txt"
-      },
-      "LS16_S11_U_602": {
-        "size": 8651,
-        "url": "text/ls/LS16_S11_U_602.txt"
-      },
-      "LS16_S11_U_603": {
-        "size": 3129,
-        "url": "text/ls/LS16_S11_U_603.txt"
-      },
-      "LS16_S11_U_604": {
-        "size": 1385,
-        "url": "text/ls/LS16_S11_U_604.txt"
-      },
-      "LS16_S11_U_605": {
+      "LS16_S11_U_229": {
+        "size": 1751,
+        "url": "text/ls/LS16_S11_U_229.txt"
+      },
+      "LS16_S11_U_231": {
+        "size": 1575,
+        "url": "text/ls/LS16_S11_U_231.txt"
+      },
+      "LS16_S11_U_232": {
+        "size": 2753,
+        "url": "text/ls/LS16_S11_U_232.txt"
+      },
+      "LS16_S11_U_233": {
+        "size": 891,
+        "url": "text/ls/LS16_S11_U_233.txt"
+      },
+      "LS16_S11_U_235": {
+        "size": 3735,
+        "url": "text/ls/LS16_S11_U_235.txt"
+      },
+      "LS16_S11_U_237": {
+        "size": 2328,
+        "url": "text/ls/LS16_S11_U_237.txt"
+      },
+      "LS16_S11_U_240": {
+        "size": 18514,
+        "url": "text/ls/LS16_S11_U_240.txt"
+      },
+      "LS16_S11_U_242": {
+        "size": 5410,
+        "url": "text/ls/LS16_S11_U_242.txt"
+      },
+      "LS16_S11_U_244": {
+        "size": 2482,
+        "url": "text/ls/LS16_S11_U_244.txt"
+      },
+      "LS16_S11_U_245": {
+        "size": 1276,
+        "url": "text/ls/LS16_S11_U_245.txt"
+      },
+      "LS16_S11_U_246": {
+        "size": 2065,
+        "url": "text/ls/LS16_S11_U_246.txt"
+      },
+      "LS16_S11_U_247": {
         "size": 1445,
-        "url": "text/ls/LS16_S11_U_605.txt"
-      },
-      "LS16_S11_U_606": {
-        "size": 3920,
-        "url": "text/ls/LS16_S11_U_606.txt"
-      },
-      "LS16_S11_U_607": {
-        "size": 2299,
-        "url": "text/ls/LS16_S11_U_607.txt"
-      },
-      "LS16_S11_U_608": {
-        "size": 3523,
-        "url": "text/ls/LS16_S11_U_608.txt"
-      },
-      "LS16_S11_U_609": {
-        "size": 912,
-        "url": "text/ls/LS16_S11_U_609.txt"
-      },
-      "LS16_S11_U_610": {
-        "size": 2844,
-        "url": "text/ls/LS16_S11_U_610.txt"
-      },
-      "LS16_S11_U_611": {
-        "size": 2095,
-        "url": "text/ls/LS16_S11_U_611.txt"
-      },
-      "LS16_S11_U_612": {
-        "size": 2729,
-        "url": "text/ls/LS16_S11_U_612.txt"
-      },
-      "LS16_S11_U_613": {
-        "size": 1165,
-        "url": "text/ls/LS16_S11_U_613.txt"
-      },
-      "LS16_S11_U_614": {
-        "size": 2539,
-        "url": "text/ls/LS16_S11_U_614.txt"
-      },
-      "LS16_S11_U_615": {
-        "size": 1493,
-        "url": "text/ls/LS16_S11_U_615.txt"
-      },
-      "LS16_S11_U_616": {
-        "size": 20132,
-        "url": "text/ls/LS16_S11_U_616.txt"
-      },
-      "LS16_S11_U_617": {
-        "size": 2357,
-        "url": "text/ls/LS16_S11_U_617.txt"
-      },
-      "LS16_S11_U_618": {
-        "size": 1347,
-        "url": "text/ls/LS16_S11_U_618.txt"
-      },
-      "LS16_S11_U_619": {
-        "size": 1701,
-        "url": "text/ls/LS16_S11_U_619.txt"
-      },
-      "LS16_S11_U_620": {
-        "size": 2468,
-        "url": "text/ls/LS16_S11_U_620.txt"
-      },
-      "LS16_S11_U_621": {
-        "size": 4679,
-        "url": "text/ls/LS16_S11_U_621.txt"
-      },
-      "LS16_S11_U_622": {
-        "size": 1554,
-        "url": "text/ls/LS16_S11_U_622.txt"
-      },
-      "LS16_S11_U_623": {
-        "size": 1415,
-        "url": "text/ls/LS16_S11_U_623.txt"
-      },
-      "LS16_S11_U_624": {
-        "size": 4380,
-        "url": "text/ls/LS16_S11_U_624.txt"
-      },
-      "LS16_S11_U_625": {
-        "size": 1929,
-        "url": "text/ls/LS16_S11_U_625.txt"
-      },
-      "LS16_S11_U_626": {
-        "size": 13588,
-        "url": "text/ls/LS16_S11_U_626.txt"
-      },
-      "LS16_S11_U_627": {
-        "size": 3378,
-        "url": "text/ls/LS16_S11_U_627.txt"
-      },
-      "LS16_S11_U_628": {
-        "size": 7292,
-        "url": "text/ls/LS16_S11_U_628.txt"
-      },
-      "LS16_S11_U_629": {
-        "size": 927,
-        "url": "text/ls/LS16_S11_U_629.txt"
-      },
-      "LS16_S11_U_630": {
-        "size": 3836,
-        "url": "text/ls/LS16_S11_U_630.txt"
-      },
-      "LS16_S11_U_631": {
-        "size": 1925,
-        "url": "text/ls/LS16_S11_U_631.txt"
-      },
-      "LS16_S11_U_632": {
-        "size": 3056,
-        "url": "text/ls/LS16_S11_U_632.txt"
-      },
-      "LS16_S11_U_633": {
-        "size": 2845,
-        "url": "text/ls/LS16_S11_U_633.txt"
-      },
-      "LS16_S11_U_634": {
-        "size": 7929,
-        "url": "text/ls/LS16_S11_U_634.txt"
-      },
-      "LS16_S11_U_635": {
-        "size": 5835,
-        "url": "text/ls/LS16_S11_U_635.txt"
-      },
-      "LS16_S11_U_636": {
-        "size": 689,
-        "url": "text/ls/LS16_S11_U_636.txt"
-      },
-      "LS16_S11_U_637": {
-        "size": 1741,
-        "url": "text/ls/LS16_S11_U_637.txt"
-      },
-      "LS16_S11_U_638": {
-        "size": 1989,
-        "url": "text/ls/LS16_S11_U_638.txt"
-      },
-      "LS16_S11_U_639": {
-        "size": 5755,
-        "url": "text/ls/LS16_S11_U_639.txt"
-      },
-      "LS16_S11_U_640": {
-        "size": 956,
-        "url": "text/ls/LS16_S11_U_640.txt"
-      },
-      "LS16_S11_U_641": {
-        "size": 12583,
-        "url": "text/ls/LS16_S11_U_641.txt"
-      },
-      "LS16_S11_U_642": {
-        "size": 1872,
-        "url": "text/ls/LS16_S11_U_642.txt"
-      },
-      "LS16_S11_U_643": {
-        "size": 1963,
-        "url": "text/ls/LS16_S11_U_643.txt"
-      },
-      "LS16_S11_U_644": {
-        "size": 7912,
-        "url": "text/ls/LS16_S11_U_644.txt"
-      },
-      "LS16_S11_U_645": {
-        "size": 3204,
-        "url": "text/ls/LS16_S11_U_645.txt"
-      },
-      "LS16_S11_U_646": {
-        "size": 5544,
-        "url": "text/ls/LS16_S11_U_646.txt"
-      },
-      "LS16_S11_U_647": {
-        "size": 1151,
-        "url": "text/ls/LS16_S11_U_647.txt"
-      },
-      "LS16_S11_U_648": {
-        "size": 14143,
-        "url": "text/ls/LS16_S11_U_648.txt"
-      },
-      "LS16_S11_U_649": {
-        "size": 5131,
-        "url": "text/ls/LS16_S11_U_649.txt"
-      },
-      "LS16_S11_U_650": {
-        "size": 3675,
-        "url": "text/ls/LS16_S11_U_650.txt"
-      },
-      "LS16_S11_U_651": {
-        "size": 2730,
-        "url": "text/ls/LS16_S11_U_651.txt"
-      },
-      "LS16_S11_U_652": {
-        "size": 6253,
-        "url": "text/ls/LS16_S11_U_652.txt"
-      },
-      "LS16_S11_U_653": {
-        "size": 3171,
-        "url": "text/ls/LS16_S11_U_653.txt"
-      },
-      "LS16_S11_U_654": {
-        "size": 2391,
-        "url": "text/ls/LS16_S11_U_654.txt"
-      },
-      "LS16_S11_U_655": {
-        "size": 5881,
-        "url": "text/ls/LS16_S11_U_655.txt"
-      },
-      "LS16_S11_U_656": {
-        "size": 5869,
-        "url": "text/ls/LS16_S11_U_656.txt"
-      },
-      "LS16_S11_U_657": {
-        "size": 1989,
-        "url": "text/ls/LS16_S11_U_657.txt"
-      },
-      "LS16_S11_U_658": {
-        "size": 14609,
-        "url": "text/ls/LS16_S11_U_658.txt"
-      },
-      "LS16_S11_U_659": {
-        "size": 15281,
-        "url": "text/ls/LS16_S11_U_659.txt"
-      },
-      "LS16_S11_U_660": {
-        "size": 2424,
-        "url": "text/ls/LS16_S11_U_660.txt"
-      },
-      "LS16_S11_U_661": {
-        "size": 3623,
-        "url": "text/ls/LS16_S11_U_661.txt"
-      },
-      "LS16_S11_U_662": {
-        "size": 3944,
-        "url": "text/ls/LS16_S11_U_662.txt"
-      },
-      "LS16_S11_U_663": {
-        "size": 7092,
-        "url": "text/ls/LS16_S11_U_663.txt"
-      },
-      "LS16_S11_U_664": {
-        "size": 2553,
-        "url": "text/ls/LS16_S11_U_664.txt"
-      },
-      "LS16_S11_U_665": {
-        "size": 10843,
-        "url": "text/ls/LS16_S11_U_665.txt"
-      },
-      "LS16_S11_U_666": {
-        "size": 6879,
-        "url": "text/ls/LS16_S11_U_666.txt"
-      },
-      "LS16_S11_U_667": {
-        "size": 4787,
-        "url": "text/ls/LS16_S11_U_667.txt"
-      },
-      "LS16_S11_U_668": {
-        "size": 899,
-        "url": "text/ls/LS16_S11_U_668.txt"
-      },
-      "LS16_S11_U_669": {
-        "size": 7866,
-        "url": "text/ls/LS16_S11_U_669.txt"
-      },
-      "LS16_S11_U_670": {
-        "size": 2420,
-        "url": "text/ls/LS16_S11_U_670.txt"
-      },
-      "LS16_S11_U_671": {
-        "size": 17427,
-        "url": "text/ls/LS16_S11_U_671.txt"
-      },
-      "LS16_S11_U_672": {
-        "size": 1441,
-        "url": "text/ls/LS16_S11_U_672.txt"
-      },
-      "LS16_S11_U_673": {
-        "size": 2131,
-        "url": "text/ls/LS16_S11_U_673.txt"
-      },
-      "LS16_S11_U_674": {
-        "size": 1993,
-        "url": "text/ls/LS16_S11_U_674.txt"
-      },
-      "LS16_S11_U_675": {
-        "size": 1203,
-        "url": "text/ls/LS16_S11_U_675.txt"
-      },
-      "LS16_S11_U_676": {
-        "size": 1685,
-        "url": "text/ls/LS16_S11_U_676.txt"
-      },
-      "LS16_S11_U_677": {
-        "size": 8146,
-        "url": "text/ls/LS16_S11_U_677.txt"
-      },
-      "LS16_S11_U_678": {
-        "size": 2358,
-        "url": "text/ls/LS16_S11_U_678.txt"
-      },
-      "LS16_S11_U_679": {
-        "size": 2248,
-        "url": "text/ls/LS16_S11_U_679.txt"
-      },
-      "LS16_S11_U_680": {
-        "size": 1808,
-        "url": "text/ls/LS16_S11_U_680.txt"
-      },
-      "LS16_S11_U_681": {
-        "size": 4855,
-        "url": "text/ls/LS16_S11_U_681.txt"
-      },
-      "LS16_S11_U_682": {
-        "size": 15612,
-        "url": "text/ls/LS16_S11_U_682.txt"
-      },
-      "LS16_S11_U_683": {
-        "size": 3315,
-        "url": "text/ls/LS16_S11_U_683.txt"
-      },
-      "LS16_S11_U_684": {
-        "size": 2563,
-        "url": "text/ls/LS16_S11_U_684.txt"
-      },
-      "LS16_S11_U_685": {
-        "size": 2266,
-        "url": "text/ls/LS16_S11_U_685.txt"
-      },
-      "LS16_S11_U_686": {
-        "size": 2335,
-        "url": "text/ls/LS16_S11_U_686.txt"
-      },
-      "LS16_S11_U_687": {
-        "size": 47164,
-        "url": "text/ls/LS16_S11_U_687.txt"
-      },
-      "LS16_S11_U_688": {
-        "size": 5105,
-        "url": "text/ls/LS16_S11_U_688.txt"
-      },
-      "LS16_S11_U_689": {
-        "size": 12758,
-        "url": "text/ls/LS16_S11_U_689.txt"
-      },
-      "LS16_S11_U_690": {
-        "size": 3518,
-        "url": "text/ls/LS16_S11_U_690.txt"
-      },
-      "LS16_S11_U_691": {
-        "size": 1436,
-        "url": "text/ls/LS16_S11_U_691.txt"
-      },
-      "LS16_S11_U_692": {
-        "size": 13594,
-        "url": "text/ls/LS16_S11_U_692.txt"
-      },
-      "LS16_S11_U_693": {
-        "size": 2010,
-        "url": "text/ls/LS16_S11_U_693.txt"
-      },
-      "LS16_S11_U_694": {
-        "size": 2031,
-        "url": "text/ls/LS16_S11_U_694.txt"
-      },
-      "LS16_S11_U_695": {
-        "size": 3398,
-        "url": "text/ls/LS16_S11_U_695.txt"
-      },
-      "LS16_S11_U_696": {
-        "size": 3214,
-        "url": "text/ls/LS16_S11_U_696.txt"
-      },
-      "LS16_S11_U_697": {
-        "size": 3816,
-        "url": "text/ls/LS16_S11_U_697.txt"
-      },
-      "LS16_S11_U_698": {
-        "size": 1040,
-        "url": "text/ls/LS16_S11_U_698.txt"
-      },
-      "LS16_S11_U_699": {
-        "size": 2260,
-        "url": "text/ls/LS16_S11_U_699.txt"
-      },
-      "LS16_S11_U_700": {
-        "size": 3012,
-        "url": "text/ls/LS16_S11_U_700.txt"
-      },
-      "LS16_S11_U_701": {
-        "size": 1652,
-        "url": "text/ls/LS16_S11_U_701.txt"
-      },
-      "LS16_S11_U_702": {
-        "size": 2198,
-        "url": "text/ls/LS16_S11_U_702.txt"
-      },
-      "LS16_S11_U_703": {
-        "size": 3657,
-        "url": "text/ls/LS16_S11_U_703.txt"
-      },
-      "LS16_S11_U_704": {
-        "size": 2938,
-        "url": "text/ls/LS16_S11_U_704.txt"
-      },
-      "LS16_S11_U_705": {
-        "size": 1420,
-        "url": "text/ls/LS16_S11_U_705.txt"
-      },
-      "LS16_S11_U_706": {
-        "size": 5091,
-        "url": "text/ls/LS16_S11_U_706.txt"
-      },
-      "LS16_S11_U_707": {
-        "size": 1260,
-        "url": "text/ls/LS16_S11_U_707.txt"
-      },
-      "LS16_S11_U_708": {
-        "size": 5777,
-        "url": "text/ls/LS16_S11_U_708.txt"
-      },
-      "LS16_S11_U_709": {
-        "size": 3359,
-        "url": "text/ls/LS16_S11_U_709.txt"
-      },
-      "LS16_S11_U_710": {
-        "size": 2548,
-        "url": "text/ls/LS16_S11_U_710.txt"
-      },
-      "LS16_S11_U_711": {
-        "size": 1985,
-        "url": "text/ls/LS16_S11_U_711.txt"
-      },
-      "LS16_S11_U_712": {
-        "size": 4135,
-        "url": "text/ls/LS16_S11_U_712.txt"
-      },
-      "LS16_S11_U_713": {
-        "size": 1780,
-        "url": "text/ls/LS16_S11_U_713.txt"
+        "url": "text/ls/LS16_S11_U_247.txt"
+      },
+      "LS16_S11_U_249": {
+        "size": 3358,
+        "url": "text/ls/LS16_S11_U_249.txt"
+      },
+      "LS16_S11_U_250": {
+        "size": 3848,
+        "url": "text/ls/LS16_S11_U_250.txt"
+      },
+      "LS16_S11_U_251": {
+        "size": 6578,
+        "url": "text/ls/LS16_S11_U_251.txt"
+      },
+      "LS16_S11_U_252": {
+        "size": 2896,
+        "url": "text/ls/LS16_S11_U_252.txt"
+      },
+      "LS16_S11_U_253": {
+        "size": 1755,
+        "url": "text/ls/LS16_S11_U_253.txt"
+      },
+      "LS16_S11_U_254": {
+        "size": 3660,
+        "url": "text/ls/LS16_S11_U_254.txt"
+      },
+      "LS16_S11_U_255": {
+        "size": 2494,
+        "url": "text/ls/LS16_S11_U_255.txt"
+      },
+      "LS16_S11_U_258": {
+        "size": 1368,
+        "url": "text/ls/LS16_S11_U_258.txt"
+      },
+      "LS16_S11_U_260": {
+        "size": 2162,
+        "url": "text/ls/LS16_S11_U_260.txt"
+      },
+      "LS16_S11_U_261": {
+        "size": 6177,
+        "url": "text/ls/LS16_S11_U_261.txt"
+      },
+      "LS16_S11_U_263": {
+        "size": 1933,
+        "url": "text/ls/LS16_S11_U_263.txt"
+      },
+      "LS16_S11_U_264": {
+        "size": 2388,
+        "url": "text/ls/LS16_S11_U_264.txt"
+      },
+      "LS16_S11_U_266": {
+        "size": 2158,
+        "url": "text/ls/LS16_S11_U_266.txt"
+      },
+      "LS16_S11_U_267": {
+        "size": 2942,
+        "url": "text/ls/LS16_S11_U_267.txt"
+      },
+      "LS16_S11_U_268": {
+        "size": 1457,
+        "url": "text/ls/LS16_S11_U_268.txt"
+      },
+      "LS16_S11_U_269": {
+        "size": 1669,
+        "url": "text/ls/LS16_S11_U_269.txt"
+      },
+      "LS16_S11_U_270": {
+        "size": 28635,
+        "url": "text/ls/LS16_S11_U_270.txt"
+      },
+      "LS16_S11_U_271": {
+        "size": 5115,
+        "url": "text/ls/LS16_S11_U_271.txt"
+      },
+      "LS16_S11_U_272": {
+        "size": 3252,
+        "url": "text/ls/LS16_S11_U_272.txt"
+      },
+      "LS16_S11_U_274": {
+        "size": 1364,
+        "url": "text/ls/LS16_S11_U_274.txt"
+      },
+      "LS16_S11_U_275": {
+        "size": 6829,
+        "url": "text/ls/LS16_S11_U_275.txt"
+      },
+      "LS16_S11_U_276": {
+        "size": 3547,
+        "url": "text/ls/LS16_S11_U_276.txt"
+      },
+      "LS16_S11_U_277": {
+        "size": 1266,
+        "url": "text/ls/LS16_S11_U_277.txt"
+      },
+      "LS16_S11_U_282": {
+        "size": 1617,
+        "url": "text/ls/LS16_S11_U_282.txt"
+      },
+      "LS16_S11_U_283": {
+        "size": 2194,
+        "url": "text/ls/LS16_S11_U_283.txt"
+      },
+      "LS16_S11_U_284": {
+        "size": 4074,
+        "url": "text/ls/LS16_S11_U_284.txt"
+      },
+      "LS16_S11_U_287": {
+        "size": 3731,
+        "url": "text/ls/LS16_S11_U_287.txt"
+      },
+      "LS16_S11_U_288": {
+        "size": 4450,
+        "url": "text/ls/LS16_S11_U_288.txt"
+      },
+      "LS16_S11_U_292": {
+        "size": 1472,
+        "url": "text/ls/LS16_S11_U_292.txt"
+      },
+      "LS16_S11_U_294": {
+        "size": 4369,
+        "url": "text/ls/LS16_S11_U_294.txt"
+      },
+      "LS16_S11_U_295": {
+        "size": 2176,
+        "url": "text/ls/LS16_S11_U_295.txt"
+      },
+      "LS16_S11_U_296": {
+        "size": 1983,
+        "url": "text/ls/LS16_S11_U_296.txt"
+      },
+      "LS16_S11_U_297": {
+        "size": 812,
+        "url": "text/ls/LS16_S11_U_297.txt"
+      },
+      "LS16_S11_U_299": {
+        "size": 1570,
+        "url": "text/ls/LS16_S11_U_299.txt"
+      },
+      "LS16_S11_U_300": {
+        "size": 1110,
+        "url": "text/ls/LS16_S11_U_300.txt"
+      },
+      "LS16_S11_U_301": {
+        "size": 3761,
+        "url": "text/ls/LS16_S11_U_301.txt"
+      },
+      "LS16_S11_U_303": {
+        "size": 2696,
+        "url": "text/ls/LS16_S11_U_303.txt"
+      },
+      "LS16_S11_U_304": {
+        "size": 2555,
+        "url": "text/ls/LS16_S11_U_304.txt"
+      },
+      "LS16_S11_U_306": {
+        "size": 4138,
+        "url": "text/ls/LS16_S11_U_306.txt"
+      },
+      "LS16_S11_U_310": {
+        "size": 4600,
+        "url": "text/ls/LS16_S11_U_310.txt"
+      },
+      "LS16_S11_U_311": {
+        "size": 1447,
+        "url": "text/ls/LS16_S11_U_311.txt"
+      },
+      "LS16_S11_U_312": {
+        "size": 4063,
+        "url": "text/ls/LS16_S11_U_312.txt"
+      },
+      "LS16_S11_U_313": {
+        "size": 2571,
+        "url": "text/ls/LS16_S11_U_313.txt"
+      },
+      "LS16_S11_U_317": {
+        "size": 2201,
+        "url": "text/ls/LS16_S11_U_317.txt"
+      },
+      "LS16_S11_U_318": {
+        "size": 5493,
+        "url": "text/ls/LS16_S11_U_318.txt"
+      },
+      "LS16_S11_U_319": {
+        "size": 4033,
+        "url": "text/ls/LS16_S11_U_319.txt"
+      },
+      "LS16_S11_U_320": {
+        "size": 1452,
+        "url": "text/ls/LS16_S11_U_320.txt"
+      },
+      "LS16_S11_U_321": {
+        "size": 2321,
+        "url": "text/ls/LS16_S11_U_321.txt"
+      },
+      "LS16_S11_U_322": {
+        "size": 8238,
+        "url": "text/ls/LS16_S11_U_322.txt"
+      },
+      "LS16_S11_U_323": {
+        "size": 2480,
+        "url": "text/ls/LS16_S11_U_323.txt"
+      },
+      "LS16_S11_U_324": {
+        "size": 8243,
+        "url": "text/ls/LS16_S11_U_324.txt"
+      },
+      "LS16_S11_U_327": {
+        "size": 1344,
+        "url": "text/ls/LS16_S11_U_327.txt"
+      },
+      "LS16_S11_U_329": {
+        "size": 1066,
+        "url": "text/ls/LS16_S11_U_329.txt"
+      },
+      "LS16_S11_U_331": {
+        "size": 3411,
+        "url": "text/ls/LS16_S11_U_331.txt"
+      },
+      "LS16_S11_U_332": {
+        "size": 4465,
+        "url": "text/ls/LS16_S11_U_332.txt"
+      },
+      "LS16_S11_U_333": {
+        "size": 5437,
+        "url": "text/ls/LS16_S11_U_333.txt"
+      },
+      "LS16_S11_U_334": {
+        "size": 3403,
+        "url": "text/ls/LS16_S11_U_334.txt"
+      },
+      "LS16_S11_U_335": {
+        "size": 7444,
+        "url": "text/ls/LS16_S11_U_335.txt"
+      },
+      "LS16_S11_U_336": {
+        "size": 4577,
+        "url": "text/ls/LS16_S11_U_336.txt"
+      },
+      "LS16_S11_U_337": {
+        "size": 940,
+        "url": "text/ls/LS16_S11_U_337.txt"
+      },
+      "LS16_S11_U_338": {
+        "size": 2263,
+        "url": "text/ls/LS16_S11_U_338.txt"
+      },
+      "LS16_S11_U_340": {
+        "size": 2991,
+        "url": "text/ls/LS16_S11_U_340.txt"
+      },
+      "LS16_S11_U_341": {
+        "size": 3000,
+        "url": "text/ls/LS16_S11_U_341.txt"
+      },
+      "LS16_S11_U_342": {
+        "size": 6008,
+        "url": "text/ls/LS16_S11_U_342.txt"
+      },
+      "LS16_S11_U_343": {
+        "size": 1013,
+        "url": "text/ls/LS16_S11_U_343.txt"
+      },
+      "LS16_S11_U_346": {
+        "size": 7430,
+        "url": "text/ls/LS16_S11_U_346.txt"
+      },
+      "LS16_S11_U_347": {
+        "size": 9792,
+        "url": "text/ls/LS16_S11_U_347.txt"
+      },
+      "LS16_S11_U_348": {
+        "size": 9595,
+        "url": "text/ls/LS16_S11_U_348.txt"
+      },
+      "LS16_S11_U_349": {
+        "size": 1662,
+        "url": "text/ls/LS16_S11_U_349.txt"
+      },
+      "LS16_S11_U_350": {
+        "size": 2745,
+        "url": "text/ls/LS16_S11_U_350.txt"
+      },
+      "LS16_S11_U_351": {
+        "size": 18012,
+        "url": "text/ls/LS16_S11_U_351.txt"
+      },
+      "LS16_S11_U_352": {
+        "size": 720,
+        "url": "text/ls/LS16_S11_U_352.txt"
+      },
+      "LS16_S11_U_353": {
+        "size": 3503,
+        "url": "text/ls/LS16_S11_U_353.txt"
+      },
+      "LS16_S11_U_355": {
+        "size": 1654,
+        "url": "text/ls/LS16_S11_U_355.txt"
+      },
+      "LS16_S11_U_356": {
+        "size": 1797,
+        "url": "text/ls/LS16_S11_U_356.txt"
+      },
+      "LS16_S11_U_358": {
+        "size": 3442,
+        "url": "text/ls/LS16_S11_U_358.txt"
+      },
+      "LS16_S11_U_359": {
+        "size": 1848,
+        "url": "text/ls/LS16_S11_U_359.txt"
+      },
+      "LS16_S11_U_362": {
+        "size": 2077,
+        "url": "text/ls/LS16_S11_U_362.txt"
+      },
+      "LS16_S11_U_364": {
+        "size": 1839,
+        "url": "text/ls/LS16_S11_U_364.txt"
+      },
+      "LS16_S11_U_365": {
+        "size": 1613,
+        "url": "text/ls/LS16_S11_U_365.txt"
+      },
+      "LS16_S11_U_368": {
+        "size": 3417,
+        "url": "text/ls/LS16_S11_U_368.txt"
+      },
+      "LS16_S11_U_369": {
+        "size": 4171,
+        "url": "text/ls/LS16_S11_U_369.txt"
+      },
+      "LS16_S11_U_370": {
+        "size": 1550,
+        "url": "text/ls/LS16_S11_U_370.txt"
+      },
+      "LS16_S11_U_371": {
+        "size": 7402,
+        "url": "text/ls/LS16_S11_U_371.txt"
+      },
+      "LS16_S11_U_373": {
+        "size": 3094,
+        "url": "text/ls/LS16_S11_U_373.txt"
+      },
+      "LS16_S11_U_374": {
+        "size": 12246,
+        "url": "text/ls/LS16_S11_U_374.txt"
+      },
+      "LS16_S11_U_376": {
+        "size": 2117,
+        "url": "text/ls/LS16_S11_U_376.txt"
+      },
+      "LS16_S11_U_377": {
+        "size": 4360,
+        "url": "text/ls/LS16_S11_U_377.txt"
+      },
+      "LS16_S11_U_378": {
+        "size": 2790,
+        "url": "text/ls/LS16_S11_U_378.txt"
+      },
+      "LS16_S11_U_379": {
+        "size": 2966,
+        "url": "text/ls/LS16_S11_U_379.txt"
+      },
+      "LS16_S11_U_380": {
+        "size": 2286,
+        "url": "text/ls/LS16_S11_U_380.txt"
+      },
+      "LS16_S11_U_382": {
+        "size": 3439,
+        "url": "text/ls/LS16_S11_U_382.txt"
+      },
+      "LS16_S11_U_383": {
+        "size": 10220,
+        "url": "text/ls/LS16_S11_U_383.txt"
+      },
+      "LS16_S11_U_386": {
+        "size": 1246,
+        "url": "text/ls/LS16_S11_U_386.txt"
+      },
+      "LS16_S11_U_388": {
+        "size": 4795,
+        "url": "text/ls/LS16_S11_U_388.txt"
+      },
+      "LS16_S11_U_390": {
+        "size": 7143,
+        "url": "text/ls/LS16_S11_U_390.txt"
+      },
+      "LS16_S11_U_391": {
+        "size": 7744,
+        "url": "text/ls/LS16_S11_U_391.txt"
+      },
+      "LS16_S11_U_392": {
+        "size": 2370,
+        "url": "text/ls/LS16_S11_U_392.txt"
+      },
+      "LS16_S11_U_393": {
+        "size": 5319,
+        "url": "text/ls/LS16_S11_U_393.txt"
+      },
+      "LS16_S11_U_394": {
+        "size": 3462,
+        "url": "text/ls/LS16_S11_U_394.txt"
+      },
+      "LS16_S11_U_395": {
+        "size": 3132,
+        "url": "text/ls/LS16_S11_U_395.txt"
+      },
+      "LS16_S11_U_396": {
+        "size": 2135,
+        "url": "text/ls/LS16_S11_U_396.txt"
+      },
+      "LS16_S11_U_397": {
+        "size": 1586,
+        "url": "text/ls/LS16_S11_U_397.txt"
+      },
+      "LS16_S11_U_399": {
+        "size": 2082,
+        "url": "text/ls/LS16_S11_U_399.txt"
+      },
+      "LS16_S11_U_400": {
+        "size": 5322,
+        "url": "text/ls/LS16_S11_U_400.txt"
+      },
+      "LS16_S11_U_401": {
+        "size": 1455,
+        "url": "text/ls/LS16_S11_U_401.txt"
+      },
+      "LS16_S11_U_402": {
+        "size": 3529,
+        "url": "text/ls/LS16_S11_U_402.txt"
+      },
+      "LS16_S11_U_407": {
+        "size": 1988,
+        "url": "text/ls/LS16_S11_U_407.txt"
+      },
+      "LS16_S11_U_416": {
+        "size": 2472,
+        "url": "text/ls/LS16_S11_U_416.txt"
+      },
+      "LS16_S11_U_424": {
+        "size": 2518,
+        "url": "text/ls/LS16_S11_U_424.txt"
+      },
+      "LS16_S11_U_425": {
+        "size": 7548,
+        "url": "text/ls/LS16_S11_U_425.txt"
+      },
+      "LS16_S11_U_439": {
+        "size": 2689,
+        "url": "text/ls/LS16_S11_U_439.txt"
+      },
+      "LS16_S11_U_461": {
+        "size": 1748,
+        "url": "text/ls/LS16_S11_U_461.txt"
+      },
+      "LS16_S11_U_475": {
+        "size": 3488,
+        "url": "text/ls/LS16_S11_U_475.txt"
+      },
+      "LS16_S11_U_480": {
+        "size": 1309,
+        "url": "text/ls/LS16_S11_U_480.txt"
+      },
+      "LS16_S11_U_482": {
+        "size": 1565,
+        "url": "text/ls/LS16_S11_U_482.txt"
+      },
+      "LS16_S11_U_484": {
+        "size": 2960,
+        "url": "text/ls/LS16_S11_U_484.txt"
+      },
+      "LS16_S11_U_485": {
+        "size": 1517,
+        "url": "text/ls/LS16_S11_U_485.txt"
+      },
+      "LS16_S11_U_496": {
+        "size": 2094,
+        "url": "text/ls/LS16_S11_U_496.txt"
+      },
+      "LS16_S11_U_498": {
+        "size": 2169,
+        "url": "text/ls/LS16_S11_U_498.txt"
+      },
+      "LS16_S11_U_501": {
+        "size": 4761,
+        "url": "text/ls/LS16_S11_U_501.txt"
+      },
+      "LS16_S11_U_502": {
+        "size": 1401,
+        "url": "text/ls/LS16_S11_U_502.txt"
+      },
+      "LS16_S11_U_508": {
+        "size": 2918,
+        "url": "text/ls/LS16_S11_U_508.txt"
+      },
+      "LS16_S11_U_509": {
+        "size": 902,
+        "url": "text/ls/LS16_S11_U_509.txt"
+      },
+      "LS16_S11_U_513": {
+        "size": 3096,
+        "url": "text/ls/LS16_S11_U_513.txt"
+      },
+      "LS16_S11_U_514": {
+        "size": 3406,
+        "url": "text/ls/LS16_S11_U_514.txt"
+      },
+      "LS16_S11_U_515": {
+        "size": 5499,
+        "url": "text/ls/LS16_S11_U_515.txt"
+      },
+      "LS16_S11_U_541": {
+        "size": 5723,
+        "url": "text/ls/LS16_S11_U_541.txt"
+      },
+      "LS16_S11_U_543": {
+        "size": 3867,
+        "url": "text/ls/LS16_S11_U_543.txt"
+      },
+      "LS16_S11_U_545": {
+        "size": 4405,
+        "url": "text/ls/LS16_S11_U_545.txt"
+      },
+      "LS16_S11_U_552": {
+        "size": 7691,
+        "url": "text/ls/LS16_S11_U_552.txt"
+      },
+      "LS16_S11_U_553": {
+        "size": 5104,
+        "url": "text/ls/LS16_S11_U_553.txt"
+      },
+      "LS16_S11_U_559": {
+        "size": 1616,
+        "url": "text/ls/LS16_S11_U_559.txt"
       }
     }
   }
